@@ -1,0 +1,3 @@
+com.yxxmg.pay.spi.AlipayServiceImpl
+com.yxxmg.pay.spi.UnionPayServiceImpl
+com.yxxmg.pay.spi.WechatPayServiceImpl

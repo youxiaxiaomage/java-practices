@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.yxxmg.mybatisplussample.configuration.Knife4jConfigurationKnife4jConfiguration,\
+com.yxxmg.mybatisplussample.configuration.CacheConfiguration

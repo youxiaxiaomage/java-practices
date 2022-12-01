@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: @spring.profiles.active@
+  cloud:
+    compatibility-verifier:
+      enabled: false
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: mybatis-test
+  main:
+    allow-circular-references: true
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 指定自定义枚举处理类
+    # 3.1.0 以下版本改变了原生默认行为,升级时请将默认枚举设置为EnumOrdinalTypeHandler
+    # 配置枚举包扫描的时候能提前注册使用注解枚举的缓存
+    default-enum-type-handler: com.yxxmg.mybatisplussample.handler.CustomEnumHandler
+  #  type-handlers-package: com.yxxmg.mybatisplussample.handler
+  global-config:
+    db-config:
+      table-prefix: t_
+server:
+  port: 9999
+logging:
+  level:
+    com.yxxmg: info
+    org.springframework: info
+yxxmg:
+  tableSuffix: _tmp
+  pay:
+    pay-method: alipay
