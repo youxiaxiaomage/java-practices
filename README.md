@@ -15,6 +15,7 @@
 9. SpringBoot自动装配
 10. JustAuth第三方授权
 11. elasticsearch orm框架，easy-es类似mybatis-plus，代码后期列举
+12. 自定义SPI spring-boot-starter组件
 
 #### 枚举类自动转换
 
