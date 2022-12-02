@@ -31,4 +31,4 @@ logging:
 yxxmg:
   tableSuffix: _tmp
   pay:
-    pay-method: alipay
+    pay-method: union
