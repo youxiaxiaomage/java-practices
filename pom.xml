@@ -6,6 +6,7 @@
     <modules>
         <module>yxxmg-mybatis-plus-samples</module>
         <module>yxxmg-pay-spring-boot-starter</module>
+        <module>yxxmg-java-helper</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -24,6 +25,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- 编译时的编码 -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <guava.version>31.1-jre</guava.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -133,6 +135,11 @@
                 <artifactId>yxxmg-pay-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -168,6 +175,10 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
         </dependency>
     </dependencies>
     <build>
