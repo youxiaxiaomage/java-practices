@@ -1,20 +1,28 @@
-# mybatis-plus-sample
+# `java-practices`
 
 积累日常开放中的技巧，工具等，并持续添加... 坚持每日一更新
 
+| 目录                            | 说明                                                         |
+| ------------------------------- | ------------------------------------------------------------ |
+| `yxxmg-mybatis-plus-samples`    | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
+| `yxxmg-pay-spring-boot-starter` | `springboot`自动装配，自定义支付`starter`                    |
+|                                 |                                                              |
+
+
+
 #### 介绍
 
-1. MybatisPlus重写MybatisPlusAutoConfiguration、自定义枚举类转换、自动填充；
-2. JSR303校验，如分组校验规则等，校验后台数据重复；
-3. 集成Knife4j，新增枚举插件转换；
-4. 集成mapstruct；
+1. `MybatisPlus`重写`MybatisPlusAutoConfiguration`、自定义枚举类转换、自动填充；
+2. `JSR303`校验，如分组校验规则等，校验后台数据重复；
+3. 集成`Knife4j`，新增枚举插件转换；
+4. 集成`mapstruct`；
 5. 全局异常切面
-6. PageHelper，如果与缓存配合使用，切记ThreadLocal能引发血案
-7. OpenFeign调用外部接口
-8. Caffeine 配置缓存，目前配置的jvm缓存
-9. SpringBoot自动装配
-10. JustAuth第三方授权
-11. elasticsearch orm框架，easy-es类似mybatis-plus，代码后期列举
+6. `PageHelpe`，如果与缓存配合使用，切记ThreadLocal能引发血案
+7. `OpenFeign`调用外部接口
+8. `Caffeine` 配置缓存，目前配置的jvm缓存
+9. `SpringBoot`自动装配
+10. `JustAuth`第三方授权
+11. `elasticsearch orm`框架，`easy-es`类似`mybatis-plus`，代码后期列举
 12. 自定义SPI spring-boot-starter组件
 
 #### 枚举类自动转换
