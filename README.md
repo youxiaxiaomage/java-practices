@@ -239,7 +239,7 @@ public class ConstructorService {
 
 #### 手写支付`SPI` `Starter`
 
-![image-20221202110333902](.\images\image-20221202110333902.png)
+![image-20221202110333902](images/image-20221202110333902.png)
 
 1. `spi`定义的接口要在增加`META-INF/services`下`com.yxxmg.pay.spi.PayService`
 
@@ -336,7 +336,7 @@ public class ConstructorService {
 
    运行结果
 
-   ![image-20221202111352927](.\images\spi测试用例运行结果.png)
+   ![image-20221202111352927](images/spi测试用例运行结果.png)
 #### 开发使用到的工具
 
 ##### 开发工具Idea
