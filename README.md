@@ -15,7 +15,7 @@
 3. 集成`Knife4j`，新增枚举插件转换；
 4. 集成`mapstruct`；
 5. 全局异常切面
-6. `PageHelpe`，如果与缓存配合使用，切记ThreadLocal能引发血案
+6. `PageHelper`，如果与缓存配合使用，切记ThreadLocal能引发血案
 7. `OpenFeign`调用外部接口
 8. `Caffeine` 配置缓存，目前配置的jvm缓存
 9. `SpringBoot`自动装配
