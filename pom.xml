@@ -7,6 +7,8 @@
         <module>yxxmg-mybatis-plus-samples</module>
         <module>yxxmg-pay-spring-boot-starter</module>
         <module>yxxmg-java-helper</module>
+        <module>yxxmg-flowable</module>
+        <module>yxxmg-spring-boot-samples</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -44,6 +46,8 @@
         <commons-chain.version>1.2</commons-chain.version>
         <commons-math3.version>3.6.1</commons-math3.version>
         <tlog.version>1.4.3</tlog.version>
+        <flowable.version>6.7.2</flowable.version>
+        <h2.version>2.1.214</h2.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -157,6 +161,16 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
