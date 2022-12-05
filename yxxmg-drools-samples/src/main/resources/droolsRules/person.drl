@@ -1,0 +1,11 @@
+package com.yxxmg.drools.samples
+import com.yxxmg.drools.samples.domain.Person
+dialect "java"
+
+
+rule "man"
+    when
+     $p : Person(sex == 1 && drlType == "person")
+    then
+        System.out.println($p.getName() + "是男孩");
+end
