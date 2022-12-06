@@ -18,12 +18,12 @@ flowable:
     # 需要添加至引擎的自定义Mybatis XML映射的路径
     #  custom-mybatis-x-m-l-mappers:
     #    -
-  # 数据库schema更新策略
-  #  database-schema-update: true
-  #  db-history-used: true
-  #  history-level:
+    # 数据库schema更新策略
+    #  database-schema-update: true
+    #  db-history-used: true
+    #  history-level:
   # 自动部署时查找流程的目录
-  #  process-definition-location-prefix: classpath*:/process/
+  process-definition-location-prefix: classpath*:/process/
   # 'processDefinitionLocationPrefix'路径下需要部署的文件的后缀（扩展名）
   #  process-definition-location-suffixes:
   #    - '**.bpmn20.xml'

@@ -1,4 +1,4 @@
-package com.yxxmg;
+package com.yxxmg.flowable;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
