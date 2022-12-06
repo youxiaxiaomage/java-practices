@@ -25,7 +25,9 @@ public class YxxmgDroolsSamplesApplicationTest {
     public void contextLoad() {}
 
     @AfterEach
-    public void runDispose() {}
+    public void runDispose() {
+        kieSession.destroy();
+    }
 
     @Test
     public void personTest() {
