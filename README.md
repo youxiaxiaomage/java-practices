@@ -6,7 +6,10 @@
 | ------------------------------- | ------------------------------------------------------------ |
 | `yxxmg-mybatis-plus-samples`    | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
 | `yxxmg-pay-spring-boot-starter` | `springboot`自动装配，`SPI`自定义支付`starter`               |
-|                                 |                                                              |
+| `yxxmg-drools-samples`          | 流程引擎                                                     |
+| `yxxmg-java-helper`             | `java`语法糖                                                 |
+| `yxxmg-spring-boot-samples`     | `springboot`相关内容                                         |
+| `yxxmg-flowable`                | `flowable`工作流引擎                                         |
 
 #### 介绍
 
