@@ -1,0 +1,11 @@
+server:
+  port: 8002
+elasticjob:
+  reg-center:
+    server-lists: localhost:2181
+    namespace: elasticjob-sharding
+  jobs:
+    my-sharding-job:
+      elastic-job-class: cn.jsleasing.elasticjob.job.MyShardingJob
+      cron: 0/5 * * * * ?
+      sharding-total-count: 3

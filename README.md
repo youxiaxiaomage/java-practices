@@ -10,6 +10,7 @@
 | `yxxmg-java-helper`             | `java`语法糖                                                 |
 | `yxxmg-spring-boot-samples`     | `springboot`相关内容                                         |
 | `yxxmg-flowable`                | `flowable`工作流引擎                                         |
+| `yxxmg-elasticjob`              | `elasticjob`任务调度                                         |
 
 #### 介绍
 
@@ -24,7 +25,8 @@
 9. `SpringBoot`自动装配
 10. `JustAuth`第三方授权
 11. `elasticsearch orm`框架，`easy-es`类似`mybatis-plus`，代码后期列举
-12. 自定义SPI spring-boot-starter组件
+12. 自定义SPI `spring-boot-starter`组件
+13. `elasticjob`
 
 #### 枚举类自动转换
 
