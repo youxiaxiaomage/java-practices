@@ -11,6 +11,7 @@
 | `yxxmg-spring-boot-samples`     | `springboot`相关内容                                         |
 | `yxxmg-flowable`                | `flowable`工作流引擎                                         |
 | `yxxmg-elasticjob`              | `elasticjob`任务调度                                         |
+| `yxxmg-smart-doc`               | `smart-doc`                                                  |
 
 #### 介绍
 
