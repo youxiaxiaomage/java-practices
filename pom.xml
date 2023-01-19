@@ -63,7 +63,7 @@
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
+                <artifactId>druid-spring-boot-starter</artifactId>l
                 <version>${druid.version}</version>
             </dependency>
             <dependency>
