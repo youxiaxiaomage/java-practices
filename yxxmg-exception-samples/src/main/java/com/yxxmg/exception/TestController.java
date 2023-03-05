@@ -24,6 +24,7 @@ public class TestController {
         try {
             int i = Integer.parseInt(id) / 0;
         } catch (Exception e) {
+            // 这边可以配置化 制作测试用
             throw new BusinessException("10001", "1234567");
         }
         return id;
