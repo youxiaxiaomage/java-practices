@@ -8,6 +8,7 @@ import org.flowable.engine.ProcessEngine;
 import org.flowable.engine.ProcessEngines;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.TaskService;
+import org.flowable.engine.history.HistoricProcessInstance;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.runtime.ProcessInstance;
@@ -125,6 +126,16 @@ public class MyHolidayTest {
         List<Task> taskList = taskService.createTaskQuery().processInstanceId("2501").includeProcessVariables()
             .includeTaskLocalVariables().includeCaseVariables().includeIdentityLinks().list();
         taskList.forEach(System.out::println);
-
     }
+
+    @Test
+    public void test8() {
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        List<HistoricProcessInstance> historicProcessInstanceList =
+            processEngine.getHistoryService().createHistoricProcessInstanceQuery().list();
+        historicProcessInstanceList.forEach(historicProcessInstance -> {
+            System.out.println(historicProcessInstance);
+        });
+    }
+
 }
