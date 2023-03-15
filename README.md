@@ -12,6 +12,7 @@
 | `yxxmg-flowable`                | `flowable`工作流引擎                                         |
 | `yxxmg-elasticjob`              | `elasticjob`任务调度                                         |
 | `yxxmg-smart-doc`               | `smart-doc`                                                  |
+| `yxxmg-exception-samples`       | 自定义异常或国际化                                           |
 
 #### 介绍
 
