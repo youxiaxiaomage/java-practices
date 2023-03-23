@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author : yxxmg
@@ -17,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
  * @description :
  * @since : 2022/12/8
  */
-@Slf4j
 public class SensitiveJsonSerializer extends JsonSerializer<String> implements ContextualSerializer {
     private SensitiveStrategy strategy;
 
