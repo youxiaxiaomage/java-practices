@@ -1,4 +1,4 @@
-package com.yxxmg.sensitive;
+package com.yxxmg.sensitive.domain;
 
 import java.io.Serializable;
 

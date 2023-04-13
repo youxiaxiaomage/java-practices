@@ -3,7 +3,6 @@ package com.yxxmg.enums;
 import java.util.function.Function;
 
 import cn.hutool.core.util.DesensitizedUtil;
-import lombok.AllArgsConstructor;
 
 /**
  * @author : yxxmg
@@ -11,7 +10,7 @@ import lombok.AllArgsConstructor;
  * @description :
  * @since : 2022/12/8
  */
-@AllArgsConstructor
+
 public enum SensitiveStrategy {
     /**
      * 手机
@@ -20,4 +19,12 @@ public enum SensitiveStrategy {
     EMAIL(DesensitizedUtil::email);
 
     private final Function<String, String> desensitizer;
+
+    SensitiveStrategy(Function<String, String> desensitizer) {
+        this.desensitizer = desensitizer;
+    }
+
+    public Function<String, String> desensitizer() {
+        return desensitizer;
+    }
 }

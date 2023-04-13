@@ -8,10 +8,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
-    <description>java基础知识</description>
 
-    <artifactId>yxxmg-java-helper</artifactId>
+    <artifactId>yxxmg-sensitive-sample</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -19,22 +17,13 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math3</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-client</artifactId>
-            <version>5.1.0</version>
-            <scope>compile</scope>
+            <groupId>com.yxxmg</groupId>
+            <artifactId>yxxmg-java-helper</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
