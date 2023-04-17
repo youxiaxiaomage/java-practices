@@ -14,6 +14,7 @@
         <module>yxxmg-smart-doc-samples</module>
         <module>yxxmg-exception-samples</module>
         <module>yxxmg-sensitive-sample</module>
+        <module>yxxmg-liteflow-samples</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
