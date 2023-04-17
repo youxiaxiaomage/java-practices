@@ -21,6 +21,7 @@ mybatis-plus:
   #  type-handlers-package: com.yxxmg.mybatisplussample.handler
   global-config:
     db-config:
+
       table-prefix: t_
 server:
   port: 9999
@@ -29,6 +30,6 @@ logging:
     com.yxxmg: info
     org.springframework: info
 yxxmg:
-  tableSuffix: _tmp
+  tableSuffix:
   pay:
     pay-method: union

@@ -1,5 +1,8 @@
 package com.yxxmg.mybatisplussample.controller;
 
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
 import com.github.pagehelper.PageInfo;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.yxxmg.mybatisplussample.api.UserService;
@@ -8,11 +11,10 @@ import com.yxxmg.mybatisplussample.dto.UserDTO;
 import com.yxxmg.mybatisplussample.dto.UserQueryDTO;
 import com.yxxmg.mybatisplussample.validator.AddGroup;
 import com.yxxmg.mybatisplussample.validator.UpdateGroup;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : yxxmg
@@ -38,6 +40,12 @@ public class UserController {
     @ApiOperation("用户修改")
     public String update(@RequestBody @Validated(UpdateGroup.class) UserDTO userDTO) {
         return this.userService.update(userDTO);
+    }
+
+    @PutMapping("/updateParam")
+    @ApiOperation("用户修改-测试null")
+    public String updateParam(@RequestBody UserDTO userDTO) {
+        return this.userService.updateParam(userDTO);
     }
 
     @PostMapping("/list")

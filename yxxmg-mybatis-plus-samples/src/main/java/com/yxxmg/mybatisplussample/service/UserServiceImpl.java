@@ -1,5 +1,11 @@
 package com.yxxmg.mybatisplussample.service;
 
+import java.util.List;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -10,12 +16,8 @@ import com.yxxmg.mybatisplussample.domain.User;
 import com.yxxmg.mybatisplussample.dto.UserDTO;
 import com.yxxmg.mybatisplussample.dto.UserQueryDTO;
 import com.yxxmg.mybatisplussample.mapper.UserMapper;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author : yxxmg
@@ -52,5 +54,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         PageHelper.startPage(userQueryDTO.getPageNum(), userQueryDTO.getPageSize());
         return new PageInfo<>(list(Wrappers.lambdaQuery(User.class)
             .like(StringUtils.isNotBlank(userQueryDTO.getUserName()), User::getUserName, userQueryDTO.getUserName())));
+    }
+
+    @Override
+    public String updateParam(UserDTO userDTO) {
+        // 更新空字段
+        boolean result = this.update(
+            Wrappers.lambdaUpdate(User.class).set(User::getGender, null).eq(User::getUserId, userDTO.getUserId()));
+        return result ? "更新成功" : "更新失败";
     }
 }

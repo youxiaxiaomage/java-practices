@@ -44,4 +44,12 @@ public interface UserService extends IService<User> {
      * @return 分页用户列表
      */
     PageInfo<User> list(UserQueryDTO userQueryDTO);
+
+    /**
+     * 根据参数更新
+     * 
+     * @param userDTO 请求参数
+     * @return 成功失败
+     */
+    String updateParam(UserDTO userDTO);
 }

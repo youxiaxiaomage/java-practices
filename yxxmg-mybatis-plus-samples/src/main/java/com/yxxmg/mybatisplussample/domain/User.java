@@ -1,12 +1,13 @@
 package com.yxxmg.mybatisplussample.domain;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yxxmg.mybatisplussample.enums.GenderEnum;
-import lombok.Data;
 
-import java.io.Serializable;
-import java.util.Date;
+import lombok.Data;
 
 /**
  * @author : yxxmg
@@ -15,7 +16,7 @@ import java.util.Date;
  * @since : 2022/11/3
  */
 @Data
-@TableName("user")
+@TableName(value = "user", keepGlobalPrefix = true)
 public class User implements Serializable {
     private static final long serialVersionUID = -4380276147877149672L;
     /**
