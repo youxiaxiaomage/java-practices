@@ -1,10 +1,9 @@
 package com.yxxmg.sensitive.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.yxxmg.sensitive.domain.Student;
+import com.yxxmg.sensitive.domain.User;
 
 /**
  * @author : zhaoyan
@@ -17,6 +16,16 @@ import com.yxxmg.sensitive.domain.Student;
 public class SensitiveController {
     @GetMapping("/test")
     public Student getUser() {
-        return new Student().setPhoneNumber("15371002835").setEmail("1187961583@qq.com").setUserId("1");
+        return new Student().setPhoneNumber("15371002835         ").setEmail("   1187961583@qq.com  ").setUserId(" 1 ");
+    }
+
+    @PostMapping("/add")
+    public Student add(@RequestBody Student student) {
+        return student;
+    }
+
+    @PostMapping("/addUser")
+    public User add(@RequestBody User user) {
+        return user;
     }
 }
