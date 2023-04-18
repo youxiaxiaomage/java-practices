@@ -10,7 +10,6 @@ import cn.hutool.core.util.DesensitizedUtil;
  * @description :
  * @since : 2022/12/8
  */
-
 public enum SensitiveStrategy {
     /**
      * 手机
