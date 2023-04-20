@@ -21,8 +21,8 @@ public class DefinitionExecutor {
     @Resource
     private FlowExecutor flowExecutor;
 
-    public void testConfig() {
-        LiteflowResponse response = flowExecutor.execute2Resp("chain1", "args");
+    public void testConfig(String chain) {
+        LiteflowResponse response = flowExecutor.execute2Resp(chain, "args");
         log.info("response:{}", response);
     }
 }

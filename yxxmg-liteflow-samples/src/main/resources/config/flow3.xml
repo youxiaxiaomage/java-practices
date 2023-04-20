@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<flow>
+    <chain name="chain4">
+        SWITCH(f).TO(b.tag("cat"), c.tag("dog"));
+    </chain>
+</flow>

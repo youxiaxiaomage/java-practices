@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<flow>
+    <nodes>
+        <node id="c" class="com.yxxmg.liteflow.component.CCmp"/>
+        <node id="d" class="com.yxxmg.liteflow.component.DCmp"/>
+    </nodes>
+    <chain name="chain2">
+        THEN(c, d);
+    </chain>
+</flow>

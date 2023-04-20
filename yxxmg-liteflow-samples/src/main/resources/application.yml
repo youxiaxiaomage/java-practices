@@ -1,7 +1,7 @@
 server:
   port: 8811
 liteflow:
-  rule-source: config/flow.xml
+  rule-source: config/*.xml
   #自定义请求ID的生成类，LiteFlow提供了默认的生成类
   request-id-generator-class: com.yxxmg.liteflow.generator.CustomIdGenerator
   #liteflow是否开启，默认为true
