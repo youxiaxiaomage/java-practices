@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<flow>
+    <chain name="chain5">
+        IF(x, a, b);
+    </chain>
+</flow>

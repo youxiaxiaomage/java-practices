@@ -3,9 +3,7 @@ package com.yxxmg.liteflow.component;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Component;
 
-import com.yomahub.liteflow.core.NodeComponent;
-
-import lombok.extern.slf4j.Slf4j;
+import com.yomahub.liteflow.core.NodeIfComponent;
 
 /**
  * @author : yxxmg
@@ -13,12 +11,11 @@ import lombok.extern.slf4j.Slf4j;
  * @description :
  * @since : 2023/4/20
  */
-@Component("b")
-@Slf4j
-public class BCmp extends NodeComponent {
+@Component("x")
+public class XCmp extends NodeIfComponent {
     @Override
-    public void process() throws Exception {
-        log.info("b.........");
+    public boolean processIf() throws Exception {
         Thread.sleep(RandomUtils.nextLong(1000, 2000));
+        return true;
     }
 }
