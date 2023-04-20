@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 /**
- * @author : zhaoyang
+ * @author : yxxmg
  * @version : 1.0
  * @description : 去除头尾空格
  * @since : 2023/4/18
