@@ -1,0 +1,9 @@
+server:
+  port: 8812
+
+aliyun:
+  oss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    access-key-id: LTAI5tEsiK3HAkgr7EFAwVwC
+    secret-access-key: FknWKXVQJqujrVVdjli0DUd2icVDdY
+    bucket-name: youxiaxiaomage
