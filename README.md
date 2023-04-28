@@ -15,6 +15,7 @@
 | `yxxmg-exception-samples`       | 自定义异常或国际化                                           |
 | `yxxmg-sensitive-sample`        | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等 |
 | `yxxmg-liteflow-samples`        | `liteflow`未启动                                             |
+| `yxxmg-magic-api-samples`       | `magic-api`                                                  |
 
 #### 介绍
 
