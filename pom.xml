@@ -17,6 +17,7 @@
         <module>yxxmg-liteflow-samples</module>
         <module>yxxmg-oss-samples</module>
         <module>yxxmg-magic-api-samples</module>
+        <module>yxmmg-gof-samples</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
