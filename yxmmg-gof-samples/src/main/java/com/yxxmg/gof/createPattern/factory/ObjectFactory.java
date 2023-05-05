@@ -1,4 +1,4 @@
-package com.yxxmg.gof.factory;
+package com.yxxmg.gof.createPattern.factory;
 
 import com.google.common.collect.Maps;
 import org.apache.commons.collections.CollectionUtils;
@@ -20,14 +20,15 @@ public class ObjectFactory<T> {
         // 加载配置文件
         Properties properties = new Properties();
         try {
-            properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream(DEFAULT_PROPERTIES_FILE_NAME));
+            properties
+                .load(Thread.currentThread().getContextClassLoader().getResourceAsStream(DEFAULT_PROPERTIES_FILE_NAME));
             if (CollectionUtils.isEmpty(properties.keySet())) {
                 throw new RuntimeException("properties is empty");
             }
             for (Object key : properties.keySet()) {
                 Object o = properties.get(key.toString());
                 Class<?> clazz = Class.forName(o.toString());
-                DAO_MAP.put(key.toString(), (IDao<?>) clazz.newInstance());
+                DAO_MAP.put(key.toString(), (IDao<?>)clazz.newInstance());
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

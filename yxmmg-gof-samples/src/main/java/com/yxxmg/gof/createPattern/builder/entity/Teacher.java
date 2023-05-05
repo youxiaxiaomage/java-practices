@@ -1,7 +1,6 @@
-package com.yxxmg.gof.factory.entity;
+package com.yxxmg.gof.createPattern.builder.entity;
 
 import lombok.Data;
-import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -12,8 +11,7 @@ import java.io.Serializable;
  * @since : 2023/5/5
  */
 @Data
-@Accessors(chain = true)
-public class Student implements Serializable {
+public class Teacher implements Serializable {
     private static final long serialVersionUID = 4099723881512840653L;
     private String id;
     private String name;

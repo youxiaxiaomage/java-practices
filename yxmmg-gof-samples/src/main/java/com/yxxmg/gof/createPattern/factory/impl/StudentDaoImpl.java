@@ -1,7 +1,7 @@
-package com.yxxmg.gof.factory.impl;
+package com.yxxmg.gof.createPattern.factory.impl;
 
-import com.yxxmg.gof.factory.IDao;
-import com.yxxmg.gof.factory.entity.Student;
+import com.yxxmg.gof.createPattern.factory.IDao;
+import com.yxxmg.gof.createPattern.builder.entity.Student;
 
 /**
  * @author : yxxmg

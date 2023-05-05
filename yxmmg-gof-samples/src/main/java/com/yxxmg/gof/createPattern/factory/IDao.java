@@ -1,4 +1,4 @@
-package com.yxxmg.gof.factory;
+package com.yxxmg.gof.createPattern.factory;
 
 /**
  * @author : yxxmg
