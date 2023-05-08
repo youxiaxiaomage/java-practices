@@ -21,6 +21,6 @@ public class MybatisPlusSampleApplicationTest {
     public void testPayService() {
         String pay = this.payService.pay("iPhone14", Float.parseFloat("6999.99"));
         System.out.println(pay);
-        Assert.assertTrue(pay.contains("银联卡"));
+        Assert.assertTrue(pay.contains("支付宝"));
     }
 }

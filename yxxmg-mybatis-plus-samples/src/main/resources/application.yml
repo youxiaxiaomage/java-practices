@@ -29,4 +29,7 @@ logging:
   level:
     com.yxxmg: info
     org.springframework: info
-
+yxxmg:
+  tableSuffix: t_
+  pay:
+    pay-method: alipay
