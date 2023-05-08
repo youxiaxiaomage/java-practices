@@ -13,5 +13,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "yxxmg.pay")
 @Data
 public class YxxmgPayProperties {
+    /**
+     * 支付方式
+     */
     PayMethod payMethod;
 }
