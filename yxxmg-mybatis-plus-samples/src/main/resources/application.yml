@@ -29,7 +29,4 @@ logging:
   level:
     com.yxxmg: info
     org.springframework: info
-yxxmg:
-  tableSuffix:
-  pay:
-    pay-method: union
+
