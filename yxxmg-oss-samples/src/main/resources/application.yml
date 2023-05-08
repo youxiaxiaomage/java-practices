@@ -3,7 +3,7 @@ server:
 
 aliyun:
   oss:
-    endpoint: oss-cn-hangzhou.aliyuncs.com
-    access-key-id: LTAI5tEsiK3HAkgr7EFAwVwC
-    secret-access-key: FknWKXVQJqujrVVdjli0DUd2icVDdY
-    bucket-name: youxiaxiaomage
+    endpoint:
+    access-key-id:
+    secret-access-key:
+    bucket-name:
