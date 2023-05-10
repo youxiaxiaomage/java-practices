@@ -1,4 +1,4 @@
-package com.yxxmg.gof.test.factory;
+package com.yxxmg.gof.test.createPattern.factory;
 
 import com.yxxmg.gof.createPattern.factory.IDao;
 import com.yxxmg.gof.createPattern.factory.ObjectFactory;

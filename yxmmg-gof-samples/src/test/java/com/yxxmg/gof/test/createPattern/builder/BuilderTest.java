@@ -1,4 +1,4 @@
-package com.yxxmg.gof.test.builder;
+package com.yxxmg.gof.test.createPattern.builder;
 
 import com.yxxmg.gof.createPattern.builder.Client;
 import org.junit.Test;
