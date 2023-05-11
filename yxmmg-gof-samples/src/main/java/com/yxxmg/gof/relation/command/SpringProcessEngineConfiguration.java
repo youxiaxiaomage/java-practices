@@ -3,7 +3,7 @@ package com.yxxmg.gof.relation.command;
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description : TODO
+ * @description :
  * @since : 2023/5/10
  */
 public class SpringProcessEngineConfiguration extends ProcessEngineConfigurationImpl {
@@ -24,8 +24,8 @@ public class SpringProcessEngineConfiguration extends ProcessEngineConfiguration
     }
 
     private void initService(TaskService taskService) {
-        if (taskService instanceof CommonEngineServiceImpl) {
-            ((CommonEngineServiceImpl)taskService).setCommandExecutor(commandExecutor);
+        if (taskService instanceof AbstractCommonEngineServiceImpl) {
+            ((AbstractCommonEngineServiceImpl)taskService).setCommandExecutor(commandExecutor);
         }
     }
 }

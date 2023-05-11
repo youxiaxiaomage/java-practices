@@ -7,5 +7,10 @@ package com.yxxmg.gof.relation.interpreter;
  * @since : 2023/5/11
  */
 public interface Expression {
+    /**
+     * 接收
+     * 
+     * @param expressionVisitor 访问者
+     */
     void accept(ExpressionVisitor expressionVisitor);
 }

@@ -1,8 +1,8 @@
 package com.yxxmg.gof.test.relation.chainReponsiblity;
 
-import com.yxxmg.gof.relation.chainResponsibility.FirstHandler;
-import com.yxxmg.gof.relation.chainResponsibility.SecondHandler;
-import com.yxxmg.gof.relation.chainResponsibility.ThirdHandler;
+import com.yxxmg.gof.relation.chainresponsibility.FirstHandler;
+import com.yxxmg.gof.relation.chainresponsibility.SecondHandler;
+import com.yxxmg.gof.relation.chainresponsibility.ThirdHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;

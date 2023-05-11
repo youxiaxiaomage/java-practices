@@ -23,7 +23,6 @@ public class DefinitionExecutor {
 
     public void testConfig(String chain) {
         LiteflowResponse response = flowExecutor.execute2Resp(chain, "args");
-        // boolean valid = LiteFlowChainELBuilder.validate("THEN(a,b)");
         log.info("response:{}", response);
     }
 }

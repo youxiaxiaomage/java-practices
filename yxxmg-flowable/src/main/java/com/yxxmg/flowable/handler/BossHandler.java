@@ -6,7 +6,7 @@ import org.flowable.task.service.delegate.DelegateTask;
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description : TODO
+ * @description :
  * @since : 2022/12/6
  */
 public class BossHandler implements TaskListener {

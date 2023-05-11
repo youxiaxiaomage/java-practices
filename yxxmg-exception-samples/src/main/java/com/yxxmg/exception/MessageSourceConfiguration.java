@@ -8,7 +8,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 /**
  * @author : zhaoyan
  * @version : 1.0
- * @description : TODO
+ * @description :
  * @since : 2023/2/26
  */
 @Configuration

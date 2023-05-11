@@ -45,6 +45,12 @@ public interface BaseEnum {
      */
     String getDesc();
 
+    /**
+     * 枚举类列表
+     * 
+     * @param type 枚举类
+     * @return List<BaseEnum>
+     */
     static List<BaseEnum> getAllEnums(Class<?> type) {
         if (!BaseEnum.class.isAssignableFrom(type)) {
             return Collections.emptyList();

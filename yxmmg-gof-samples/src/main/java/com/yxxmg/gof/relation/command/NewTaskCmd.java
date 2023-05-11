@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description : TODO
+ * @description :
  * @since : 2023/5/10
  */
 public class NewTaskCmd implements Command<Task>, Serializable {

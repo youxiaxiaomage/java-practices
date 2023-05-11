@@ -2,13 +2,11 @@ package com.yxxmg.flowable.controller;
 
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.common.collect.Maps;
 import org.flowable.bpmn.model.BpmnModel;
 import org.flowable.engine.*;
 import org.flowable.engine.runtime.Execution;
@@ -48,7 +46,7 @@ public class ExpenseController {
     @GetMapping("/add")
     public String addExpense(String userId, Integer money, String descption) {
         // 启动流程
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = Maps.newHashMap();
         map.put("taskUser", userId);
         map.put("money", money);
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("Expense", map);
@@ -64,7 +62,7 @@ public class ExpenseController {
         for (Task task : tasks) {
             System.out.println(task.toString());
         }
-        return tasks.toArray().toString();
+        return Arrays.toString(tasks.toArray());
     }
 
     /**
@@ -79,7 +77,7 @@ public class ExpenseController {
             throw new RuntimeException("流程不存在");
         }
         // 通过审核
-        HashMap<String, Object> map = new HashMap<>();
+        HashMap<String, Object> map = Maps.newHashMap();
         map.put("outcome", "通过");
         taskService.complete(taskId, map);
         return "processed ok!";
@@ -90,7 +88,7 @@ public class ExpenseController {
      */
     @GetMapping("/reject")
     public String reject(String taskId) {
-        HashMap<String, Object> map = new HashMap<>();
+        HashMap<String, Object> map = Maps.newHashMap();
         map.put("outcome", "驳回");
         taskService.complete(taskId, map);
         return "reject";
@@ -111,8 +109,8 @@ public class ExpenseController {
         }
         Task task = taskService.createTaskQuery().processInstanceId(pi.getId()).singleResult();
         // 使用流程实例ID，查询正在执行的执行对象表，返回流程实例对象
-        String InstanceId = task.getProcessInstanceId();
-        List<Execution> executions = runtimeService.createExecutionQuery().processInstanceId(InstanceId).list();
+        String instanceId = task.getProcessInstanceId();
+        List<Execution> executions = runtimeService.createExecutionQuery().processInstanceId(instanceId).list();
 
         // 得到正在执行的Activity的Id
         List<String> activityIds = new ArrayList<>();

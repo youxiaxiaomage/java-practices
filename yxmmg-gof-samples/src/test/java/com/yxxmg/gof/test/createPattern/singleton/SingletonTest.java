@@ -1,6 +1,6 @@
 package com.yxxmg.gof.test.createPattern.singleton;
 
-import com.yxxmg.gof.createPattern.singleton.Singleton;
+import com.yxxmg.gof.create.pattern.singleton.Singleton;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

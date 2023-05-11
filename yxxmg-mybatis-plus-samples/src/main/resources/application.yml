@@ -33,3 +33,5 @@ yxxmg:
   tableSuffix: t_
   pay:
     pay-method: alipay
+    version:
+      modified-version: 2023

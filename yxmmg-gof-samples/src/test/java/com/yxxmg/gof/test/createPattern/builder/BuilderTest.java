@@ -1,6 +1,6 @@
 package com.yxxmg.gof.test.createPattern.builder;
 
-import com.yxxmg.gof.createPattern.builder.Client;
+import com.yxxmg.gof.create.pattern.builder.Client;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;

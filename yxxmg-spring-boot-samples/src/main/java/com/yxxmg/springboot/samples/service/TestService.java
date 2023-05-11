@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
  * @since : 2022/12/5
  */
 @Service
-// Parameter 0 of constructor in com.yxxmg.springboot.samples.controller.TestController required a bean of type
-// 'com.yxxmg.springboot.samples.service.TestService' that could not be found.
-// @ConditionalOnClass(name = "com.yxxmg.springboot.samples.service.TestService")
-// @ConditionalOnMissingClass
-// @ConditionalOnMissingBean
-// @ConditionalOnSingleCandidate
+/* Parameter 0 of constructor in com.yxxmg.springboot.samples.controller.TestController required a bean of type
+ 'com.yxxmg.springboot.samples.service.TestService' that could not be found.
+ @ConditionalOnClass(name = "com.yxxmg.springboot.samples.service.TestService")
+ @ConditionalOnMissingClass
+ @ConditionalOnMissingBean
+ @ConditionalOnSingleCandidate*/
 @ConditionalOnBean(name = "userService")
 @ConditionalOnJava(range = ConditionalOnJava.Range.EQUAL_OR_NEWER, value = JavaVersion.EIGHT)
 public class TestService {

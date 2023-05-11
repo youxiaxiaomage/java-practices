@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since : 2023/4/20
  */
 @SpringBootApplication
-// @ComponentScan({"com.yxxmg.liteflow.component"})
 public class LiteFlowApplication {
     public static void main(String[] args) {
         SpringApplication.run(LiteFlowApplication.class, args);
