@@ -12,10 +12,6 @@ public abstract class CommonEngineServiceImpl<C extends AbstractEngineConfigurat
 
     public CommonEngineServiceImpl() {}
 
-    public CommonEngineServiceImpl(C configuration) {
-        super(configuration);
-    }
-
     public CommandExecutor getCommandExecutor() {
         return commandExecutor;
     }
