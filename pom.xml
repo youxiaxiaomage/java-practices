@@ -18,6 +18,7 @@
         <module>yxxmg-oss-samples</module>
         <module>yxxmg-magic-api-samples</module>
         <module>yxmmg-gof-samples</module>
+        <module>yxxmg-spring-samples</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
