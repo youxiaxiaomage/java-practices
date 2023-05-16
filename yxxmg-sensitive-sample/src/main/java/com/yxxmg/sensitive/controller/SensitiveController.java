@@ -3,7 +3,7 @@ package com.yxxmg.sensitive.controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.yxxmg.sensitive.domain.Student;
-import com.yxxmg.sensitive.domain.User;
+import com.yxxmg.sensitive.domain.UserTest;
 
 /**
  * @author : zhaoyan
@@ -25,7 +25,7 @@ public class SensitiveController {
     }
 
     @PostMapping("/addUser")
-    public User add(@RequestBody User user) {
+    public UserTest add(@RequestBody UserTest user) {
         return user;
     }
 }

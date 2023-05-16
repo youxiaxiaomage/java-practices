@@ -11,7 +11,7 @@ import lombok.Data;
  * @since : 2023/4/18
  */
 @Data
-public class User implements Serializable {
+public class UserTest implements Serializable {
     private static final long serialVersionUID = 1155777836340232660L;
     private String userName;
     private String userId;

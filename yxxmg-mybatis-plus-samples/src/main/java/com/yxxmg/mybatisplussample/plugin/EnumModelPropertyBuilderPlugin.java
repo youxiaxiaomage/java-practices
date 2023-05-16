@@ -53,10 +53,9 @@ public class EnumModelPropertyBuilderPlugin implements ModelPropertyBuilderPlugi
     }
 
     private void changePropertyBuilderEnumDesc(ModelPropertyContext context, boolean retCode, String desc) {
-        PropertySpecificationBuilder builder = context.getSpecificationBuilder();
+        ModelPropertyBuilder builder = context.getBuilder();
         changeEnumDesc(desc, builder);
         if (retCode) {
-            // ModelSpecification
             builder.type(context.getResolver().resolve(Integer.class));
         } else {
             builder.type(context.getResolver().resolve(String.class));

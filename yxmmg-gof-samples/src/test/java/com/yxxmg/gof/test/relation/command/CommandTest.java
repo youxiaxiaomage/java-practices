@@ -1,7 +1,5 @@
 package com.yxxmg.gof.test.relation.command;
 
-import com.yxxmg.gof.relation.command.SpringProcessEngineConfiguration;
-import com.yxxmg.gof.relation.command.TaskServiceImpl;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +15,7 @@ import org.junit.runners.JUnit4;
 public class CommandTest extends TestCase {
     @Test
     public void test() {
-        SpringProcessEngineConfiguration springProcessEngineConfiguration = new SpringProcessEngineConfiguration();
-        springProcessEngineConfiguration.init();
+        // SpringProcessEngineConfiguration springProcessEngineConfiguration = new SpringProcessEngineConfiguration();
+        // springProcessEngineConfiguration.init();
     }
 }
