@@ -14,10 +14,8 @@ import java.util.Date;
  * @description :
  * @since : 2023/5/16
  */
-@RunWith(JUnit4.class)
 public class MapStructTest extends TestCase {
 
-    @Test
     public void test1() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
             .setDescribe("描述信息").setSource(BigDecimal.valueOf(999.999)).setAge(14);
@@ -25,7 +23,6 @@ public class MapStructTest extends TestCase {
         assertNull(personDTO.getId());
     }
 
-    @Test
     public void test2() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
             .setSource(BigDecimal.valueOf(999.999)).setAge(14);
@@ -33,7 +30,6 @@ public class MapStructTest extends TestCase {
         assertEquals("默认值", personDTO.getDescribe());
     }
 
-    @Test
     public void test3() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
             .setSource(BigDecimal.valueOf(999.999)).setAge(14);
@@ -41,7 +37,6 @@ public class MapStructTest extends TestCase {
         System.out.println(personDTO);
     }
 
-    @Test
     public void test4() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
             .setSource(BigDecimal.valueOf(999.999)).setAge(14);
@@ -49,7 +44,6 @@ public class MapStructTest extends TestCase {
         System.out.println(personDTO);
     }
 
-    @Test
     public void test5() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
             .setSource(BigDecimal.valueOf(999.999)).setAge(14);
@@ -57,7 +51,6 @@ public class MapStructTest extends TestCase {
         System.out.println(personDTO);
     }
 
-    @Test
     public void test6() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
             .setSource(BigDecimal.valueOf(999.999)).setAge(14);
