@@ -1,5 +1,6 @@
 package com.yxxmg.clone;
 
+import cn.hutool.core.lang.Assert;
 import junit.framework.TestCase;
 import org.apache.commons.lang3.SerializationUtils;
 
@@ -22,9 +23,15 @@ public class CloneTest extends TestCase {
         Program program = ProgramDTO.to(programDTO);
         Program clone = ProgramDTO.clone(program);
         Program clone1 = SerializationUtils.clone(program);
-        System.out.println(clone);
-        System.out.println(clone1);
+        clone1.getGuestList().get(0).setName("xxxx");
+        // System.out.println(clone);
+        // System.out.println(clone1);
         // Guest@1102 Attribute@1105 Sex@1094 Integer@1106
+        assertFalse("xxxx".equals(program.getGuestList().get(0).getName()));
+        Guest guest = clone.getGuestList().get(0);
+        guest.setName("xxxx");
+        System.out.println();
+        assertEquals("xxxx", program.getGuestList().get(0).getName());
 
     }
 }
