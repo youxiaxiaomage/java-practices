@@ -2,6 +2,7 @@ package com.yxxmg.event.controller;
 
 import com.yxxmg.event.service.NotifyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SampleController {
     private final NotifyService notifyService;
 
+    @GetMapping("/notify")
     public String notify(String msg) {
         return this.notifyService.notify(msg);
     }
