@@ -34,4 +34,15 @@ public class CloneTest extends TestCase {
         assertEquals("xxxx", program.getGuestList().get(0).getName());
 
     }
+
+    public void test2() {
+        ProgramDTO.AttributeDTO attributeDTO =
+            new ProgramDTO.AttributeDTO().setAge(18).setSex(Sex.FEMALE).setMail("test@qq.com");
+        final ProgramDTO.GuestDTO guestDTO =
+            new ProgramDTO.GuestDTO().setId(100L).setName("zsh").setAttribute(attributeDTO);
+
+        guestDTO.setName("lisi");
+
+        System.out.println(guestDTO.getName());
+    }
 }

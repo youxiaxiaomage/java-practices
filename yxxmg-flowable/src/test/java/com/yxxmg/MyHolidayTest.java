@@ -133,9 +133,7 @@ public class MyHolidayTest {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         List<HistoricProcessInstance> historicProcessInstanceList =
             processEngine.getHistoryService().createHistoricProcessInstanceQuery().list();
-        historicProcessInstanceList.forEach(historicProcessInstance -> {
-            System.out.println(historicProcessInstance);
-        });
+        historicProcessInstanceList.forEach(System.out::println);
     }
 
 }

@@ -6,7 +6,7 @@
 | ------------------------------- | ------------------------------------------------------------ |
 | `yxxmg-mybatis-plus-samples`    | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
 | `yxxmg-pay-spring-boot-starter` | `springboot`自动装配，`SPI`自定义支付`starter`               |
-| `yxxmg-drools-samples`          | 流程引擎                                                     |
+| `yxxmg-drools-samples`          | 规则引擎                                                     |
 | `yxxmg-java-helper`             | `java`语法糖                                                 |
 | `yxxmg-spring-boot-samples`     | `springboot`相关内容                                         |
 | `yxxmg-flowable`                | `flowable`工作流引擎                                         |
@@ -14,8 +14,14 @@
 | `yxxmg-smart-doc`               | `smart-doc`                                                  |
 | `yxxmg-exception-samples`       | 自定义异常或国际化                                           |
 | `yxxmg-sensitive-sample`        | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等 |
-| `yxxmg-liteflow-samples`        | `liteflow`未启动                                             |
+| `yxxmg-liteflow-samples`        | `liteflow`服务编排                                           |
 | `yxxmg-magic-api-samples`       | `magic-api`                                                  |
+| `yxxmg-event-samples`           | `ApplicationEvent`，`ApplicationEventPublisher`              |
+| `yxxmg-jaVers-samples`          | 对象前后变化对比（未开始）                                   |
+| `yxxmg-oos-samples`             | 阿里云`oos`                                                  |
+| `yxxmg-nlp-samples`             | `Stanford nlp`                                               |
+| `yxxmg-magic-api-samples`       | `magic-api`                                                  |
+| `yxxmg-gof-samples`             | `Gof`设计模式                                                |
 
 #### 介绍
 
@@ -32,6 +38,13 @@
 11. `elasticsearch orm`框架，`easy-es`类似`mybatis-plus`，代码后期列举
 12. 自定义SPI `spring-boot-starter`组件
 13. `elasticjob`
+14. `flowable`工作流引擎
+15. `Drools`规则引擎
+16. `JaVers`对象前后变化对比
+17. 阿里云`oos`
+18. `Stanford nlp`自然语言
+19. `magic-api`
+20. `Gof` 设计模式
 
 #### 枚举类自动转换
 
