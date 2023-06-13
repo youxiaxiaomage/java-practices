@@ -22,6 +22,7 @@
         <module>yxxmg-nlp-samples</module>
         <module>yxxmg-javers-samples</module>
         <module>yxxmg-event-samples</module>
+        <module>yxxmg-sa-token-samples</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
