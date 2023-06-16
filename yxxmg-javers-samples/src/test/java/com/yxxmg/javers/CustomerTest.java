@@ -31,4 +31,17 @@ public class CustomerTest {
             .setDealer(dealer2).setLabels(customerLabelList2);
         Changes changes = JaversUtil.diff(customer1, customer2);
     }
+
+    @Test
+    public void test2() {
+        List<CustomerLabel> customerLabelList = Stream.of(new CustomerLabel().setId("l1").setLabelName("成交客户"),
+            new CustomerLabel().setId("l2").setLabelName("目标客户")).collect(Collectors.toList());
+
+        List<CustomerLabel> customerLabelList2 =
+            Collections.singletonList(new CustomerLabel().setId("l13").setLabelName("潜在客户"));
+        Changes changes = JaversUtil.diff(customerLabelList, customerLabelList2, CustomerLabel.class);
+        for (Change change : changes) {
+            System.out.println(change);
+        }
+    }
 }
