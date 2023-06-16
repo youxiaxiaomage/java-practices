@@ -19,7 +19,7 @@ public class JsqlparserTest {
     @Test
     public void test() throws JSQLParserException {
         // 使用工具类把SQL转换为Select对象
-        Select select = (Select)CCJSqlParserUtil.parse("SELECT username,age,sex FROM user");
+        Select select = (Select)CCJSqlParserUtil.parse("SELECT USERNAME,AGE,SEX FROM USER");
         SelectBody selectBody = select.getSelectBody();
         System.err.println(selectBody);
     }
