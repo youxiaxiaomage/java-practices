@@ -1,4 +1,22 @@
-# `java-practices`
+<p align="center">
+    <img src="images/logo.png" width="150">
+    <p align="center">
+    	java-practices日常开发中的开发工具，编码技巧以及设计思想等。
+    	<br>
+    	<a href="http://www.apache.org/licenses/LICENSE-2.0.html">
+      		<img src="http://img.shields.io/:license-apache-blue.svg" >
+   		</a>
+   		<a href="https://www.oracle.com/technetwork/java/javase/downloads">
+      		<img src="https://img.shields.io/badge/JDK-1.8-green.svg" >
+   		</a>        	  
+    	<a href="https://gitee.com/youxiaxiaomage/java-practices/releases">
+       		<img src="https://img.shields.io/badge/release-1.0.0-brightgreen.svg" >
+     	</a>
+     	<a href="https://gitee.com/youxiaxiaomage/java-practices/releases">
+       		<img src="https://img.shields.io/badge/java-practices-1.0.0-brightgreen.svg" >
+     	</a>
+    </p>    
+</p>
 
 积累日常开放中的技巧，工具等，并持续添加... 坚持每日一更新
 
