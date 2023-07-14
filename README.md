@@ -10,10 +10,10 @@
       		<img src="https://img.shields.io/badge/JDK-1.8-green.svg" >
    		</a>        	  
     	<a href="https://gitee.com/youxiaxiaomage/java-practices/releases">
-       		<img src="https://img.shields.io/badge/release-1.0-SNAPSHOT-brightgreen.svg" >
+       		<img src="https://img.shields.io/badge/1.0-SNAPSHOT-brightgreen.svg" >
      	</a>
      	<a href="https://gitee.com/youxiaxiaomage/java-practices/releases">
-       		<img src="https://img.shields.io/badge/java-practices-1.0-SNAPSHOT-brightgreen.svg" >
+       		<img src="https://img.shields.io/badge/java-practices--1.0-SNAPSHOT-brightgreen.svg" >
      	</a>
     </p>    
 </p>
