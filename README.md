@@ -12,9 +12,6 @@
     	<a href="https://gitee.com/youxiaxiaomage/java-practices/releases">
        		<img src="https://img.shields.io/badge/1.0-SNAPSHOT-brightgreen.svg" >
      	</a>
-     	<a href="https://gitee.com/youxiaxiaomage/java-practices/releases">
-       		<img src="https://img.shields.io/badge/java-practices--1.0-SNAPSHOT-brightgreen.svg" >
-     	</a>
     </p>    
 </p>
 
