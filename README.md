@@ -17,24 +17,24 @@
 
 | 目录                            | 说明                                                         |
 | ------------------------------- | ------------------------------------------------------------ |
-| `yxxmg-mybatis-plus-samples`    | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
+| `yxxmg-mybatis-plus-sample`     | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
 | `yxxmg-pay-spring-boot-starter` | `springboot`自动装配，`SPI`自定义支付`starter`               |
-| `yxxmg-drools-samples`          | 规则引擎                                                     |
+| `yxxmg-drools-sample`           | 规则引擎                                                     |
 | `yxxmg-java-helper`             | `java`语法糖                                                 |
-| `yxxmg-spring-boot-samples`     | `springboot`相关内容                                         |
+| `yxxmg-spring-boot-sample`      | `springboot`相关内容                                         |
 | `yxxmg-flowable`                | `flowable`工作流引擎                                         |
 | `yxxmg-elasticjob`              | `elasticjob`任务调度                                         |
 | `yxxmg-smart-doc`               | `smart-doc`                                                  |
-| `yxxmg-exception-samples`       | 自定义异常或国际化                                           |
+| `yxxmg-exception-sample`        | 自定义异常或国际化                                           |
 | `yxxmg-sensitive-sample`        | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等 |
-| `yxxmg-liteflow-samples`        | `liteflow`服务编排                                           |
-| `yxxmg-magic-api-samples`       | `magic-api`                                                  |
-| `yxxmg-event-samples`           | `ApplicationEvent`，`ApplicationEventPublisher`              |
-| `yxxmg-jaVers-samples`          | 对象前后变化对比（未开始）                                   |
-| `yxxmg-oos-samples`             | 阿里云`oos`                                                  |
-| `yxxmg-nlp-samples`             | `Stanford nlp`                                               |
-| `yxxmg-magic-api-samples`       | `magic-api`                                                  |
-| `yxxmg-gof-samples`             | `Gof`设计模式                                                |
+| `yxxmg-liteflow-sample`         | `liteflow`服务编排                                           |
+| `yxxmg-magic-api-sample`        | `magic-api`                                                  |
+| `yxxmg-event-sample`            | `ApplicationEvent`，`ApplicationEventPublisher`              |
+| `yxxmg-javers-sample`           | 对象前后变化对比（未开始）                                   |
+| `yxxmg-oos-sample`              | 阿里云`oos`                                                  |
+| `yxxmg-nlp-sample`              | `Stanford nlp`                                               |
+| `yxxmg-magic-api-sample`        | `magic-api`                                                  |
+| `yxxmg-gof-sample`              | `Gof`设计模式                                                |
 
 #### 介绍
 
@@ -444,7 +444,6 @@ public class ConstructorService {
    }
    ```
 
-   
 
 2. 请求去首尾空格
 
@@ -475,8 +474,6 @@ public class ConstructorService {
        }
    }
    ```
-
-   
 
 #### 开发使用到的工具
 

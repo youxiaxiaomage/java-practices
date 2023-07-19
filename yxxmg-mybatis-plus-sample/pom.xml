@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yxxmg-mybatis-plus-samples</artifactId>
+    <artifactId>yxxmg-mybatis-plus-sample</artifactId>
     <packaging>jar</packaging>
 
     <properties>

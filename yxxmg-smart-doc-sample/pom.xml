@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yxxmg-smart-doc-samples</artifactId>
+    <artifactId>yxxmg-smart-doc-sample</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

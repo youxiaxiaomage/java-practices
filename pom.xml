@@ -4,26 +4,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>yxxmg-mybatis-plus-samples</module>
+        <module>yxxmg-mybatis-plus-sample</module>
         <module>yxxmg-pay-spring-boot-starter</module>
         <module>yxxmg-java-helper</module>
         <module>yxxmg-flowable</module>
-        <module>yxxmg-spring-boot-samples</module>
-        <module>yxxmg-drools-samples</module>
+        <module>yxxmg-spring-boot-sample</module>
+        <module>yxxmg-drools-sample</module>
         <module>yxxmg-elasticjob</module>
-        <module>yxxmg-smart-doc-samples</module>
-        <module>yxxmg-exception-samples</module>
+        <module>yxxmg-smart-doc-sample</module>
+        <module>yxxmg-exception-sample</module>
         <module>yxxmg-sensitive-sample</module>
-        <module>yxxmg-liteflow-samples</module>
-        <module>yxxmg-oss-samples</module>
-        <module>yxxmg-magic-api-samples</module>
-        <module>yxxmg-gof-samples</module>
-        <module>yxxmg-spring-samples</module>
-        <module>yxxmg-nlp-samples</module>
-        <module>yxxmg-javers-samples</module>
-        <module>yxxmg-event-samples</module>
-        <module>yxxmg-sa-token-samples</module>
+        <module>yxxmg-liteflow-sample</module>
+        <module>yxxmg-oss-sample</module>
+        <module>yxxmg-magic-api-sample</module>
+        <module>yxxmg-gof-sample</module>
+        <module>yxxmg-spring-sample</module>
+        <module>yxxmg-nlp-sample</module>
+        <module>yxxmg-javers-sample</module>
+        <module>yxxmg-event-sample</module>
+        <module>yxxmg-sa-token-sample</module>
         <module>yxxmg-dynamic-feign</module>
+        <module>yxxmg-distribute-redis-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
