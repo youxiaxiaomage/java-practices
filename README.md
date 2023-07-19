@@ -15,49 +15,77 @@
     </p>    
 </p>
 
-| 目录                            | 说明                                                         |
-| ------------------------------- | ------------------------------------------------------------ |
-| `yxxmg-mybatis-plus-sample`     | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
-| `yxxmg-pay-spring-boot-starter` | `springboot`自动装配，`SPI`自定义支付`starter`               |
-| `yxxmg-drools-sample`           | 规则引擎                                                     |
-| `yxxmg-java-helper`             | `java`语法糖                                                 |
-| `yxxmg-spring-boot-sample`      | `springboot`相关内容                                         |
-| `yxxmg-flowable`                | `flowable`工作流引擎                                         |
-| `yxxmg-elasticjob`              | `elasticjob`任务调度                                         |
-| `yxxmg-smart-doc`               | `smart-doc`                                                  |
-| `yxxmg-exception-sample`        | 自定义异常或国际化                                           |
-| `yxxmg-sensitive-sample`        | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等 |
-| `yxxmg-liteflow-sample`         | `liteflow`服务编排                                           |
-| `yxxmg-magic-api-sample`        | `magic-api`                                                  |
-| `yxxmg-event-sample`            | `ApplicationEvent`，`ApplicationEventPublisher`              |
-| `yxxmg-javers-sample`           | 对象前后变化对比（未开始）                                   |
-| `yxxmg-oos-sample`              | 阿里云`oos`                                                  |
-| `yxxmg-nlp-sample`              | `Stanford nlp`                                               |
-| `yxxmg-magic-api-sample`        | `magic-api`                                                  |
-| `yxxmg-gof-sample`              | `Gof`设计模式                                                |
+| 目录                                 | 说明                                                         |
+| ------------------------------------ | ------------------------------------------------------------ |
+| `yxxmg-mybatis-plus-sample`          | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
+| `yxxmg-pay-spring-boot-starter`      | `springboot`自动装配，`SPI`自定义支付`starter`               |
+| `yxxmg-drools-sample`                | 规则引擎                                                     |
+| `yxxmg-java-helper`                  | `java`语法糖                                                 |
+| `yxxmg-spring-boot-sample`           | `springboot`相关内容                                         |
+| `yxxmg-flowable`                     | `flowable`工作流引擎                                         |
+| `yxxmg-elasticjob`                   | `elasticjob`任务调度                                         |
+| `yxxmg-smart-doc`                    | `smart-doc`                                                  |
+| `yxxmg-exception-sample`             | 自定义异常或国际化                                           |
+| `yxxmg-sensitive-sample`             | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等 |
+| `yxxmg-liteflow-sample`              | `liteflow`服务编排                                           |
+| `yxxmg-magic-api-sample`             | `magic-api`                                                  |
+| `yxxmg-event-sample`                 | `ApplicationEvent`，`ApplicationEventPublisher`              |
+| `yxxmg-javers-sample`                | 对象前后变化对比（未开始）                                   |
+| `yxxmg-oos-sample`                   | 阿里云`oos`                                                  |
+| `yxxmg-nlp-sample`                   | `Stanford nlp`                                               |
+| `yxxmg-magic-api-sample`             | `magic-api`                                                  |
+| `yxxmg-gof-sample`                   | `Gof`设计模式                                                |
+| `yxxmg-distribute-redis-lock-sample` | `redis`实现分布式锁                                          |
+| `yxxmg-sa-token-sample`              | `sa-token`功能                                               |
+| `yxxmg-dynamic-feign-sample`         | 动态`feign`                                                  |
 
-#### 介绍
+### 介绍
 
 1. `MybatisPlus`重写`MybatisPlusAutoConfiguration`、自定义枚举类转换、自动填充；
+
 2. `JSR303`校验，如分组校验规则等，校验后台数据重复；
+
 3. 集成`Knife4j`，新增枚举插件转换；
+
 4. 集成`mapstruct`；
+
 5. 全局异常切面
+
 6. `PageHelper`，如果与缓存配合使用，切记ThreadLocal能引发血案
+
 7. `OpenFeign`调用外部接口
+
 8. `Caffeine` 配置缓存，目前配置的jvm缓存
+
 9. `SpringBoot`自动装配
+
 10. `JustAuth`第三方授权
+
 11. `elasticsearch orm`框架，`easy-es`类似`mybatis-plus`，代码后期列举
+
 12. 自定义SPI `spring-boot-starter`组件
+
 13. `elasticjob`
+
 14. `flowable`工作流引擎
+
 15. `Drools`规则引擎
+
 16. `JaVers`对象前后变化对比
+
 17. 阿里云`oos`
+
 18. `Stanford nlp`自然语言
+
 19. `magic-api`
+
 20. `Gof` 设计模式
+
+21. `sa-token`
+
+22. `dynamic-feign`
+
+### 核心组件以及功能介绍
 
 #### 枚举类自动转换
 
@@ -475,11 +503,168 @@ public class ConstructorService {
    }
    ```
 
-#### 开发使用到的工具
+#### 动态`feign`
 
-##### 开发工具Idea
+```java
+public interface DynamicService {
+    /**
+     * POST请求
+     * 
+     * @param url 请求路径
+     * @param params 请求参数
+     * @return 响应结果
+     */
+    @PostMapping("{url}")
+    String post(@PathVariable String url, @RequestBody Object params);
 
-##### 开发中常用插件
+    /**
+     * GET请求
+     * 
+     * @param url 请求路径
+     * @param params 请求参数
+     * @return 响应结果
+     */
+    @GetMapping("{url}")
+    String get(@PathVariable String url, @SpringQueryMap Object params);
+
+    /**
+     * PUT请求
+     * 
+     * @param url 请求路径
+     * @param params 请求参数
+     * @return 响应结果
+     */
+    @PutMapping("{url}")
+    String put(@PathVariable String url, @RequestBody Object params);
+
+    /**
+     * DELETE请求
+     * 
+     * @param url 请求路径
+     * @param params 请求参数
+     * @return 响应结果
+     */
+    @DeleteMapping("{url}")
+    String delete(@PathVariable String url, @RequestBody Object params);
+}
+```
+
+```java
+public class DynamicFeignClientFactory<T> {
+    private final FeignClientBuilder feignClientBuilder;
+
+    public DynamicFeignClientFactory(ApplicationContext applicationContext) {
+        this.feignClientBuilder = new FeignClientBuilder(applicationContext);
+    }
+
+    public T getFeignClient(final Class<T> type, String serviceId) {
+        return this.feignClientBuilder.forType(type, serviceId).build();
+    }
+}
+```
+
+```java
+@RequiredArgsConstructor
+public class DynamicClient {
+    private final DynamicFeignClientFactory<DynamicService> dynamicFeignClientFactory;
+
+    public String post(String serviceId, String url, Object params) {
+        return dynamicFeignClientFactory.getFeignClient(DynamicService.class, serviceId).post(url, params);
+    }
+
+    public String get(String serviceId, String url, Object params) {
+        return dynamicFeignClientFactory.getFeignClient(DynamicService.class, serviceId).get(url, params);
+    }
+
+    public String put(String serviceId, String url, Object params) {
+        return dynamicFeignClientFactory.getFeignClient(DynamicService.class, serviceId).put(url, params);
+    }
+
+    public String delete(String serviceId, String url, Object params) {
+        return dynamicFeignClientFactory.getFeignClient(DynamicService.class, serviceId).delete(url, params);
+    }
+}
+```
+
+#### `redis`实现分布式锁
+
+```java
+@Inherited
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface RedisDistributeLock {
+    String key() default "";
+
+    long lockTime() default 5000;
+
+    long releaseLock() default 5000;
+}
+```
+
+```java
+Component
+@Slf4j
+@RequiredArgsConstructor
+@Aspect
+public class RedisDistributeLockAspect {
+    private final RedissonClientDelegate redissonClientDelegate;
+
+    @Pointcut("@annotation(com.yxxmg.distribute.redis.lock.annotation.RedisDistributeLock)")
+    public void pointCut() {}
+
+    public Object proceed(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        RedisDistributeLock redisDistributeLock = getAnnotation(proceedingJoinPoint);
+        String valueKey =
+            generateDistributeLockKey(proceedingJoinPoint, redisDistributeLock, proceedingJoinPoint.getArgs());
+        try (CloseableRLock lock = this.redissonClientDelegate.getFairLock(valueKey)) {
+            if (lock.tryLock(redisDistributeLock.lockTime(), redisDistributeLock.releaseLock(),
+                TimeUnit.MILLISECONDS)) {
+                return proceedingJoinPoint.proceed();
+            } else {
+                throw new IllegalArgumentException("current thread get lock failed");
+            }
+        }
+    }
+
+    private static RedisDistributeLock getAnnotation(ProceedingJoinPoint proceedingJoinPoint) {
+        Signature signature = proceedingJoinPoint.getSignature();
+        MethodSignature methodSignature = (MethodSignature)signature;
+        Method method = methodSignature.getMethod();
+        return method.getAnnotation(RedisDistributeLock.class);
+    }
+
+    private String generateDistributeLockKey(ProceedingJoinPoint proceedingJoinPoint,
+        RedisDistributeLock redisDistributeLock, Object[] args) {
+        LocalVariableTableParameterNameDiscoverer localVariableTableParameterNameDiscoverer =
+            new LocalVariableTableParameterNameDiscoverer();
+        MethodSignature signature = (MethodSignature)proceedingJoinPoint.getSignature();
+        String[] parameterNames = localVariableTableParameterNameDiscoverer.getParameterNames(signature.getMethod());
+        if (ObjectUtils.isEmpty(parameterNames)) {
+            throw new IllegalArgumentException("redis distribute lock must have key param");
+        }
+        ExpressionParser expressionParser = new SpelExpressionParser();
+        StandardEvaluationContext standardEvaluationContext = new StandardEvaluationContext();
+        for (int i = 0; i < parameterNames.length; i++) {
+            standardEvaluationContext.setVariable(parameterNames[i], args[i]);
+        }
+        try {
+            return expressionParser.parseExpression(redisDistributeLock.key()).getValue(standardEvaluationContext,
+                String.class);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+```
+
+
+
+### 开发使用到的工具
+
+#### 开发工具Idea
+
+#### 开发中常用插件
 
 1. lombok 简化代码，一般idea会集成，有些版本不自带，需要手动配置
 2. MybatisX mybatis快速开发定位
