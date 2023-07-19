@@ -24,7 +24,7 @@
         <module>yxxmg-event-sample</module>
         <module>yxxmg-sa-token-sample</module>
         <module>yxxmg-dynamic-feign</module>
-        <module>yxxmg-distribute-redis-sample</module>
+        <module>yxxmg-distribute-redis-lock-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
