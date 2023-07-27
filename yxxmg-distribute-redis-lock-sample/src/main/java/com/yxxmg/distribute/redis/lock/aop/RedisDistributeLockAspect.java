@@ -47,10 +47,9 @@ public class RedisDistributeLockAspect {
             if (lock.tryLock(redisDistributeLock.lockTime(), redisDistributeLock.releaseLock(),
                 TimeUnit.MILLISECONDS)) {
                 return proceedingJoinPoint.proceed();
-            } else {
-                throw new IllegalArgumentException("current thread get lock failed");
             }
         }
+        throw new IllegalArgumentException("current thread get lock failed");
     }
 
     private static RedisDistributeLock getAnnotation(ProceedingJoinPoint proceedingJoinPoint) {
