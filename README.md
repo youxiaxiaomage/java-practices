@@ -38,6 +38,7 @@
 | `yxxmg-distribute-redis-lock-sample` | `redis`实现分布式锁                                          |
 | `yxxmg-sa-token-sample`              | `sa-token`功能                                               |
 | `yxxmg-dynamic-feign-sample`         | 动态`feign`                                                  |
+| `yxxmg-okhttp-sample`                | `okhttp3`                                                    |
 
 ### 介绍
 
@@ -84,6 +85,8 @@
 21. `sa-token`
 
 22. `dynamic-feign`
+
+23. `okhttp3`
 
 ### 核心组件以及功能介绍
 

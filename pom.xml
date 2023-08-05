@@ -26,6 +26,7 @@
         <module>yxxmg-dynamic-feign</module>
         <module>yxxmg-distribute-redis-lock-sample</module>
         <module>yxxmg-leaf-unique-sample</module>
+        <module>yxxmg-okttp-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

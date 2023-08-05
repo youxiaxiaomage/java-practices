@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8081
 
 sa-token:
   # token 名称（同时也是 cookie 名称）
