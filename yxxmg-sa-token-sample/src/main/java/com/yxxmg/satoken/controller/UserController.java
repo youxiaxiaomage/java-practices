@@ -1,8 +1,8 @@
 package com.yxxmg.satoken.controller;
 
+import org.springframework.web.bind.annotation.*;
+
 import cn.dev33.satoken.stp.StpUtil;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author : yxxmg
@@ -31,4 +31,14 @@ public class UserController {
         return "当前会话是否登录：" + StpUtil.isLogin();
     }
 
+    @PostMapping("/test")
+    public String test(@RequestBody TestDTO testDTO) {
+        return testDTO.getTest();
+    }
+
+    @GetMapping("/testHeader")
+    public String testHeader(@RequestHeader String satoken) {
+        System.out.println("satoken--->" + satoken);
+        return satoken;
+    }
 }

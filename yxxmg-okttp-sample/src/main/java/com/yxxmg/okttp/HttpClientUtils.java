@@ -3,8 +3,10 @@ package com.yxxmg.okttp;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -95,6 +97,35 @@ public final class HttpClientUtils {
             Request request = new Request.Builder().get().url(url).build();
             Response response = okHttpClient.newCall(request).execute();
             Headers headers = response.headers();
+            if (StringUtils.isNotBlank(headers.get(COOKIE))) {
+                Map<String,
+                    String> cookieHeader = Arrays.stream(Objects.requireNonNull(headers.get(COOKIE)).split(";"))
+                        .map(h -> Pair.of(h.split("=")[0], h.split("=")[1]))
+                        .collect(Collectors.toMap(Pair::getKey, Pair::getValue, (v1, v2) -> v1));
+                System.out.println(cookieHeader.get("satoken"));
+            }
+            log.info("get response:{}", response);
+            if (response.isSuccessful() && Objects.nonNull(response.body())) {
+                return response.body().string();
+            }
+        } catch (Exception e) {
+            log.error("get request error, with ex:", e);
+            throw new OkhttpException(e.getMessage());
+        }
+        return null;
+    }
+
+    public static String get(String url, Map<String, String> headers) {
+        log.info("get url:{}", url);
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        Request.Builder requestBuilder = new Request.Builder();
+        if (MapUtils.isNotEmpty(headers)) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
+                requestBuilder.addHeader(entry.getKey(), entry.getValue());
+            }
+        }
+        Request request = requestBuilder.get().url(url).build();
+        try (Response response = builder.connectTimeout(5, TimeUnit.MINUTES).build().newCall(request).execute()) {
             if (StringUtils.isNotBlank(headers.get(COOKIE))) {
                 Map<String,
                     String> cookieHeader = Arrays.stream(headers.get(COOKIE).split(";"))
