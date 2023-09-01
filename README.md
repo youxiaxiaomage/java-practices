@@ -18,6 +18,7 @@
 | 目录                                 | 说明                                                         |
 | ------------------------------------ | ------------------------------------------------------------ |
 | `yxxmg-mybatis-plus-sample`          | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
+| `yxxmg-mybatis-flex-sample`          | `mybatis-flex`新的`orm`框架，目前是`1.6.3`版本（目前版本可能存在问题，当前版本也是紧急修复的版本） |
 | `yxxmg-pay-spring-boot-starter`      | `springboot`自动装配，`SPI`自定义支付`starter`               |
 | `yxxmg-drools-sample`                | 规则引擎                                                     |
 | `yxxmg-java-helper`                  | `java`语法糖                                                 |
@@ -87,6 +88,10 @@
 22. `dynamic-feign`
 
 23. `okhttp3`
+
+24. `mybatis-flex`，官方插件`mybatis-flex-helper`
+
+25. 自定义`ClassLoader`
 
 ### 核心组件以及功能介绍
 
@@ -506,7 +511,7 @@ public class ConstructorService {
    }
    ```
 
-#### 动态`feign`
+#### 动态`feign` 基于serviceId（服务发现如nacos）
 
 ```java
 public interface DynamicService {
@@ -588,6 +593,41 @@ public class DynamicClient {
     }
 }
 ```
+
+#### 动态feign基于URL
+
+例子展示的是按照`POST`请求方式
+
+```java
+@FeignClient(name = "dynamic-url-feign", url = "EMPTY")
+public interface DynamicUrlClient {
+    @RequestLine("POST /")
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    String post(URI uri, @RequestBody String request);
+}
+```
+
+```java
+@Component
+@Import(FeignClientsConfiguration.class)
+public class DynamicUrlService {
+    private final DynamicUrlClient dynamicUrlClient;
+
+    @Autowired
+    public DynamicUrlService(Encoder encoder, Decoder decoder) {
+        this.dynamicUrlClient = Feign.builder()        
+            .encoder(encoder)
+            .decoder(decoder)
+            .target(Target.EmptyTarget.create(DynamicUrlClient.class));
+    }
+
+    public String post(String url, String request) {
+        return this.dynamicUrlClient.post(URI.create(url), request);
+    }
+}
+```
+
+
 
 #### `redis`实现分布式锁
 

@@ -94,25 +94,15 @@ public final class HttpClientUtils {
         log.info("get url:{}", url);
         try {
             OkHttpClient okHttpClient = new OkHttpClient();
-            Request request = new Request.Builder().get().url(url).build();
+            Request request =
+                new Request.Builder().addHeader("x-acs-btrip-so-corp-token", "so_corp_token").get().url(url).build();
             Response response = okHttpClient.newCall(request).execute();
-            Headers headers = response.headers();
-            if (StringUtils.isNotBlank(headers.get(COOKIE))) {
-                Map<String,
-                    String> cookieHeader = Arrays.stream(Objects.requireNonNull(headers.get(COOKIE)).split(";"))
-                        .map(h -> Pair.of(h.split("=")[0], h.split("=")[1]))
-                        .collect(Collectors.toMap(Pair::getKey, Pair::getValue, (v1, v2) -> v1));
-                System.out.println(cookieHeader.get("satoken"));
-            }
             log.info("get response:{}", response);
-            if (response.isSuccessful() && Objects.nonNull(response.body())) {
-                return response.body().string();
-            }
+            return response.body().string();
         } catch (Exception e) {
             log.error("get request error, with ex:", e);
             throw new OkhttpException(e.getMessage());
         }
-        return null;
     }
 
     public static String get(String url, Map<String, String> headers) {

@@ -27,6 +27,8 @@
         <module>yxxmg-distribute-redis-lock-sample</module>
         <module>yxxmg-leaf-unique-sample</module>
         <module>yxxmg-okttp-sample</module>
+        <module>yxxmg-plugin-sample</module>
+        <module>yxxmg-mybatis-flex-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
