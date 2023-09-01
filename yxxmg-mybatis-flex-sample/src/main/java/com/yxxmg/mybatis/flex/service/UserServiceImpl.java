@@ -10,6 +10,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.mybatisflex.core.query.QueryWrapper;
+import com.mybatisflex.core.row.Db;
+import com.mybatisflex.core.row.Row;
 import com.mybatisflex.spring.service.impl.CacheableServiceImpl;
 import com.yxxmg.mybatis.flex.api.UserService;
 import com.yxxmg.mybatis.flex.entity.User;
@@ -34,6 +36,8 @@ public class UserServiceImpl extends CacheableServiceImpl<UserMapper, User> impl
     @Override
     @Cacheable(key = "#id")
     public User getById(Serializable id) {
+        List<Row> rows = Db.selectAll(USER.getTableName());
+        System.out.println(rows);
         return super.getById(id);
     }
 }

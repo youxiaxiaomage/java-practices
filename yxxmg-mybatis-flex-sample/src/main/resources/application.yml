@@ -62,6 +62,3 @@ knife4j:
 logging:
   file:
     name: mybatis-flex.log
-mybatis-flex:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
