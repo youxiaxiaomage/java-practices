@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
 import com.mybatisflex.core.audit.AuditManager;
+import com.mybatisflex.core.mask.MaskManager;
 
 /**
  * @author : yxxmg
@@ -17,6 +18,8 @@ public class MyBatisFlexConfiguration {
     private static final Logger logger = LoggerFactory.getLogger("mybatis-flex-sql");
 
     public MyBatisFlexConfiguration() {
+        // 注册自定义字段脱敏规则
+        MaskManager.registerMaskProcessor("custom", data -> data + "自定义字段脱敏");
         // 开启审计功能
         AuditManager.setAuditEnable(true);
 

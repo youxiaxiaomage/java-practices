@@ -59,6 +59,8 @@ spring:
       matching-strategy: ant_path_matcher
 knife4j:
   enable: true
-logging:
-  file:
-    name: mybatis-flex.log
+mybatis-flex:
+  global-config:
+    logic-delete-column: is_deleted
+    deleted-value-of-logic-delete: 1
+    normal-value-of-logic-delete: 0

@@ -20,7 +20,7 @@ import com.yxxmg.mybatis.flex.mapper.UserMapper;
 /**
  * @author : zhaoyan
  * @version : 1.0
- * @description :
+ * @description : 设置缓存
  * @since : 2023/8/31
  */
 @Service
