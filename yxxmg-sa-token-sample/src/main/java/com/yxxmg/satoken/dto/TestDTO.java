@@ -1,4 +1,4 @@
-package com.yxxmg.satoken.controller;
+package com.yxxmg.satoken.dto;
 
 import java.io.Serializable;
 

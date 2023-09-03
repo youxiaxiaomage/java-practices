@@ -2,6 +2,8 @@ package com.yxxmg.satoken.controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.yxxmg.satoken.dto.TestDTO;
+
 import cn.dev33.satoken.stp.StpUtil;
 
 /**
