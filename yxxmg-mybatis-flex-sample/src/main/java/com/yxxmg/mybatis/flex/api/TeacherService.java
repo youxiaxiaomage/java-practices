@@ -6,7 +6,7 @@ import com.yxxmg.mybatis.flex.entity.Teacher;
 /**
  * @author : zhaoyan
  * @version : 1.0
- * @description : TODO 描述文件功能
+ * @description :
  * @since : 2023/8/31
  */
 public interface TeacherService extends IService<Teacher> {}

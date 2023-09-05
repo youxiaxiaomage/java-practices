@@ -33,7 +33,9 @@ public class TeacherController {
     @PostMapping
     @ApiOperation("新增")
     public String add(@RequestBody Teacher teacher) {
-        this.teacherService.save(teacher);
+        // AR模式
+        boolean save = teacher.save();
+        System.out.println(save);
         return "success";
     }
 
