@@ -29,6 +29,7 @@
         <module>yxxmg-okhttp-sample</module>
         <module>yxxmg-plugin-sample</module>
         <module>yxxmg-mybatis-flex-sample</module>
+        <module>yxxmg-nlp2cron</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
