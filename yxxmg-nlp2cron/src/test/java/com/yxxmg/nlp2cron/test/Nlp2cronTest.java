@@ -46,6 +46,9 @@ public class Nlp2cronTest {
         System.out.println(cron9);
         String cron10 = CrondUtil.toTime(test8);
         System.out.println(cron10);
+        String test9 = "每隔30分钟一次";
+        String cron11 = CrondUtil.toCron(test9);
+        System.out.println(cron11);
         /*使用完关闭 如果在web中需要重复使用则不需要关闭*/
         CrondModel.close();
         // 明早八点 转为cron表达式：0 0 8 7 9 ? 2023
