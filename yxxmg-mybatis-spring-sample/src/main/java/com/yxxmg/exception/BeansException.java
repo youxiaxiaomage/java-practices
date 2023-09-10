@@ -1,4 +1,4 @@
-package com.yxxmg.spring.exception;
+package com.yxxmg.exception;
 
 /**
  * @author : yxxmg

@@ -1,8 +1,6 @@
-package com.yxxmg.spring.factory;
+package com.yxxmg.factory;
 
 import java.util.Iterator;
-import java.util.Objects;
-import java.util.function.Consumer;
 
 /**
  * @author : yxxmg

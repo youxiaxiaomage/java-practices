@@ -1,6 +1,6 @@
-package com.yxxmg.spring.factory;
+package com.yxxmg.factory;
 
-import com.yxxmg.spring.exception.BeansException;
+import com.yxxmg.exception.BeansException;
 
 /**
  * @author : yxxmg

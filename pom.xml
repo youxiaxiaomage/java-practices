@@ -18,7 +18,7 @@
         <module>yxxmg-oss-sample</module>
         <module>yxxmg-magic-api-sample</module>
         <module>yxxmg-gof-sample</module>
-        <module>yxxmg-spring-sample</module>
+        <module>yxxmg-mybatis-spring-sample</module>
         <module>yxxmg-nlp-sample</module>
         <module>yxxmg-javers-sample</module>
         <module>yxxmg-event-sample</module>
