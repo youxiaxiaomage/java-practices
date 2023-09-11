@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.yxxmg.annotation.DataScope;
 import com.yxxmg.entity.User;
 
 /**
@@ -21,6 +22,7 @@ public interface UserMapper {
      */
     List<User> list();
 
+    @DataScope(alias = "u")
     List<User> listAll();
 
     int insert(@Param("cm") User user);
