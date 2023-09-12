@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.yxxmg.entity.User;
 import com.yxxmg.mapper.UserMapper;
 import com.yxxmg.service.UserService;
@@ -28,6 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> listAll() {
+        PageHelper.startPage(1, 3);
         return this.userMapper.listAll();
     }
 }

@@ -12,3 +12,9 @@ mybatis:
   type-handlers-package: com.yxxmg.handler
 server:
   port: 8081
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

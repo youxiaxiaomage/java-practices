@@ -1,4 +1,4 @@
-package com.yxxmg.interceptor;
+package com.yxxmg.plugins.datapermission;
 
 import java.lang.reflect.Method;
 
@@ -14,7 +14,6 @@ import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.stereotype.Component;
 
 import com.yxxmg.annotation.DataScope;
 
@@ -37,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
         args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class,
             BoundSql.class})})
 @Slf4j
-@Component
+// @Component
 public class CustomInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -132,4 +131,5 @@ public class CustomInterceptor implements Interceptor {
             return boundSql;
         }
     }
+
 }
