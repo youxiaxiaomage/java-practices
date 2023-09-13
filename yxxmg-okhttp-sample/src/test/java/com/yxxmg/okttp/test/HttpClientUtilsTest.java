@@ -31,16 +31,6 @@ public class HttpClientUtilsTest {
     }
 
     @Test
-    public void testGet() {
-        String url = "https://btripopen.alibtrip.com/api/train/v1/bill-settlement?"
-            + "app_key=jiiuchg03800&so_corp_token=DgLNQAwI00&period_end=202308-06"
-            + "&period_start=2023-01-01&page_no=1&page_size=20";
-        String response = HttpClientUtils.get(url);
-        System.out.println(response);
-        Assert.isTrue(StringUtils.isNotBlank(response));
-    }
-
-    @Test
     public void testHeader() {
         String url = "http://localhost:8081/user/testHeader";
         Map<String, String> headers = Maps.newHashMap();
