@@ -15,7 +15,7 @@
     </p>    
 </p>
 
-| 目录                                                         | 说明                                                         |
+| 目录（部分直接可以点击链链接跳转模块明细）                   | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `yxxmg-mybatis-plus-sample`                                  | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
 | `yxxmg-mybatis-flex-sample`                                  | `mybatis-flex`新的`orm`框架，目前是`1.6.3`版本（目前版本可能存在问题，当前版本也是紧急修复的版本） |
