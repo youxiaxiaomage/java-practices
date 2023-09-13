@@ -1,8 +1,14 @@
 # `Mybatis`学习
 
-## 自定类型转换器
+## 架构图
 
-### 枚举类型转换器
+<img src="./images/架构图.png" style="zoom:80%;" />
+
+## 类型处理器(`TypeHandlers`)
+
+### 自定类型转换器
+
+#### 枚举类型转换器
 
 `org.apache.ibatis.type.BaseTypeHandler`
 
@@ -115,7 +121,7 @@ public enum Gender {
    ]
    ```
 
-### 引用类型转换器
+#### 引用类型转换器
 
 学生->属性 班主任
 
@@ -274,11 +280,64 @@ public class SpringBeanUtils implements ApplicationContextAware {
 
 
 
-## 拦截器
+## 插件(`plugins`)
 
-## mapper关联结果集查询
+  MyBatis 允许你在映射语句执行过程中的某一点进行拦截调用。默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：        
 
-### mapper.xml配置
+-  `Executor (update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)`          
+-   `ParameterHandler(getParameterObject, setParameters)`          
+-  ` ResultSetHandler(handleResultSets, handleOutputParameters) `         
+-  `StatementHandler (prepare, parameterize, batch, update, query)`          
+
+## 映射器(`mappers`)
+
+### 映射器配置方式
+
+#### 资源引用
+
+```xml
+<!-- 使用相对于类路径的资源引用 -->
+<mappers>
+  <mapper resource="org/mybatis/builder/AuthorMapper.xml"/>
+  <mapper resource="org/mybatis/builder/BlogMapper.xml"/>
+  <mapper resource="org/mybatis/builder/PostMapper.xml"/>
+</mappers
+```
+
+#### url
+
+```xml
+<!-- 使用完全限定资源定位符（URL） -->
+<mappers>
+  <mapper url="file:///var/mappers/AuthorMapper.xml"/>
+  <mapper url="file:///var/mappers/BlogMapper.xml"/>
+  <mapper url="file:///var/mappers/PostMapper.xml"/>
+</mappers>
+```
+
+#### 类全路径
+
+```xml
+<!-- 使用映射器接口实现类的完全限定类名 -->
+<mappers>
+  <mapper class="org.mybatis.builder.AuthorMapper"/>
+  <mapper class="org.mybatis.builder.BlogMapper"/>
+  <mapper class="org.mybatis.builder.PostMapper"/>
+</mappers>
+```
+
+#### 包
+
+```xml
+<!-- 将包内的映射器接口实现全部注册为映射器 -->
+<mappers>
+  <package name="org.mybatis.builder"/>
+</mappers>
+```
+
+### mapper关联结果集查询
+
+##### mapper.xml配置
 
 ```xml
 <resultMap id="basicResultMap" type="com.yxxmg.entity.User">
