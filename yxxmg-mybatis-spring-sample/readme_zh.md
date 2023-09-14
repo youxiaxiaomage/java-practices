@@ -4,6 +4,22 @@
 
 <img src="./images/架构图.png" style="zoom:80%;" />
 
+
+
+## 类型别名`TypeAlias`
+
+
+
+## 执行器（`Executor`)
+
+### 简单执行器(SimpleExecutor)
+
+### 批处理执行器(BatchExecutor)
+
+### 重用执行器(ResueExecutor)
+
+缓存执行器(CacheExecutor)
+
 ## 类型处理器(`TypeHandlers`)
 
 ### 自定类型转换器
