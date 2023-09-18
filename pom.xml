@@ -31,6 +31,7 @@
         <module>yxxmg-mybatis-flex-sample</module>
         <module>yxxmg-nlp2cron</module>
         <module>yxxmg-redis-sample</module>
+        <module>yxxmg-spring-brick-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

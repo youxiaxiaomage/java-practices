@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/plugin-test-example?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 100MB
+      max-file-size: 100MB
+      file-size-threshold: 20MB
+
+mybatis-plus:
+  typeAliasesPackage: com.gitee.starblues.example.entity
+  mapperLocations: classpath*:mapper/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+plugin:
+  runMode: prod
+  mainPackage: com.yxxmg.spring.brick
+  # 如果配置是 windows 下路径, mac、linux 自行修改
+  pluginPath:
+    - ~\example-plugins-basic
+    - ~\example-plugins-db
+    #- ~\example-plugins-cloud
+  sortInitPluginIds:
+    - example-basic-2
+    - example-basic-1
+  decrypt:
+    enable: true
+    className: com.gitee.starblues.common.cipher.AesPluginCipher
+    plugins:
+      - pluginId: example-basic-1
+        props:
+          secretKey: mmfvXes1XckCi8F/y9i0uQ==

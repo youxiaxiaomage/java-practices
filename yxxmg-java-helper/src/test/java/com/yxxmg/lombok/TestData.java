@@ -23,6 +23,12 @@ public class TestData {
         Assert.assertEquals("1", of.getId());
     }
 
+    @Test
+    public void test2() {
+        Book book1 = Book.builder().bookId("123").bookName("book1").build();
+        Assert.assertTrue(book1.getIsNew());
+    }
+
     @lombok.Data
     @AllArgsConstructor(staticName = "of", access = AccessLevel.PRIVATE)
     static class Data implements Serializable {
