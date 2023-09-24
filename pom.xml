@@ -32,6 +32,7 @@
         <module>yxxmg-nlp2cron</module>
         <module>yxxmg-redis-sample</module>
         <module>yxxmg-spring-brick-sample</module>
+        <module>yxxmg-distribute-zookeeper-lock-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
