@@ -33,6 +33,7 @@
         <module>yxxmg-redis-sample</module>
         <module>yxxmg-spring-brick-sample</module>
         <module>yxxmg-distribute-zookeeper-lock-sample</module>
+        <module>yxxmg-spring-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -1,0 +1,5 @@
+server:
+  port: 8811
+context:
+  initializer:
+    classes: com.yxxmg.spring.extension.Test3ApplicationContextInitializer
