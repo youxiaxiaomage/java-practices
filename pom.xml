@@ -34,6 +34,7 @@
         <module>yxxmg-spring-brick-sample</module>
         <module>yxxmg-distribute-zookeeper-lock-sample</module>
         <module>yxxmg-spring-sample</module>
+        <module>yxxmg-rabbitmq-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
