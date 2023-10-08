@@ -50,17 +50,17 @@ public class CustomEnumHandler<T extends BaseEnum> extends BaseTypeHandler<BaseE
 }
 ```
 
-![](images/列表查询列表展示.png)
+![](../images/列表查询列表展示.png)
 
 #### Knife4j文档显示对应的枚举项
 
-![](images/swagger.png)
+![](../images/swagger.png)
 
 新增修改使用同一个DTO但是Knife4j新增不显示Id
 
-![](images/新增.png)
+![](../images/新增.png)
 
-![](images/修改.png)
+![](../images/修改.png)
 
 实体类只需配置
 
@@ -211,5 +211,3 @@ public class ConstructorService {
     }
 }
 ```
-
-####  

@@ -17,9 +17,9 @@
 
 | 目录（部分直接可以点击链链接跳转模块明细）                   | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [`yxxmg-mybatis-plus-sample`](./yxxmg-mybatis-plus-sample/readme.md) | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
+| [`(有链接)yxxmg-mybatis-plus-sample`](./yxxmg-mybatis-plus-sample/readme.md) | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
 | `yxxmg-mybatis-flex-sample`                                  | `mybatis-flex`新的`orm`框架，目前是`1.6.3`版本（目前版本可能存在问题，当前版本也是紧急修复的版本） |
-| [`yxxmg-pay-spring-boot-starter`](./yxxmg-pay-spring-boot-starter/readme.md) | `springboot`自动装配，`SPI`自定义支付`starter`               |
+| [`(有链接)yxxmg-pay-spring-boot-starter`](./yxxmg-pay-spring-boot-starter/readme.md) | `springboot`自动装配，`SPI`自定义支付`starter`               |
 | `yxxmg-drools-sample`                                        | 规则引擎                                                     |
 | `yxxmg-java-helper`                                          | `java`语法糖                                                 |
 | `yxxmg-spring-boot-sample`                                   | `springboot`相关内容                                         |
@@ -27,7 +27,7 @@
 | `yxxmg-elasticjob`                                           | `elasticjob`任务调度                                         |
 | `yxxmg-smart-doc`                                            | `smart-doc`                                                  |
 | `yxxmg-exception-sample`                                     | 自定义异常或国际化                                           |
-| [`yxxmg-sensitive-sample`](./yxxmg-sensitive-sample/readme.md) | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等 |
+| [`(有链接)yxxmg-sensitive-sample`](./yxxmg-sensitive-sample/readme.md) | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等 |
 | `yxxmg-liteflow-sample`                                      | `liteflow`服务编排                                           |
 | `yxxmg-magic-api-sample`                                     | `magic-api`                                                  |
 | `yxxmg-event-sample`                                         | `ApplicationEvent`，`ApplicationEventPublisher`              |
@@ -36,11 +36,11 @@
 | `yxxmg-nlp-sample`                                           | `Stanford nlp`                                               |
 | `yxxmg-magic-api-sample`                                     | `magic-api`                                                  |
 | `yxxmg-gof-sample`                                           | `Gof`设计模式                                                |
-| [`yxxmg-distribute-redis-lock-sample`](./yxxmg-distribute-redis-lock-sample/readme.md) | `redis`实现分布式锁                                          |
+| [`(有链接)yxxmg-distribute-redis-lock-sample`](./yxxmg-distribute-redis-lock-sample/readme.md) | `redis`实现分布式锁                                          |
 | `yxxmg-sa-token-sample`                                      | `sa-token`功能                                               |
-| [`yxxmg-dynamic-feign-sample`](./yxxmg-dynamic-feign-sample/readme.md) | 动态`feign`                                                  |
+| [`(有链接)yxxmg-dynamic-feign-sample`](./yxxmg-dynamic-feign-sample/readme.md) | 动态`feign`                                                  |
 | `yxxmg-okhttp-sample`                                        | `okhttp3`                                                    |
-| [`yxxmg-mybatis-spring-sample`](./yxxmg-mybatis-spring-sample/readme_zh.md) | `mybatis`基础研究                                            |
+| [`(有链接)yxxmg-mybatis-spring-sample`](./yxxmg-mybatis-spring-sample/readme_zh.md) | `mybatis`基础研究                                            |
 | `yxxmg-rabbitmq-sample`                                      | 对生产者消费者进行了对应的`工厂模式+策略模式`的封装，扩展性极强, 动态创建`Queue`,`Exchange`，`Binding` |
 
 #### 开发工具Idea
