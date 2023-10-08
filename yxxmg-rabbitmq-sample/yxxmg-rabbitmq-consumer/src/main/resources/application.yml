@@ -1,13 +1,9 @@
 server:
-  port: 9001
+  port: 9002
 spring:
   rabbitmq:
     host: 127.0.0.1
     port: 5672
-    username: root
-    password: root
+    username: admin
+    password: admin
     virtual-host: /
-    listener:
-      direct:
-        acknowledge-mode: auto
-        consumers-per-queue: 1
