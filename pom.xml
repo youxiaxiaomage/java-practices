@@ -35,6 +35,7 @@
         <module>yxxmg-distribute-zookeeper-lock-sample</module>
         <module>yxxmg-spring-sample</module>
         <module>yxxmg-rabbitmq-sample</module>
+        <module>yxxmg-itext-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
