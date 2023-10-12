@@ -36,6 +36,8 @@
         <module>yxxmg-spring-sample</module>
         <module>yxxmg-rabbitmq-sample</module>
         <module>yxxmg-itext-sample</module>
+        <module>yxxmg-asm-sample</module>
+        <module>yxxmg-websocket-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
