@@ -1,21 +1,18 @@
 package com.yxxmg.jwt.entity;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.mybatisflex.annotation.Table;
-import com.mybatisflex.core.keygen.KeyGenerators;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 
 import lombok.Data;
 
@@ -28,12 +25,13 @@ import lombok.Data;
 @Data
 @TableName("TBL_USER")
 public class User implements Serializable, UserDetails {
-    @TableId(value = "id",type = IdType.ASSIGN_ID)
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private String id;
     private String userName;
     private String password;
     @TableField(exist = false)
-    private List<SimpleGrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+    private List<SimpleGrantedAuthority> authorities =
+        Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

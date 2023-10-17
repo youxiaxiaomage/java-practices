@@ -24,7 +24,8 @@ import java.io.IOException;
 public class AuthenticationEntryPoint implements org.springframework.security.web.AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        log.error("has no authorization", authException);
+        // 开始 着手
+        log.error("Unauthorized Request", authException);
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Cache-Control", "no-cache");
         response.setContentType("application/json");

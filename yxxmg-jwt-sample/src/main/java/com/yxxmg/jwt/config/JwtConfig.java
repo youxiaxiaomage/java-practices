@@ -18,6 +18,7 @@ import java.util.List;
 public class JwtConfig implements Serializable {
     private String secret;
     private String tokenPrefix;
+    private String tokenHeader;
     private long expiration;
     private List<String> antMatchers;
 }

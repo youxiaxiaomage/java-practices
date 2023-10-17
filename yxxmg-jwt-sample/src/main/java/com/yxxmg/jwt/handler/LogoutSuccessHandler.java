@@ -1,5 +1,8 @@
 package com.yxxmg.jwt.handler;
 
+import com.alibaba.fastjson.JSON;
+import com.yxxmg.jwt.vo.ResponseVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,16 +20,18 @@ import java.io.IOException;
  * @since : 2023/10/16
  */
 @Service
+@Slf4j
 public class LogoutSuccessHandler implements org.springframework.security.web.authentication.logout.LogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+        log.info("Trigger logout success {}", authentication);
         SecurityContextHolder.clearContext();
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Cache-Control", "no-cache");
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.setStatus(HttpStatus.OK.value());
-//        response.getWriter().println(GenericJacksonUtil.objectToJson(ResponseVO.success()));
+        response.getWriter().println(JSON.toJSONString(ResponseVO.success("登出成功")));
         response.getWriter().flush();
 
     }
