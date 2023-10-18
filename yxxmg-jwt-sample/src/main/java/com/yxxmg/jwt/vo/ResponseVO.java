@@ -21,7 +21,9 @@ public class ResponseVO<T> implements Serializable {
     public static <T> ResponseVO<T> success(String message, T data) {
         return new ResponseVO<T>().setCode(0).setMessage(message).setData(data);
     }
-
+    public static <T> ResponseVO<T> success(String message) {
+        return success(message, null);
+    }
     public static  <T> ResponseVO<T> fail(String message) {
         return fail(message, null);
     }

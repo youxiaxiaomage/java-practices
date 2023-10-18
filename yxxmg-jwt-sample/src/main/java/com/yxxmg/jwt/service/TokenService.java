@@ -1,9 +1,11 @@
 package com.yxxmg.jwt.service;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -32,11 +34,14 @@ public class TokenService {
     private RedisTemplate<String, String> redisTemplate;
 
     public String generateToken(User user) {
-        // claim type
-        return Jwts.builder().setId(user.getId()).setSubject(user.getUsername()).setIssuer("yxxmg")
+        String token = Jwts.builder().setId(user.getId()).setSubject(user.getUsername()).setIssuer("yxxmg")
             .setIssuedAt(new Date()).claim("authorities", JSON.toJSONString(user.getAuthorities()))
             .setExpiration(new Date(System.currentTimeMillis() + this.jwtConfig.getExpiration()))
             .signWith(SignatureAlgorithm.HS512, this.jwtConfig.getSecret()).compact();
+        // claim type
+        this.redisTemplate.opsForValue().set(user.getUsername(), token, this.jwtConfig.getExpiration(),
+            TimeUnit.MILLISECONDS);
+        return token;
     }
 
     public String decodeTokenFromRequest(String token) {
@@ -46,7 +51,8 @@ public class TokenService {
 
     public boolean isValid(String token, @NonNull UserDetails userDetails) {
         String userName = getUserName(token);
-        return userName.equals(userDetails.getUsername());
+        String cacheToken = this.redisTemplate.opsForValue().get(userName);
+        return userName.equals(userDetails.getUsername()) && StringUtils.equals(token, cacheToken);
     }
 
     public String getUserName(String token) {
@@ -55,5 +61,9 @@ public class TokenService {
 
     private Claims getClaims(String token) {
         return Jwts.parser().setSigningKey(this.jwtConfig.getSecret()).parseClaimsJws(token).getBody();
+    }
+
+    public void removeToken(String username) {
+        this.redisTemplate.delete(username);
     }
 }

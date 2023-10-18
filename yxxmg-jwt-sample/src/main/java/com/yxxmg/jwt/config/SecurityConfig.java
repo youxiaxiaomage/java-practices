@@ -69,8 +69,8 @@ public class SecurityConfig {
             // .loginProcessingUrl("/user/login")
             // .successHandler(this.authenticationSuccessHandler)
             .logout().logoutUrl("/user/logout")
-            // 登出成功处理器
-            .logoutSuccessHandler(this.logoutSuccessHandler).addLogoutHandler(this.logoutHandler);
+            // 登出成功处理器 /*.addLogoutHandler(this.logoutHandler)*/
+            .logoutSuccessHandler(this.logoutSuccessHandler);
         return httpSecurity.build();
     }
 
