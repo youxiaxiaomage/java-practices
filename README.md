@@ -23,7 +23,7 @@
 | `yxxmg-drools-sample`                                        | 规则引擎                                                     |
 | `yxxmg-java-helper`                                          | `java`语法糖                                                 |
 | `yxxmg-spring-boot-sample`                                   | `springboot`相关内容                                         |
-| `yxxmg-flowable`                                             | `flowable`工作流引擎                                         |
+| [`(有链接)yxxmg-flowable`](./yxxmg-flowable/readme.md)       | `flowable`工作流引擎                                         |
 | `yxxmg-elasticjob`                                           | `elasticjob`任务调度                                         |
 | `yxxmg-smart-doc`                                            | `smart-doc`                                                  |
 | `yxxmg-exception-sample`                                     | 自定义异常或国际化                                           |
@@ -33,15 +33,17 @@
 | `yxxmg-event-sample`                                         | `ApplicationEvent`，`ApplicationEventPublisher`              |
 | `yxxmg-javers-sample`                                        | 对象前后变化对比（未开始）                                   |
 | `yxxmg-oos-sample`                                           | 阿里云`oos`                                                  |
-| `yxxmg-nlp-sample`                                           | `Stanford nlp`                                               |
+| [`(有链接)yxxmg-nlp-sample`](./yxxmg-nlp-sample/README.md)   | `Stanford nlp`                                               |
 | `yxxmg-magic-api-sample`                                     | `magic-api`                                                  |
-| `yxxmg-gof-sample`                                           | `Gof`设计模式                                                |
+| [`(有链接)yxxmg-gof-sample`](./yxxmg-gof-sample/README.md)   | `Gof`设计模式                                                |
 | [`(有链接)yxxmg-distribute-redis-lock-sample`](./yxxmg-distribute-redis-lock-sample/readme.md) | `redis`实现分布式锁                                          |
 | `yxxmg-sa-token-sample`                                      | `sa-token`功能                                               |
 | [`(有链接)yxxmg-dynamic-feign-sample`](./yxxmg-dynamic-feign-sample/readme.md) | 动态`feign`                                                  |
-| `yxxmg-okhttp-sample`                                        | `okhttp3`                                                    |
+| [`(有链接)yxxmg-okhttp-sample`](./yxxmg-okhttp-sample/README.md) | `okhttp3`                                                    |
 | [`(有链接)yxxmg-mybatis-spring-sample`](./yxxmg-mybatis-spring-sample/readme_zh.md) | `mybatis`基础研究                                            |
-| `yxxmg-rabbitmq-sample`                                      | 对生产者消费者进行了对应的`工厂模式+策略模式`的封装，扩展性极强, 动态创建`Queue`,`Exchange`，`Binding` |
+| [`(有链接)yxxmg-rabbitmq-sample`](./yxxmg-rabbitmq-sample/README.md) | 对生产者消费者进行了对应的`工厂模式+策略模式`的封装，扩展性极强, 动态创建`Queue`,`Exchange`，`Binding` |
+| [`(有链接)yxxmg-websocket-sample`](./yxxmg-yxxmg-websocket-sample/README.md) | `springboot`集成`websocket`                                  |
+| [`(有链接)yxxmg-jwt-sample`](./yxxmg-jwt-sample/README.md)   |                                                              |
 
 #### 开发工具Idea
 
