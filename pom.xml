@@ -23,7 +23,7 @@
         <module>yxxmg-javers-sample</module>
         <module>yxxmg-event-sample</module>
         <module>yxxmg-sa-token-sample</module>
-        <module>yxxmg-dynamic-feign</module>
+        <module>yxxmg-dynamic-feign-sample</module>
         <module>yxxmg-distribute-redis-lock-sample</module>
         <module>yxxmg-leaf-unique-sample</module>
         <module>yxxmg-okhttp-sample</module>
