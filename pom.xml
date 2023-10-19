@@ -39,6 +39,7 @@
         <module>yxxmg-asm-sample</module>
         <module>yxxmg-websocket-sample</module>
         <module>yxxmg-jwt-sample</module>
+        <module>yxxmg-orm-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
