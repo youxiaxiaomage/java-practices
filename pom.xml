@@ -40,6 +40,7 @@
         <module>yxxmg-websocket-sample</module>
         <module>yxxmg-jwt-sample</module>
         <module>yxxmg-orm-sample</module>
+        <module>yxxmg-easy-trans-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

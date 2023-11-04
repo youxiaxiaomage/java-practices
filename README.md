@@ -15,35 +15,36 @@
     </p>    
 </p>
 
-| 目录                                                                                          | 说明                                                                                                                        |
-|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| [`(有链接)yxxmg-mybatis-plus-sample`](./yxxmg-mybatis-plus-sample/readme.md)                   | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
-| `yxxmg-mybatis-flex-sample`                                                                 | `mybatis-flex`新的`orm`框架，目前是`1.6.3`版本（目前版本可能存在问题，当前版本也是紧急修复的版本）                                                            |
-| [`(有链接)yxxmg-pay-spring-boot-starter`](./yxxmg-pay-spring-boot-starter/readme.md)           | `springboot`自动装配，`SPI`自定义支付`starter`                                                                                      |
-| `yxxmg-drools-sample`                                                                       | 规则引擎                                                                                                                      |
-| `yxxmg-java-helper`                                                                         | `java`语法糖                                                                                                                 |
-| `yxxmg-spring-boot-sample`                                                                  | `springboot`相关内容                                                                                                          |
-| [`(有链接)yxxmg-flowable`](./yxxmg-flowable/README.md)                                         | `flowable`工作流引擎                                                                                                           |
-| `yxxmg-elasticjob`                                                                          | `elasticjob`任务调度                                                                                                          |
-| `yxxmg-smart-doc`                                                                           | `smart-doc`                                                                                                               |
-| `yxxmg-exception-sample`                                                                    | 自定义异常或国际化                                                                                                                 |
-| [`(有链接)yxxmg-sensitive-sample`](./yxxmg-sensitive-sample/readme.md)                         | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等                                                                                       |
-| `yxxmg-liteflow-sample`                                                                     | `liteflow`服务编排                                                                                                            |
-| `yxxmg-magic-api-sample`                                                                    | `magic-api`                                                                                                               |
-| `yxxmg-event-sample`                                                                        | `ApplicationEvent`，`ApplicationEventPublisher`                                                                            |
-| `yxxmg-javers-sample`                                                                       | 对象前后变化对比（未开始）                                                                                                             |
-| `yxxmg-oos-sample`                                                                          | 阿里云`oos`                                                                                                                  |
-| [`(有链接)yxxmg-nlp-sample`](./yxxmg-nlp-sample/README.md)                                     | `Stanford nlp`                                                                                                            |
-| `yxxmg-magic-api-sample`                                                                    | `magic-api`                                                                                                               |
-| [`(有链接)yxxmg-gof-sample`](./yxxmg-gof-sample/README.md)                                     | `Gof`设计模式                                                                                                                 |
-| [`(有链接)yxxmg-distribute-redis-lock-sample`](./yxxmg-distribute-redis-lock-sample/readme.md) | `redis`实现分布式锁                                                                                                             |
-| `yxxmg-sa-token-sample`                                                                     | `sa-token`功能                                                                                                              |
-| [`(有链接)yxxmg-dynamic-feign-sample`](./yxxmg-dynamic-feign-sample/readme.md)                 | 动态`feign`                                                                                                                 |
-| [`(有链接)yxxmg-okhttp-sample`](./yxxmg-okhttp-sample/README.md)                               | `okhttp3`                                                                                                                 |
-| [`(有链接)yxxmg-mybatis-spring-sample`](./yxxmg-mybatis-spring-sample/readme_zh.md)            | `mybatis`基础研究                                                                                                             |
-| [`(有链接)yxxmg-rabbitmq-sample`](./yxxmg-rabbitmq-sample/README.md)                           | 对生产者消费者进行了对应的`工厂模式+策略模式`的封装，扩展性极强, 动态创建`Queue`,`Exchange`，`Binding`                                                       |
-| [`(有链接)yxxmg-websocket-sample`](./yxxmg-websocket-sample/README.md)                         | `springboot`集成`websocket`                                                                                                 |
-| [`(有链接)yxxmg-jwt-sample`](./yxxmg-jwt-sample/README.md)                                     |                                                                                                                           |
+| 目录                                                         | 说明                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [`(有链接)yxxmg-mybatis-plus-sample`](./yxxmg-mybatis-plus-sample/readme.md) | 动态表名，`Mybatis-Plus`自定义枚举,`Mapstruct`,`JSR303`,`JSR330`，`Caffeine`,`Knife4j`,`Openfegin`,`JustAuth`,`Easy-Excel`,`Easy-ES` |
+| `yxxmg-mybatis-flex-sample`                                  | `mybatis-flex`新的`orm`框架，目前是`1.6.3`版本（目前版本可能存在问题，当前版本也是紧急修复的版本） |
+| [`(有链接)yxxmg-pay-spring-boot-starter`](./yxxmg-pay-spring-boot-starter/readme.md) | `springboot`自动装配，`SPI`自定义支付`starter`               |
+| `yxxmg-drools-sample`                                        | 规则引擎                                                     |
+| `yxxmg-java-helper`                                          | `java`语法糖                                                 |
+| `yxxmg-spring-boot-sample`                                   | `springboot`相关内容                                         |
+| [`(有链接)yxxmg-flowable`](./yxxmg-flowable/README.md)       | `flowable`工作流引擎                                         |
+| `yxxmg-elasticjob`                                           | `elasticjob`任务调度                                         |
+| `yxxmg-smart-doc`                                            | `smart-doc`                                                  |
+| `yxxmg-exception-sample`                                     | 自定义异常或国际化                                           |
+| [`(有链接)yxxmg-sensitive-sample`](./yxxmg-sensitive-sample/readme.md) | `jackson`序列化与反序列化，例如字段脱敏，字符串去除首尾空格等 |
+| `yxxmg-liteflow-sample`                                      | `liteflow`服务编排                                           |
+| `yxxmg-magic-api-sample`                                     | `magic-api`                                                  |
+| `yxxmg-event-sample`                                         | `ApplicationEvent`，`ApplicationEventPublisher`              |
+| `yxxmg-javers-sample`                                        | 对象前后变化对比（未开始）                                   |
+| `yxxmg-oos-sample`                                           | 阿里云`oos`                                                  |
+| [`(有链接)yxxmg-nlp-sample`](./yxxmg-nlp-sample/README.md)   | `Stanford nlp`                                               |
+| `yxxmg-magic-api-sample`                                     | `magic-api`                                                  |
+| [`(有链接)yxxmg-gof-sample`](./yxxmg-gof-sample/README.md)   | `Gof`设计模式                                                |
+| [`(有链接)yxxmg-distribute-redis-lock-sample`](./yxxmg-distribute-redis-lock-sample/readme.md) | `redis`实现分布式锁                                          |
+| `yxxmg-sa-token-sample`                                      | `sa-token`功能                                               |
+| [`(有链接)yxxmg-dynamic-feign-sample`](./yxxmg-dynamic-feign-sample/readme.md) | 动态`feign`                                                  |
+| [`(有链接)yxxmg-okhttp-sample`](./yxxmg-okhttp-sample/README.md) | `okhttp3`                                                    |
+| [`(有链接)yxxmg-mybatis-spring-sample`](./yxxmg-mybatis-spring-sample/readme_zh.md) | `mybatis`基础研究                                            |
+| [`(有链接)yxxmg-rabbitmq-sample`](./yxxmg-rabbitmq-sample/README.md) | 对生产者消费者进行了对应的`工厂模式+策略模式`的封装，扩展性极强, 动态创建`Queue`,`Exchange`，`Binding` |
+| [`(有链接)yxxmg-websocket-sample`](./yxxmg-websocket-sample/README.md) | `springboot`集成`websocket`                                  |
+| [`(有链接)yxxmg-jwt-sample`](./yxxmg-jwt-sample/README.md)   |                                                              |
+| `yxxmg-easy-trans-sample`                                    | `easy-trans`                                                 |
 
 #### 开发工具Idea
 
