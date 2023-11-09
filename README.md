@@ -45,6 +45,7 @@
 | [`(有链接)yxxmg-websocket-sample`](./yxxmg-websocket-sample/README.md) | `springboot`集成`websocket`                                  |
 | [`(有链接)yxxmg-jwt-sample`](./yxxmg-jwt-sample/README.md)   |                                                              |
 | `yxxmg-easy-trans-sample`                                    | `easy-trans`                                                 |
+| `yxxmg-ip2region-sample`                                     | 离线解析请求方ip地址                                         |
 
 #### 开发工具Idea
 
