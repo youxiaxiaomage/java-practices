@@ -42,6 +42,7 @@
         <module>yxxmg-orm-sample</module>
         <module>yxxmg-easy-trans-sample</module>
         <module>yxxmg-ip2region-sample</module>
+        <module>yxxmg-tess4j-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
