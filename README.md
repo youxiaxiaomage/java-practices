@@ -46,6 +46,7 @@
 | [`(有链接)yxxmg-jwt-sample`](./yxxmg-jwt-sample/README.md)   |                                                              |
 | `yxxmg-easy-trans-sample`                                    | `easy-trans`                                                 |
 | `yxxmg-ip2region-sample`                                     | 离线解析请求方ip地址                                         |
+| `yxxmg-tess4j-sample`                                        | 图片OCR文字识别，正确率不是100%                              |
 
 #### 开发工具Idea
 
