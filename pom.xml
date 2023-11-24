@@ -45,6 +45,7 @@
         <module>yxxmg-tess4j-sample</module>
         <module>yxxmg-dynamic-es-index</module>
         <module>yxxmg-3rth-sample</module>
+        <module>yxxmg-kafka-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
