@@ -40,15 +40,18 @@ ISR中的伸缩指的是ISR中副本的动态变化。当某个副本落后于le
 ISR（In-Sync
 Replicas）是Kafka中用于保证数据可靠性和高可用性的机制。ISR中的副本与Leader副本保持同步，可以保证在Leader副本宕机时，ISR中的副本可以顶替成为新的Leader副本，从而保证数据的可靠性和高可用性。
 一般情况下，一个broker会从ISR中踢出去有以下几种情况：
-① 副本同步延迟：如果ISR中的副本与Leader副本之间的同步延迟超过了一定的阈值，那么该副本就会被从ISR中踢出去。
-② 副本故障：如果ISR中的副本发生故障，比如网络故障、硬件故障等，那么该副本也会被从ISR中踢出去。
-③ 副本过期：如果ISR中的副本长时间没有与Leader副本保持同步，那么该副本也会被从ISR中踢出去。
+
+1. 副本同步延迟：如果ISR中的副本与Leader副本之间的同步延迟超过了一定的阈值，那么该副本就会被从ISR中踢出去。
+2. 副本故障：如果ISR中的副本发生故障，比如网络故障、硬件故障等，那么该副本也会被从ISR中踢出去。
+3. 副本过期：如果ISR中的副本长时间没有与Leader副本保持同步，那么该副本也会被从ISR中踢出去。
 
 ### kafka 副本和ISR扮演什么角色？
 
 副本（Replicas）和ISR（In-Sync Replicas）是Apache Kafka中非常重要的概念，它们扮演着以下角色：
-① 副本：Kafka中的每个分区都有多个副本，每个副本都是分区数据的完整拷贝。副本的作用是提高数据的可靠性和可用性。当某个副本所在的broker宕机时，其他副本可以继续提供服务，确保数据不会丢失。
-②
+
+1. 副本：Kafka中的每个分区都有多个副本，每个副本都是分区数据的完整拷贝。副本的作用是提高数据的可靠性和可用性。当某个副本所在的broker宕机时，其他副本可以继续提供服务，确保数据不会丢失。
+2.
+
 ISR：ISR是指与leader副本保持同步的副本集合。当leader副本发生故障时，ISR中的某个副本会被选举为新的leader副本。只有在ISR中的副本才能被选举为新的leader副本，因为它们保证了数据的一致性。如果某个副本与leader副本失去同步，它将被从ISR中移除，直到与leader副本重新保持同步。
 因此，副本和ISR是Kafka实现高可用性和数据一致性的重要手段。
 
@@ -60,12 +63,13 @@ replicas）是指与leader副本保持同步的副本集合。如果一个副本
 ### kafka follower副本如何和 leader副本同步？
 
 Kafka中的follower副本通过与leader副本进行数据同步来保持与leader副本的一致性。follower节点与leader节点同步的过程如下：
-① follower节点向leader节点发送拉取请求，请求获取最新的数据。
-② leader节点接收到拉取请求后，将最新的数据发送给follower节点。
-③ follower节点接收到数据后，将其写入本地日志文件，并向leader节点发送确认消息，表示已经成功接收到数据。
-④ leader节点接收到确认消息后，将该消息标记为已经被follower节点接收到。
-⑤ follower节点定期向leader节点发送心跳消息，以保持与leader节点的连接。
-⑥ 如果follower节点在一定时间内没有向leader节点发送心跳消息，或者leader节点在一定时间内没有收到follower节点的确认消息，那么leader节点将认为该follower节点已经失效，将其从副本集合中移除。
+
+1. follower节点向leader节点发送拉取请求，请求获取最新的数据。
+2. leader节点接收到拉取请求后，将最新的数据发送给follower节点。
+3. follower节点接收到数据后，将其写入本地日志文件，并向leader节点发送确认消息，表示已经成功接收到数据。
+4. leader节点接收到确认消息后，将该消息标记为已经被follower节点接收到。
+5. follower节点定期向leader节点发送心跳消息，以保持与leader节点的连接。
+6. 如果follower节点在一定时间内没有向leader节点发送心跳消息，或者leader节点在一定时间内没有收到follower节点的确认消息，那么leader节点将认为该follower节点已经失效，将其从副本集合中移除。
 
 ### kafka 如何实现主从同步？
 
@@ -76,13 +80,15 @@ Kafka通过副本机制来实现主从同步。每个分区都有多个副本，
 ### Kafka 控制器的选举？
 
 Kafka的控制器其实也是一个broker，只不过除了提供一般的broker功能之外，它还负责分区的首领选举。
-① 控制器的选举是通过ZooKeeper实现的，只有一个broker可以成为控制器，其他broker会监听控制器节点的变化，一旦控制器节点发生变化，其他broker就会重新选举控制器。
-集群中第一个启动的broker会通过在ZooKeeper中创建一个名为/controller的临时节点让自己成为控制器。其他broker在启动时也会尝试创建这个节点，但它们会收到“节点已存在”异常，并“意识”到控制器节点已存在，也就是说集群中已经有一个控制器了。其他broker会在控制器节点上创建ZooKeeper
-watch，这样就可以收到这个节点的变更通知了。我们通过这种方式来确保集群中只有一个控制器。
-② 如果控制器被关闭或者与ZooKeeper断开连接，那么这个临时节点就会消失。控制器使用的ZooKeeper客户端没有在zookeeper.session.timeout.ms
-指定的时间内向ZooKeeper发送心跳是导致连接断开的原因之一。当临时节点消失时，集群中的其他broker将收到控制器节点已消失的通知，并尝试让自己成为新的控制器。第一个在ZooKeeper中成功创建控制器节点的broker会成为新的控制器，其他节点则会收到“节点已存在”异常，并会在新的控制器节点上再次创建ZooKeeper
-watch。
-③
+
+1. 控制器的选举是通过ZooKeeper实现的，只有一个broker可以成为控制器，其他broker会监听控制器节点的变化，一旦控制器节点发生变化，其他broker就会重新选举控制器。
+   集群中第一个启动的broker会通过在ZooKeeper中创建一个名为/controller的临时节点让自己成为控制器。其他broker在启动时也会尝试创建这个节点，但它们会收到“节点已存在”异常，并“意识”到控制器节点已存在，也就是说集群中已经有一个控制器了。其他broker会在控制器节点上创建ZooKeeper
+   watch，这样就可以收到这个节点的变更通知了。我们通过这种方式来确保集群中只有一个控制器。
+2. 如果控制器被关闭或者与ZooKeeper断开连接，那么这个临时节点就会消失。控制器使用的ZooKeeper客户端没有在zookeeper.session.timeout.ms
+   指定的时间内向ZooKeeper发送心跳是导致连接断开的原因之一。当临时节点消失时，集群中的其他broker将收到控制器节点已消失的通知，并尝试让自己成为新的控制器。第一个在ZooKeeper中成功创建控制器节点的broker会成为新的控制器，其他节点则会收到“节点已存在”异常，并会在新的控制器节点上再次创建ZooKeeper
+   watch。
+3.
+
 每个新选出的控制器都会通过ZooKeeper条件递增操作获得一个数值更大的epoch。其他broker也会知道当前控制器的epoch，如果收到由控制器发出的包含较小epoch的消息，就会忽略它们。这一点很重要，因为控制器会因长时间垃圾回收停顿与ZooKeeper断开连接——在停顿期间，新控制器将被选举出来。当旧控制器在停顿之后恢复时，它并不知道已经选出了新的控制器，并会继续发送消息——在这种情况下，旧控制器会被认为是一个“僵尸控制器”。消息里的epoch可以用来忽略来自旧控制器的消息，这是防御“僵尸”的一种方式。
 
 ### Kafka 控制器负责分区的首领选举
@@ -93,20 +99,20 @@ watch。
 
 ### kafka有哪些地方需要选举，这些地方的选举策略有哪些？
 
-① Controller选举
-Controller是Kafka集群中的一个节点，负责管理集群的元数据信息，包括Broker的上下线、Partition的分配等。当当前的Controller节点失效时，需要选举一个新的Controller节点来接管其职责。
-Controller选举的策略是通过Zookeeper实现的，每个Kafka
-Broker都会在Zookeeper上创建一个临时节点，节点的路径为/brokers/ids/[broker-id]
-，其中broker-id为Broker的唯一标识。当一个Broker想要成为Controller时，它会在Zookeeper上创建一个临时节点/brokers/controller_epoch，节点的值为当前的epoch值，然后尝试获取/brokers/controller节点的锁。如果获取锁成功，则该Broker成为新的Controller节点；否则，它会监听/brokers/controller节点的变化，等待锁的释放。
-② Partition Leader选举
-每个Partition在Kafka集群中都有一个Leader节点，负责处理该Partition的读写请求。当当前的Leader节点失效时，需要选举一个新的Leader节点来接管其职责。
-Partition
-Leader选举的策略是通过副本之间的协作实现的。每个Partition都有多个副本，其中一个副本为Leader，其他副本为Follower。当Leader节点失效时，Follower节点会发起一次选举，选举出一个新的Leader节点。
-具体的选举过程如下：
+1. Controller选举
+   Controller是Kafka集群中的一个节点，负责管理集群的元数据信息，包括Broker的上下线、Partition的分配等。当当前的Controller节点失效时，需要选举一个新的Controller节点来接管其职责。
+   Controller选举的策略是通过Zookeeper实现的，每个Kafka
+   Broker都会在Zookeeper上创建一个临时节点，节点的路径为/brokers/ids/[broker-id]
+   ，其中broker-id为Broker的唯一标识。当一个Broker想要成为Controller时，它会在Zookeeper上创建一个临时节点/brokers/controller_epoch，节点的值为当前的epoch值，然后尝试获取/brokers/controller节点的锁。如果获取锁成功，则该Broker成为新的Controller节点；否则，它会监听/brokers/controller节点的变化，等待锁的释放。
+2. Partition Leader选举
+   每个Partition在Kafka集群中都有一个Leader节点，负责处理该Partition的读写请求。当当前的Leader节点失效时，需要选举一个新的Leader节点来接管其职责。
+   Partition
+   Leader选举的策略是通过副本之间的协作实现的。每个Partition都有多个副本，其中一个副本为Leader，其他副本为Follower。当Leader节点失效时，Follower节点会发起一次选举，选举出一个新的Leader节点。
+   具体的选举过程如下：
 
-    Follower节点向所有其他副本发送一个Leader选举请求，请求中包含该Partition的最后一条消息的offset值。
-    如果其他副本中有一个副本的最后一条消息的offset值大于等于该Follower节点的offset值，则该副本成为新的Leader节点。
-    如果没有副本的offset值大于等于该Follower节点的offset值，则该Follower节点等待一段时间后重新发起选举请求。
+   Follower节点向所有其他副本发送一个Leader选举请求，请求中包含该Partition的最后一条消息的offset值。
+   如果其他副本中有一个副本的最后一条消息的offset值大于等于该Follower节点的offset值，则该副本成为新的Leader节点。
+   如果没有副本的offset值大于等于该Follower节点的offset值，则该Follower节点等待一段时间后重新发起选举请求。
 
 需要注意的是，为了避免脑裂（split-brain）的情况发生，Kafka要求每个Partition至少有一个副本处于活跃状态，否则该Partition将无法使用。因此，在进行Leader选举时，只有那些处于活跃状态的副本才能参与选举。
 
@@ -114,16 +120,16 @@ Leader选举的策略是通过副本之间的协作实现的。每个Partition�
 
 Kafka是一个分布式的消息系统，它将消息分成多个分区（Partition）并存储在多个Broker上。每个分区都有一个Leader和多个Follower，Leader负责处理读写请求，Follower则从Leader同步数据。
 当一个Broker宕机或者网络故障导致Leader无法正常工作时，Kafka需要进行Partition Leader选举，选出一个新的Leader来处理读写请求。选举的过程如下：
-① 每个Broker都会定期向Zookeeper注册自己的Broker信息，并创建一个临时节点。这个节点的路径是/brokers/ids/[broker-id]
-，节点的值是一个JSON格式的字符串，包含了Broker的IP地址、端口号等信息。
-② 当一个Broker宕机或者网络故障导致Leader无法正常工作时，Zookeeper会检测到这个Broker的临时节点被删除，然后通知其他Broker。
-③
-其他Broker会检查所有的Partition，如果某个Partition的Leader是宕机的Broker，那么它会尝试成为新的Leader。它会向Zookeeper创建一个临时节点/brokers/topics/[topic]/[partition]/[broker-id]
+
+1. 每个Broker都会定期向Zookeeper注册自己的Broker信息，并创建一个临时节点。这个节点的路径是/brokers/ids/broker-id，节点的值是一个JSON格式的字符串，包含了Broker的IP地址、端口号等信息。
+2. 当一个Broker宕机或者网络故障导致Leader无法正常工作时，Zookeeper会检测到这个Broker的临时节点被删除，然后通知其他Broker。
+3.
+其他Broker会检查所有的Partition，如果某个Partition的Leader是宕机的Broker，那么它会尝试成为新的Leader。它会向Zookeeper创建一个临时节点/brokers/topics/topic/partition/broker-id
 ，表示它想要成为这个Partition的Leader。
-④ 如果多个Broker都尝试成为Leader，那么Zookeeper会根据节点创建时间的先后顺序来选举Leader。创建时间最早的节点会成为新的Leader。
-⑤ 选举完成后，新的Leader会向Zookeeper更新Partition的元数据，其他Broker会从Zookeeper获取最新的元数据，并更新自己的缓存。
-需要注意的是，Kafka的Partition
-Leader选举是异步的，也就是说，选举完成后，可能会有一段时间内某些消息无法被正常处理。因此，Kafka的高可用性需要依赖于多个副本（Replica）的存在，以保证即使某个Broker宕机，也能够保证消息的可靠性和可用性。
+4. 如果多个Broker都尝试成为Leader，那么Zookeeper会根据节点创建时间的先后顺序来选举Leader。创建时间最早的节点会成为新的Leader。
+5. 选举完成后，新的Leader会向Zookeeper更新Partition的元数据，其他Broker会从Zookeeper获取最新的元数据，并更新自己的缓存。
+   需要注意的是，Kafka的Partition
+   Leader选举是异步的，也就是说，选举完成后，可能会有一段时间内某些消息无法被正常处理。因此，Kafka的高可用性需要依赖于多个副本（Replica）的存在，以保证即使某个Broker宕机，也能够保证消息的可靠性和可用性。
 
 ### LEO、HW、LSO、LW分别代表什么意思?
 
