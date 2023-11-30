@@ -50,15 +50,12 @@ Replicas）是Kafka中用于保证数据可靠性和高可用性的机制。ISR�
 副本（Replicas）和ISR（In-Sync Replicas）是Apache Kafka中非常重要的概念，它们扮演着以下角色：
 
 1. 副本：Kafka中的每个分区都有多个副本，每个副本都是分区数据的完整拷贝。副本的作用是提高数据的可靠性和可用性。当某个副本所在的broker宕机时，其他副本可以继续提供服务，确保数据不会丢失。
-2.
-
-ISR：ISR是指与leader副本保持同步的副本集合。当leader副本发生故障时，ISR中的某个副本会被选举为新的leader副本。只有在ISR中的副本才能被选举为新的leader副本，因为它们保证了数据的一致性。如果某个副本与leader副本失去同步，它将被从ISR中移除，直到与leader副本重新保持同步。
-因此，副本和ISR是Kafka实现高可用性和数据一致性的重要手段。
+2.  ISR：ISR是指与leader副本保持同步的副本集合。当leader副本发生故障时，ISR中的某个副本会被选举为新的leader副本。只有在ISR中的副本才能被选举为新的leader副本，因为它们保证了数据的一致性。如果某个副本与leader副本失去同步，它将被从ISR中移除，直到与leader副本重新保持同步。
+  因此，副本和ISR是Kafka实现高可用性和数据一致性的重要手段。
 
 ### kafka 副本长时间不在ISR中，意味着什么？
 
-在Kafka中，ISR（in-sync
-replicas）是指与leader副本保持同步的副本集合。如果一个副本长时间不在ISR中，意味着该副本与leader副本的数据同步出现了问题，可能是由于网络故障、硬件故障或其他原因导致的。这种情况下，该副本可能会落后于其他副本，导致数据不一致。因此，Kafka会将该副本从ISR中移除，以避免数据不一致的情况发生。当该副本恢复正常后，Kafka会将其重新加入ISR中，以确保数据同步。
+在Kafka中，ISR（in-sync replicas）是指与leader副本保持同步的副本集合。如果一个副本长时间不在ISR中，意味着该副本与leader副本的数据同步出现了问题，可能是由于网络故障、硬件故障或其他原因导致的。这种情况下，该副本可能会落后于其他副本，导致数据不一致。因此，Kafka会将该副本从ISR中移除，以避免数据不一致的情况发生。当该副本恢复正常后，Kafka会将其重新加入ISR中，以确保数据同步。
 
 ### kafka follower副本如何和 leader副本同步？
 
@@ -87,9 +84,7 @@ Kafka的控制器其实也是一个broker，只不过除了提供一般的broker
 2. 如果控制器被关闭或者与ZooKeeper断开连接，那么这个临时节点就会消失。控制器使用的ZooKeeper客户端没有在zookeeper.session.timeout.ms
    指定的时间内向ZooKeeper发送心跳是导致连接断开的原因之一。当临时节点消失时，集群中的其他broker将收到控制器节点已消失的通知，并尝试让自己成为新的控制器。第一个在ZooKeeper中成功创建控制器节点的broker会成为新的控制器，其他节点则会收到“节点已存在”异常，并会在新的控制器节点上再次创建ZooKeeper
    watch。
-3.
-
-每个新选出的控制器都会通过ZooKeeper条件递增操作获得一个数值更大的epoch。其他broker也会知道当前控制器的epoch，如果收到由控制器发出的包含较小epoch的消息，就会忽略它们。这一点很重要，因为控制器会因长时间垃圾回收停顿与ZooKeeper断开连接——在停顿期间，新控制器将被选举出来。当旧控制器在停顿之后恢复时，它并不知道已经选出了新的控制器，并会继续发送消息——在这种情况下，旧控制器会被认为是一个“僵尸控制器”。消息里的epoch可以用来忽略来自旧控制器的消息，这是防御“僵尸”的一种方式。
+3. 每个新选出的控制器都会通过ZooKeeper条件递增操作获得一个数值更大的epoch。其他broker也会知道当前控制器的epoch，如果收到由控制器发出的包含较小epoch的消息，就会忽略它们。这一点很重要，因为控制器会因长时间垃圾回收停顿与ZooKeeper断开连接——在停顿期间，新控制器将被选举出来。当旧控制器在停顿之后恢复时，它并不知道已经选出了新的控制器，并会继续发送消息——在这种情况下，旧控制器会被认为是一个“僵尸控制器”。消息里的epoch可以用来忽略来自旧控制器的消息，这是防御“僵尸”的一种方式。
 
 ### Kafka 控制器负责分区的首领选举
 
@@ -123,13 +118,11 @@ Kafka是一个分布式的消息系统，它将消息分成多个分区（Partit
 
 1. 每个Broker都会定期向Zookeeper注册自己的Broker信息，并创建一个临时节点。这个节点的路径是/brokers/ids/broker-id，节点的值是一个JSON格式的字符串，包含了Broker的IP地址、端口号等信息。
 2. 当一个Broker宕机或者网络故障导致Leader无法正常工作时，Zookeeper会检测到这个Broker的临时节点被删除，然后通知其他Broker。
-3.
-其他Broker会检查所有的Partition，如果某个Partition的Leader是宕机的Broker，那么它会尝试成为新的Leader。它会向Zookeeper创建一个临时节点/brokers/topics/topic/partition/broker-id
-，表示它想要成为这个Partition的Leader。
+3. 其他Broker会检查所有的Partition，如果某个Partition的Leader是宕机的Broker，那么它会尝试成为新的Leader。它会向Zookeeper创建一个临时节点/brokers/topics/topic/partition/broker-id
+  ，表示它想要成为这个Partition的Leader。
 4. 如果多个Broker都尝试成为Leader，那么Zookeeper会根据节点创建时间的先后顺序来选举Leader。创建时间最早的节点会成为新的Leader。
 5. 选举完成后，新的Leader会向Zookeeper更新Partition的元数据，其他Broker会从Zookeeper获取最新的元数据，并更新自己的缓存。
-   需要注意的是，Kafka的Partition
-   Leader选举是异步的，也就是说，选举完成后，可能会有一段时间内某些消息无法被正常处理。因此，Kafka的高可用性需要依赖于多个副本（Replica）的存在，以保证即使某个Broker宕机，也能够保证消息的可靠性和可用性。
+   需要注意的是，Kafka的Partition Leader选举是异步的，也就是说，选举完成后，可能会有一段时间内某些消息无法被正常处理。因此，Kafka的高可用性需要依赖于多个副本（Replica）的存在，以保证即使某个Broker宕机，也能够保证消息的可靠性和可用性。
 
 ### LEO、HW、LSO、LW分别代表什么意思?
 
