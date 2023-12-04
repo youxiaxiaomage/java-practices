@@ -1,0 +1,3 @@
+com.yxxmg.springboot.samples.spi.DemoDao=\
+  com.yxxmg.springboot.samples.spi.DemoMysqlDaoImpl,\
+  com.yxxmg.springboot.samples.spi.DemoOracleDaoImpl
