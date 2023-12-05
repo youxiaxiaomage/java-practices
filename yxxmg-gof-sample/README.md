@@ -420,11 +420,9 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 }
 ```
 
-
-
 #### 策略模式
 
-​      策略模式，简单来说就是封装好一组策略算法，外部客户端根据不同的条件选择不同的策略算法解决问题。比如在Spring的Resource类，针对不同的资源，Spring定义了不同的Resource类的实现类，以此实现不同的访问方式。
+​ 策略模式，简单来说就是封装好一组策略算法，外部客户端根据不同的条件选择不同的策略算法解决问题。比如在Spring的Resource类，针对不同的资源，Spring定义了不同的Resource类的实现类，以此实现不同的访问方式。
 
 UrlResource：访问网络资源的实现类。
 ServletContextResource：访问相对于 ServletContext 路径里的资源的实现类。
@@ -435,172 +433,170 @@ ClassPathResource：访问类加载路径里资源的实现类。
 ```java
 public class ClassPathResource extends AbstractFileResolvingResource {
 
-	private final String path;
+    private final String path;
 
-	@Nullable
-	private ClassLoader classLoader;
+    @Nullable
+    private ClassLoader classLoader;
 
-	@Nullable
-	private Class<?> clazz;
-
-
-	public ClassPathResource(String path) {
-		this(path, (ClassLoader) null);
-	}
-
-	public ClassPathResource(String path, @Nullable ClassLoader classLoader) {
-		Assert.notNull(path, "Path must not be null");
-		String pathToUse = StringUtils.cleanPath(path);
-		if (pathToUse.startsWith("/")) {
-			pathToUse = pathToUse.substring(1);
-		}
-		this.path = pathToUse;
-		this.classLoader = (classLoader != null ? classLoader : ClassUtils.getDefaultClassLoader());
-	}
-
-	public ClassPathResource(String path, @Nullable Class<?> clazz) {
-		Assert.notNull(path, "Path must not be null");
-		this.path = StringUtils.cleanPath(path);
-		this.clazz = clazz;
-	}
-
-	@Deprecated
-	protected ClassPathResource(String path, @Nullable ClassLoader classLoader, @Nullable Class<?> clazz) {
-		this.path = StringUtils.cleanPath(path);
-		this.classLoader = classLoader;
-		this.clazz = clazz;
-	}
-
-	public final String getPath() {
-		return this.path;
-	}
-
-	@Nullable
-	public final ClassLoader getClassLoader() {
-		return (this.clazz != null ? this.clazz.getClassLoader() : this.classLoader);
-	}
-
-	@Override
-	public boolean exists() {
-		return (resolveURL() != null);
-	}
-
-	@Override
-	public boolean isReadable() {
-		URL url = resolveURL();
-		return (url != null && checkReadable(url));
-	}
-
-	@Nullable
-	protected URL resolveURL() {
-		try {
-			if (this.clazz != null) {
-				return this.clazz.getResource(this.path);
-			}
-			else if (this.classLoader != null) {
-				return this.classLoader.getResource(this.path);
-			}
-			else {
-				return ClassLoader.getSystemResource(this.path);
-			}
-		}
-		catch (IllegalArgumentException ex) {
-			// Should not happen according to the JDK's contract:
-			// see https://github.com/openjdk/jdk/pull/2662
-			return null;
-		}
-	}
-
-	@Override
-	public InputStream getInputStream() throws IOException {
-		InputStream is;
-		if (this.clazz != null) {
-			is = this.clazz.getResourceAsStream(this.path);
-		}
-		else if (this.classLoader != null) {
-			is = this.classLoader.getResourceAsStream(this.path);
-		}
-		else {
-			is = ClassLoader.getSystemResourceAsStream(this.path);
-		}
-		if (is == null) {
-			throw new FileNotFoundException(getDescription() + " cannot be opened because it does not exist");
-		}
-		return is;
-	}
-
-	@Override
-	public URL getURL() throws IOException {
-		URL url = resolveURL();
-		if (url == null) {
-			throw new FileNotFoundException(getDescription() + " cannot be resolved to URL because it does not exist");
-		}
-		return url;
-	}
-
-	@Override
-	public Resource createRelative(String relativePath) {
-		String pathToUse = StringUtils.applyRelativePath(this.path, relativePath);
-		return (this.clazz != null ? new ClassPathResource(pathToUse, this.clazz) :
-				new ClassPathResource(pathToUse, this.classLoader));
-	}
-
-	@Override
-	@Nullable
-	public String getFilename() {
-		return StringUtils.getFilename(this.path);
-	}
-
-	@Override
-	public String getDescription() {
-		StringBuilder builder = new StringBuilder("class path resource [");
-		String pathToUse = this.path;
-		if (this.clazz != null && !pathToUse.startsWith("/")) {
-			builder.append(ClassUtils.classPackageAsResourcePath(this.clazz));
-			builder.append('/');
-		}
-		if (pathToUse.startsWith("/")) {
-			pathToUse = pathToUse.substring(1);
-		}
-		builder.append(pathToUse);
-		builder.append(']');
-		return builder.toString();
-	}
+    @Nullable
+    private Class<?> clazz;
 
 
-	@Override
-	public boolean equals(@Nullable Object other) {
-		if (this == other) {
-			return true;
-		}
-		if (!(other instanceof ClassPathResource)) {
-			return false;
-		}
-		ClassPathResource otherRes = (ClassPathResource) other;
-		return (this.path.equals(otherRes.path) &&
-				ObjectUtils.nullSafeEquals(this.classLoader, otherRes.classLoader) &&
-				ObjectUtils.nullSafeEquals(this.clazz, otherRes.clazz));
-	}
+    public ClassPathResource(String path) {
+        this(path, (ClassLoader) null);
+    }
 
-	@Override
-	public int hashCode() {
-		return this.path.hashCode();
-	}
+    public ClassPathResource(String path, @Nullable ClassLoader classLoader) {
+        Assert.notNull(path, "Path must not be null");
+        String pathToUse = StringUtils.cleanPath(path);
+        if (pathToUse.startsWith("/")) {
+            pathToUse = pathToUse.substring(1);
+        }
+        this.path = pathToUse;
+        this.classLoader = (classLoader != null ? classLoader : ClassUtils.getDefaultClassLoader());
+    }
+
+    public ClassPathResource(String path, @Nullable Class<?> clazz) {
+        Assert.notNull(path, "Path must not be null");
+        this.path = StringUtils.cleanPath(path);
+        this.clazz = clazz;
+    }
+
+    @Deprecated
+    protected ClassPathResource(String path, @Nullable ClassLoader classLoader, @Nullable Class<?> clazz) {
+        this.path = StringUtils.cleanPath(path);
+        this.classLoader = classLoader;
+        this.clazz = clazz;
+    }
+
+    public final String getPath() {
+        return this.path;
+    }
+
+    @Nullable
+    public final ClassLoader getClassLoader() {
+        return (this.clazz != null ? this.clazz.getClassLoader() : this.classLoader);
+    }
+
+    @Override
+    public boolean exists() {
+        return (resolveURL() != null);
+    }
+
+    @Override
+    public boolean isReadable() {
+        URL url = resolveURL();
+        return (url != null && checkReadable(url));
+    }
+
+    @Nullable
+    protected URL resolveURL() {
+        try {
+            if (this.clazz != null) {
+                return this.clazz.getResource(this.path);
+            } else if (this.classLoader != null) {
+                return this.classLoader.getResource(this.path);
+            } else {
+                return ClassLoader.getSystemResource(this.path);
+            }
+        } catch (IllegalArgumentException ex) {
+            // Should not happen according to the JDK's contract:
+            // see https://github.com/openjdk/jdk/pull/2662
+            return null;
+        }
+    }
+
+    @Override
+    public InputStream getInputStream() throws IOException {
+        InputStream is;
+        if (this.clazz != null) {
+            is = this.clazz.getResourceAsStream(this.path);
+        } else if (this.classLoader != null) {
+            is = this.classLoader.getResourceAsStream(this.path);
+        } else {
+            is = ClassLoader.getSystemResourceAsStream(this.path);
+        }
+        if (is == null) {
+            throw new FileNotFoundException(getDescription() + " cannot be opened because it does not exist");
+        }
+        return is;
+    }
+
+    @Override
+    public URL getURL() throws IOException {
+        URL url = resolveURL();
+        if (url == null) {
+            throw new FileNotFoundException(getDescription() + " cannot be resolved to URL because it does not exist");
+        }
+        return url;
+    }
+
+    @Override
+    public Resource createRelative(String relativePath) {
+        String pathToUse = StringUtils.applyRelativePath(this.path, relativePath);
+        return (this.clazz != null ? new ClassPathResource(pathToUse, this.clazz) :
+                new ClassPathResource(pathToUse, this.classLoader));
+    }
+
+    @Override
+    @Nullable
+    public String getFilename() {
+        return StringUtils.getFilename(this.path);
+    }
+
+    @Override
+    public String getDescription() {
+        StringBuilder builder = new StringBuilder("class path resource [");
+        String pathToUse = this.path;
+        if (this.clazz != null && !pathToUse.startsWith("/")) {
+            builder.append(ClassUtils.classPackageAsResourcePath(this.clazz));
+            builder.append('/');
+        }
+        if (pathToUse.startsWith("/")) {
+            pathToUse = pathToUse.substring(1);
+        }
+        builder.append(pathToUse);
+        builder.append(']');
+        return builder.toString();
+    }
+
+
+    @Override
+    public boolean equals(@Nullable Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof ClassPathResource otherRes)) {
+            return false;
+        }
+        return (this.path.equals(otherRes.path) &&
+                ObjectUtils.nullSafeEquals(this.classLoader, otherRes.classLoader) &&
+                ObjectUtils.nullSafeEquals(this.clazz, otherRes.clazz));
+    }
+
+    @Override
+    public int hashCode() {
+        return this.path.hashCode();
+    }
 
 }
 ```
 
 #### 代理模式
 
-AOP是Spring的一个核心特性(面向切面编程)，作为面向对象的一种补充，用于将那些与业务无关，但却对多个对象产生影响的公共行为和逻辑，抽取并封装为一个可重用的模块，减少系统中的重复代码，降低了模块间的耦合度，提高系统的可维护性。可用于权限认证、日志、事务处理。
+AOP是Spring的一个核心特性(面向切面编程)
+，作为面向对象的一种补充，用于将那些与业务无关，但却对多个对象产生影响的公共行为和逻辑，抽取并封装为一个可重用的模块，减少系统中的重复代码，降低了模块间的耦合度，提高系统的可维护性。可用于权限认证、日志、事务处理。
 
 Spring AOP实现的关键在于动态代理，主要有两种方式，JDK动态代理和CGLIB动态代理：
 
-（1）JDK动态代理只提供接口的代理，不支持类的代理，要求被代理类实现接口。JDK动态代理的核心是InvocationHandler接口和Proxy类，在获取代理对象时，使用Proxy类来动态创建目标类的代理类（即最终真正的代理类，这个类继承自Proxy并实现了我们定义的接口），当代理对象调用真实对象的方法时， InvocationHandler 通过invoke()方法反射来调用目标类中的代码，动态地将横切逻辑和业务编织在一起；
+（1）JDK动态代理只提供接口的代理，不支持类的代理，要求被代理类实现接口。JDK动态代理的核心是InvocationHandler接口和Proxy类，在获取代理对象时，使用Proxy类来动态创建目标类的代理类（即最终真正的代理类，这个类继承自Proxy并实现了我们定义的接口），当代理对象调用真实对象的方法时，
+InvocationHandler 通过invoke()方法反射来调用目标类中的代码，动态地将横切逻辑和业务编织在一起；
 
-（2）如果被代理类没有实现接口，那么Spring AOP会选择使用CGLIB来动态代理目标类。CGLIB（Code Generation Library），是一个代码生成的类库，可以在运行时动态的生成指定类的一个子类对象，并覆盖其中特定方法并添加增强代码，从而实现AOP。CGLIB是通过继承的方式做的动态代理，因此如果某个类被标记为final，那么它是无法使用CGLIB做动态代理的。
+（2）如果被代理类没有实现接口，那么Spring AOP会选择使用CGLIB来动态代理目标类。CGLIB（Code Generation
+Library），是一个代码生成的类库，可以在运行时动态的生成指定类的一个子类对象，并覆盖其中特定方法并添加增强代码，从而实现AOP。CGLIB是通过继承的方式做的动态代理，因此如果某个类被标记为final，那么它是无法使用CGLIB做动态代理的。
 
 我们看DefaultAopProxyFactory的createAopProxy()方法，Spring通过此方法创建动态代理类：
+
 ```java
 public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
 
@@ -748,8 +744,6 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	protected abstract void doRollback(DefaultTransactionStatus status) throws TransactionException;
 }
 ```
-
-
 
 #### 适配器与责任链
 

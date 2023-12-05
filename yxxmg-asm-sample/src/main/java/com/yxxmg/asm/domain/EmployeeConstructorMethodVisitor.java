@@ -11,7 +11,7 @@ import org.objectweb.asm.Opcodes;
  */
 public class EmployeeConstructorMethodVisitor extends MethodVisitor {
     // 定义一个全局变量记录父类名称
-    private String superClassName;
+    private final String superClassName;
 
     public EmployeeConstructorMethodVisitor(int i, MethodVisitor methodVisitor, String superClassName) {
         super(i, methodVisitor);

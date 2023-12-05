@@ -23,12 +23,9 @@ mybatis-plus:
 
 plugin:
   runMode: prod
-  mainPackage: com.yxxmg.spring.brick
   # 如果配置是 windows 下路径, mac、linux 自行修改
-  pluginPath:
-    - ~\example-plugins-basic
-    - ~\example-plugins-db
-    #- ~\example-plugins-cloud
+  mainPackage: com.yxxmg.spring.brick
+  pluginPath: ~/plugins
   sortInitPluginIds:
     - example-basic-2
     - example-basic-1

@@ -1,2 +1,13 @@
 server:
   port: 8081
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: after_route
+          uri: https://example.org
+          predicates:
+            - name: Cookie
+              args:
+                name: mycookie
+                regexp: mycookievalue

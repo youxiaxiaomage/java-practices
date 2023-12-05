@@ -1,10 +1,10 @@
 package com.yxxmg.clone;
 
-import cn.hutool.core.lang.Assert;
-import junit.framework.TestCase;
+import java.util.Collections;
+
 import org.apache.commons.lang3.SerializationUtils;
 
-import java.util.Collections;
+import junit.framework.TestCase;
 
 /**
  * @author : yxxmg
@@ -27,7 +27,7 @@ public class CloneTest extends TestCase {
         // System.out.println(clone);
         // System.out.println(clone1);
         // Guest@1102 Attribute@1105 Sex@1094 Integer@1106
-        assertFalse("xxxx".equals(program.getGuestList().get(0).getName()));
+        assertNotEquals("xxxx", program.getGuestList().get(0).getName());
         Guest guest = clone.getGuestList().get(0);
         guest.setName("xxxx");
         System.out.println();

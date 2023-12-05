@@ -5,9 +5,9 @@
 1. `spi`定义的接口要在增加`META-INF/services`下`com.yxxmg.pay.spi.PayService`
 
    ```properties
-   com.yxxmg.pay.spi.AlipayServiceImpl
-   com.yxxmg.pay.spi.UnionPayServiceImpl
-   com.yxxmg.pay.spi.WechatPayServiceImpl
+   com.yxxmg.pay.spi.AlipayServiceImpl=
+   com.yxxmg.pay.spi.UnionPayServiceImpl=
+   com.yxxmg.pay.spi.WechatPayServiceImpl=
    ```
 
 2. 自定义配置类

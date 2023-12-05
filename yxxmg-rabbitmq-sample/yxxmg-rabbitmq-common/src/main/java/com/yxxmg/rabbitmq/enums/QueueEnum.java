@@ -7,5 +7,5 @@ package com.yxxmg.rabbitmq.enums;
  * @since : 2023/10/7
  */
 public enum QueueEnum {
-    SMS, EMAIL, WECHAT;
+    SMS, EMAIL, WECHAT
 }

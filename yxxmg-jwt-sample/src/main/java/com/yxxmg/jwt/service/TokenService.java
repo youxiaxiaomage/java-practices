@@ -34,6 +34,7 @@ public class TokenService {
     private RedisTemplate<String, String> redisTemplate;
 
     public String generateToken(User user) {
+        // jwt由头部Header、载荷Payload与签名Signature构成
         String token = Jwts.builder().setId(user.getId()).setSubject(user.getUsername()).setIssuer("yxxmg")
             .setIssuedAt(new Date()).claim("authorities", JSON.toJSONString(user.getAuthorities()))
             .setExpiration(new Date(System.currentTimeMillis() + this.jwtConfig.getExpiration()))

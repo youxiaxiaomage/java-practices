@@ -38,11 +38,11 @@ public class Student implements TransPojo {
     @TableField("student_type")
     private StudentType studentType = StudentType.ARTS;
 
-    public static enum StudentType {
+    public enum StudentType {
 
         ARTS("文科"), SCIENCES("理科");
 
-        private String desc;
+        private final String desc;
 
         StudentType(String desc) {
             this.desc = desc;

@@ -1,8 +1,8 @@
 package com.yxxmg.distribute.redis.lock.config;
 
-import org.redisson.api.RLock;
-
 import java.io.Closeable;
+
+import org.redisson.api.RLock;
 
 /**
  * @author : yxxmg

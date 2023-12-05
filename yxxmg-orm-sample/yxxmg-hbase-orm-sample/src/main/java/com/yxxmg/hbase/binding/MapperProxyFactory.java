@@ -1,4 +1,4 @@
-package com.yxxmg.hbase.mapper;
+package com.yxxmg.hbase.binding;
 
 import java.lang.reflect.Proxy;
 
@@ -19,8 +19,13 @@ public class MapperProxyFactory<T> {
         return this.mapperInterface;
     }
 
+    @SuppressWarnings("unchecked")
     protected T newInstance(MapperProxy<T> mapperProxy) {
         return (T)Proxy.newProxyInstance(mapperInterface.getClassLoader(), new Class[] {mapperInterface}, mapperProxy);
     }
 
+    public T newInstance() {
+        final MapperProxy<T> mapperProxy = new MapperProxy<>(mapperInterface);
+        return newInstance(mapperProxy);
+    }
 }

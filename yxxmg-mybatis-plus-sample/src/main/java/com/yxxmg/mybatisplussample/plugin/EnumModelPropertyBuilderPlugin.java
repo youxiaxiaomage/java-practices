@@ -1,20 +1,22 @@
 package com.yxxmg.mybatisplussample.plugin;
 
-import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
-import com.yxxmg.mybatisplussample.enums.BaseEnum;
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.ReflectionUtils;
+
+import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
+import com.yxxmg.mybatisplussample.enums.BaseEnum;
+
 import springfox.documentation.builders.ModelPropertyBuilder;
 import springfox.documentation.builders.PropertySpecificationBuilder;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin;
 import springfox.documentation.spi.schema.contexts.ModelPropertyContext;
-
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * @author : yxxmg
@@ -70,7 +72,7 @@ public class EnumModelPropertyBuilderPlugin implements ModelPropertyBuilderPlugi
                 ReflectionUtils.makeAccessible(description);
                 Object field = ReflectionUtils.getField(description, builder);
                 if (field != null) {
-                    orginalDesc = field + "";
+                    orginalDesc = String.valueOf(field);
                 }
             }
         } catch (Exception e) {
