@@ -46,6 +46,7 @@
         <module>yxxmg-dynamic-es-index</module>
         <module>yxxmg-3rth-sample</module>
         <module>yxxmg-kafka-sample</module>
+        <module>yxxmg-gateway-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
