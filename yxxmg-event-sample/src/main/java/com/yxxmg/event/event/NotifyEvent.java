@@ -1,5 +1,6 @@
 package com.yxxmg.event.event;
 
+import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
 /**
@@ -11,7 +12,10 @@ import org.springframework.context.ApplicationEvent;
 public class NotifyEvent extends ApplicationEvent {
     private static final long serialVersionUID = 5615947269632093413L;
 
-    public NotifyEvent(Object source) {
+    @Getter
+    private String msg;
+    public NotifyEvent(Object source, String msg) {
         super(source);
+        this.msg = msg;
     }
 }

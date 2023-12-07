@@ -17,7 +17,7 @@ public class NotifyService {
     private final ApplicationEventPublisher applicationEventPublisher;
 
     public String notify(String msg) {
-        this.applicationEventPublisher.publishEvent(new NotifyEvent(msg));
+        this.applicationEventPublisher.publishEvent(new NotifyEvent(this, msg));
         return "success";
     }
 }

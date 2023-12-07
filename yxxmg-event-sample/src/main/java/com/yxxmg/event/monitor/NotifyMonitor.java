@@ -2,6 +2,7 @@ package com.yxxmg.event.monitor;
 
 import com.yxxmg.event.event.NotifyEvent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionalEventListener;
@@ -16,9 +17,9 @@ import org.springframework.transaction.event.TransactionalEventListener;
 @Slf4j
 public class NotifyMonitor {
     @Async
-    // @EventListener
-    @TransactionalEventListener(classes = NotifyEvent.class, fallbackExecution = true) // 事务
+     @EventListener
+//    @TransactionalEventListener(classes = NotifyEvent.class, fallbackExecution = true) // 事务
     public void notify(NotifyEvent notifyEvent) {
-        log.info("notify msg: {}", notifyEvent.getSource());
+        log.info("notify msg: {}", notifyEvent.getMsg());
     }
 }
