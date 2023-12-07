@@ -6,6 +6,8 @@ import org.apache.commons.lang3.SerializationUtils;
 
 import junit.framework.TestCase;
 
+import static org.junit.Assert.assertNotEquals;
+
 /**
  * @author : yxxmg
  * @version : 1.0
