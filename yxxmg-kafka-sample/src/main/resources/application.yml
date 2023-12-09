@@ -1,0 +1,40 @@
+spring:
+  kafka:
+    producer:
+      # 0生产者在成功写入消息之前不会等待任何来自服务器的响应
+      # 1 只要集群的首领节点收到消息，生产者就会收到一个来自服务器的成功响应
+      # all 只有当所有参与复制的节点全部收到消息时，生产者才会收到一个来自服务器的成功响应
+      acks: all
+      # key value 序列化方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # 设置生产者内存缓冲区的大小，生产者用它缓冲要发送到服务器的消息 1M
+      buffer-memory: 1048576
+      # 默认情况下，消息发送时不会被压缩
+      # gzip  snappy lz4
+      compression-type: none
+      # 生产者从服务器收到的错误有可能是临时性的错误
+      retries: 3
+      # 该参数指定了一个批次可以使用的内存大小
+      batch-size: 1073741824
+      # 该参数指定了生产者在发送批次之前等待更多消息加入批次的时间
+      properties:
+        linger:
+          ms: 2000 # 提交延迟
+#      bootstrap-servers:
+    listener:
+      #  监听器确认模式 batch record manual_immediate count count_time time
+      ack-mode: manual # 手动
+    consumer:
+      auto-commit-interval:
+      # 是否自动提交
+      enable-auto-commit: false
+      group-id: test
+      # earliest
+      auto-offset-reset: latest
+      fetch-max-wait: 1048576
+      fetch-min-size: 1048576
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      bootstrap-servers:
+    bootstrap-servers: 127.0.0.9092
