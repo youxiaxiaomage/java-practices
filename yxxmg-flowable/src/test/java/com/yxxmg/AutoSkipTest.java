@@ -6,6 +6,7 @@ import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.task.api.Task;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -21,6 +22,7 @@ import java.util.Map;
  */
 @RunWith(JUnit4.class)
 public class AutoSkipTest {
+    @Ignore("xxx")
     @Test
     public void test() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();

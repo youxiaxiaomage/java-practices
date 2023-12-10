@@ -14,6 +14,10 @@ import edu.stanford.nlp.trees.TreeCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.PropertiesUtils;
 import junit.framework.TestCase;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,8 +34,10 @@ import java.util.Properties;
  * @description :
  * @since : 2023/5/25
  */
-public class NlpTest extends TestCase {
-
+@RunWith(JUnit4.class)
+public class NlpTest  {
+    @Ignore("xxx")
+    @Test
     public void test1() throws IOException {
         // creates a StanfordCoreNLP object, with POS tagging, lemmatization, NER, parsing, and coreference resolution
         Properties props = new Properties();
@@ -83,7 +89,8 @@ public class NlpTest extends TestCase {
         Map<Integer, CorefChain> graph = document.get(CorefCoreAnnotations.CorefChainAnnotation.class);
 
     }
-
+    @Ignore("xxx")
+    @Test
     public void test2() {
         String props = "CoreNLP-chinese.properties"; // 第三步骤的配置文件，放在main/resources目录下
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);

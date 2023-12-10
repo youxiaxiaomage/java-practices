@@ -8,6 +8,6 @@ package com.yxxmg.hbase.toolkit;
  */
 public final class ReflectionKit {
     public static Class<?> getSuperClassGenericType(final Class<?> clazz, final Class<?> genericIfc, final int index) {
-
+        return null;
     }
 }

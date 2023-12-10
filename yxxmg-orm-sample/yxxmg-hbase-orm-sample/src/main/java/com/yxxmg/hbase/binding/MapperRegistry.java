@@ -15,7 +15,7 @@ import com.yxxmg.hbase.exception.BindingException;
  * @since : 2023/10/20
  */
 public class MapperRegistry {
-    private final Configuration configuration;
+//    private final Configuration configuration;
     private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = Maps.newHashMap();
 
     public <T> T getMapper(Class<T> type) {
@@ -25,7 +25,8 @@ public class MapperRegistry {
         }
         try {
             // TODO
-            return mapperProxyFactory.newInstance();
+//            return mapperProxyFactory.newInstance();
+            return null;
         } catch (Exception e) {
             throw new BindingException("Error getting mapper instance. Cause: " + e, e);
         }

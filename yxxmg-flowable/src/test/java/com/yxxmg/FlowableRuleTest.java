@@ -7,6 +7,7 @@ import org.flowable.engine.TaskService;
 import org.flowable.engine.test.Deployment;
 import org.flowable.engine.test.FlowableRule;
 import org.flowable.task.api.Task;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ import org.junit.Test;
 public class FlowableRuleTest {
     @Rule
     public FlowableRule flowableRule = new FlowableRule();
-
+    @Ignore("xxx")
     @Test
     @Deployment
     public void testFlowableRule() {

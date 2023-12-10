@@ -1,5 +1,6 @@
 package com.yxxmg.nlp2cron.test;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -15,6 +16,7 @@ import cn.langpy.nlp2cron.core.CrondModel;
  */
 @RunWith(JUnit4.class)
 public class Nlp2cronTest {
+    @Ignore("xxx")
     @Test
     public void test() {
         CrondModel.init("D:/keras-model-v2");

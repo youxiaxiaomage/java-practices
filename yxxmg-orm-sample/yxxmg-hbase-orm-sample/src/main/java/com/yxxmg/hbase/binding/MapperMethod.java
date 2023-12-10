@@ -14,7 +14,7 @@ import com.yxxmg.hbase.mapper.MappedStatement;
  * @since : 2023/10/20
  */
 public class MapperMethod {
-    private final Command command;
+//    private final Command command;
 
     public MapperMethod(Class<?> mapperInterface, Method method, Configuration configuration) {
         // this.command = new
@@ -25,16 +25,16 @@ public class MapperMethod {
     }
 
     public static class HqlCommand {
-        private final String name;
-        private final HqlCommandType type;
+//        private final String name;
+//        private final HqlCommandType type;
 
         public HqlCommand(Configuration configuration, Class<?> mapperInterface, Method method) {
             final String methodName = method.getName();
             Class<?> declaringClass = method.getDeclaringClass();
             MappedStatement ms = resolveMappedStatement(mapperInterface, methodName, declaringClass, configuration);
             if (ms == null) {
-                name = ms.getId();
-                type = ms.getHqlCommandType();
+//                name = ms.getId();
+//                type = ms.getHqlCommandType();
             }
         }
 

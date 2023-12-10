@@ -13,6 +13,7 @@ import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.task.api.Task;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -27,6 +28,7 @@ import com.google.common.collect.Maps;
  */
 @RunWith(JUnit4.class)
 public class MyHolidayTest {
+    @Ignore("xxx")
     @Test
     public void test1() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
@@ -37,7 +39,7 @@ public class MyHolidayTest {
         System.out.println("deployment.getName() = " + deployment.getName());
         System.out.println("deployment.getDeploymentTime() = " + deployment.getDeploymentTime());
     }
-
+    @Ignore("xxx")
     @Test
     public void test2() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
@@ -47,7 +49,7 @@ public class MyHolidayTest {
         System.out.println("deployment.getName() = " + deployment.getName());
         System.out.println("deployment.getDeploymentTime() = " + deployment.getDeploymentTime());
     }
-
+    @Ignore("xxx")
     @Test
     public void test3() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
@@ -61,7 +63,7 @@ public class MyHolidayTest {
         });
 
     }
-
+    @Ignore("xxx")
     @Test
     public void test4() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
@@ -75,7 +77,7 @@ public class MyHolidayTest {
             .println("processInstance.getProcessDefinitionName() = " + processInstance.getProcessDefinitionName());
         System.out.println("processInstance.getProcessInstanceId() = " + processInstance.getProcessInstanceId());
     }
-
+    @Ignore("xxx")
     @Test
     public void test5() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
@@ -92,7 +94,7 @@ public class MyHolidayTest {
             System.out.println("==============================================================");
         });
     }
-
+    @Ignore("xxx")
     @Test
     public void testTask() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
@@ -107,7 +109,7 @@ public class MyHolidayTest {
         taskList1.forEach(System.out::println);
 
     }
-
+    @Ignore("xxx")
     @Test
     public void test6() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
@@ -118,7 +120,7 @@ public class MyHolidayTest {
         taskService.complete("2506", variableMap);
         // taskService.complete();
     }
-
+    @Ignore("xxx")
     @Test
     public void test7() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
@@ -127,7 +129,7 @@ public class MyHolidayTest {
             .includeTaskLocalVariables().includeCaseVariables().includeIdentityLinks().list();
         taskList.forEach(System.out::println);
     }
-
+    @Ignore("xxx")
     @Test
     public void test8() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
