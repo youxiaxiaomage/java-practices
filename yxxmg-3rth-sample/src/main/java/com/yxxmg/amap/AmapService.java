@@ -28,7 +28,7 @@ public class AmapService {
         paramMap.put("extensions", "all");
         // JSON XML
         paramMap.put("output", "JSON");
-        paramMap.put("city", "110101");
+        paramMap.put("city", "320105");
         HttpUrl.Builder urlBuilder =
             HttpUrl.parse("https://restapi.amap.com/v3/weather/weatherInfo?parameters").newBuilder();
         if (MapUtils.isNotEmpty(paramMap)) {

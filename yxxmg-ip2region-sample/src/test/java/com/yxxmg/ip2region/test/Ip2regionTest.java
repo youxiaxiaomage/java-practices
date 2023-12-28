@@ -22,7 +22,7 @@ public class Ip2regionTest {
     @SneakyThrows
     @Test
     public void test() {
-        String ip = "49.77.58.194";
+        String ip = "192.168.3.1";
         InputStream resourceAsStream = this.getClass().getClassLoader().getResourceAsStream("ip2region.xdb");
         byte[] byteArray = IOUtils.toByteArray(resourceAsStream);
         Searcher searcher = Searcher.newWithBuffer(byteArray);

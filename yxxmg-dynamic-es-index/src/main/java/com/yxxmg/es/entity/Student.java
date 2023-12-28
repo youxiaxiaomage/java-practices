@@ -24,5 +24,4 @@ public class Student implements Serializable {
     private String studentId;
     @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String studentName;
-
 }

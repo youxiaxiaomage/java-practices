@@ -1,9 +1,9 @@
 package com.yxxmg.gof.create.pattern.builder.entity;
 
+import java.io.Serializable;
+
 import lombok.Data;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /**
  * @author : yxxmg
