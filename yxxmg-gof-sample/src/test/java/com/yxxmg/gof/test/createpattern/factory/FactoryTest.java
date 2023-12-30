@@ -1,12 +1,13 @@
 package com.yxxmg.gof.test.createpattern.factory;
 
-import com.yxxmg.gof.create.pattern.factory.IDao;
-import com.yxxmg.gof.create.pattern.factory.ObjectFactory;
-import com.yxxmg.gof.create.pattern.builder.entity.Student;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.yxxmg.gof.create.builder.entity.Student;
+import com.yxxmg.gof.create.factory.IDao;
+import com.yxxmg.gof.create.factory.ObjectFactory;
 
 /**
  * @author : yxxmg

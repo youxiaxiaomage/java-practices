@@ -1,9 +1,10 @@
 package com.yxxmg.gof.test.createpattern.builder;
 
-import com.yxxmg.gof.create.pattern.builder.Client;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.yxxmg.gof.create.builder.Client;
 
 /**
  * @author : yxxmg

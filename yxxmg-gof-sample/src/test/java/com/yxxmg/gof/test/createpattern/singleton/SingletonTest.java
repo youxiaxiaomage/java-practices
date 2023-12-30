@@ -1,10 +1,11 @@
 package com.yxxmg.gof.test.createpattern.singleton;
 
-import com.yxxmg.gof.create.pattern.singleton.Singleton;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.yxxmg.gof.create.singleton.Singleton;
 
 /**
  * @author : yxxmg
