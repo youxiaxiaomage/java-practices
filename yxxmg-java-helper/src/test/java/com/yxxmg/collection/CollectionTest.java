@@ -15,6 +15,7 @@ import org.junit.runners.JUnit4;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.SneakyThrows;
 
 /**
  * @author : yxxmg
@@ -45,6 +46,7 @@ public class CollectionTest {
     }
 
     @Test
+    @SneakyThrows
     public void test2() {
         List<Student> studentList =
             Stream.of(new Student("1", "张三"), new Student("2", null)).collect(Collectors.toList());
