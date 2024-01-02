@@ -1,12 +1,20 @@
 package com.yxxmg.collection;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 /**
  * @author : yxxmg
@@ -34,5 +42,23 @@ public class CollectionTest {
         List<String> l5 = new ArrayList<>(Arrays.asList("1", "2"));
         l5.add("3");
         System.out.println(l5);
+    }
+
+    @Test
+    public void test2() {
+        List<Student> studentList =
+            Stream.of(new Student("1", "张三"), new Student("2", null)).collect(Collectors.toList());
+        Map<String, String> map =
+            studentList.stream().map(student -> Pair.of(student.getUserId(), student.getUserName()))
+                .collect(Collectors.toMap(Pair::getKey, Pair::getValue, (v1, v2) -> v1));
+        System.out.println(map);
+    }
+
+    @Data
+    @AllArgsConstructor
+    public static class Student implements Serializable {
+        private static final long serialVersionUID = -3058531222330506251L;
+        private String userId;
+        private String userName;
     }
 }
