@@ -47,6 +47,8 @@
 | `yxxmg-easy-trans-sample`                                    | `easy-trans`                                                 |
 | `yxxmg-ip2region-sample`                                     | 离线解析请求方ip地址                                         |
 | `yxxmg-tess4j-sample`                                        | 图片OCR文字识别，正确率不是100%                              |
+| `yxxmg-redis-expire-sample`                                  | redis缓存过期事件监听器                                      |
+| [`(有链接)yxxmg-jetcache-sample`](./yxxmg-jetcache-sample/README.md)                                     | 阿里缓存框架`jetcache`                                       |
 
 #### 开发工具Idea
 
