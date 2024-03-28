@@ -60,8 +60,9 @@ public class YxxmgDroolsSamplesApplicationTest {
         person.setName("李4");
         person.setSex(1);
         person.setAge(16);
+        person.setDrlType("person");
 
-        kieSession.insert(person);// 插入
+        kieSession.insert(person);// 插
         kieSession.fireAllRules();// 执行规则
         System.out.println(person.isEnablePlay());
     }

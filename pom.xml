@@ -48,6 +48,7 @@
         <module>yxxmg-kafka-sample</module>
         <module>yxxmg-gateway-sample</module>
         <module>yxxmg-archetype-sample</module>
+        <module>yxxmg-jetcache-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -1,11 +1,20 @@
 package com.yxxmg.drools.samples
 import com.yxxmg.drools.samples.domain.Person
+import java.util.Objects
 dialect "java"
+function boolean eq(Integer sex, Integer predictValue) {
+    System.out.println(sex +"-------------" + predictValue);
+    if (Objects.equals(sex,predictValue)) {
+    System.out.println("xxxxxxxxxxxxxx");
+        return true;
+    }
+    return false;
+};
 
 
 rule "man"
     when
-     $p : Person(sex == 1 && drlType == "person")
+     $p : Person(eq(sex, 1) && drlType == "person")
     then
         System.out.println($p.getName() + "是男孩");
 end
