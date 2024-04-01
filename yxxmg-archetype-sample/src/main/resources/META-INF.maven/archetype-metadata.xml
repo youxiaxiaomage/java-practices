@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<archetype-descriptor  name="beast-archetype"
-                       xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                       xsi:schemaLocation="
+<archetype-descriptor name="beast-archetype"
+                      xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="
             http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0
             http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
     <!--需要输入的属性-->
@@ -20,6 +20,9 @@
         </requiredProperty>
         <requiredProperty key="version">
             <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="applicationName">
+            <defaultValue>YxxmgApplication</defaultValue>
         </requiredProperty>
     </requiredProperties>
 
@@ -40,9 +43,9 @@
                 </fileSet>
                 <fileSet encoding="UTF-8">
                     <directory>src/main/resources</directory>
-                          <includes>
-                    <include>**/*.*</include>
-                </includes>
+                    <includes>
+                        <include>**/*.*</include>
+                    </includes>
                 </fileSet>
                 <fileSet encoding="UTF-8">
                     <directory>src/test/resources</directory>
@@ -108,7 +111,8 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}-infrastructure" name="${rootArtifactId}-infrastructure" dir="__rootArtifactId__-infrastructure">
+        <module id="${rootArtifactId}-infrastructure" name="${rootArtifactId}-infrastructure"
+                dir="__rootArtifactId__-infrastructure">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8" packaged="true">
                     <directory>src/main/java</directory>

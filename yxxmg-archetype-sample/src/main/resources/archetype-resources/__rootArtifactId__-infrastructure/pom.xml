@@ -9,5 +9,9 @@
         <version>${version}</version>
     </parent>
     <artifactId>${artifactId}</artifactId>
+    <packaging>pom</packaging>
     <description>基础设施层</description>
+    <modules>
+        <module>${rootArtifactId}-mybatis</module>
+    </modules>
 </project>

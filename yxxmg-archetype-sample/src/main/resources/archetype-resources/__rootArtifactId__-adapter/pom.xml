@@ -9,6 +9,7 @@
         <version>${version}</version>
     </parent>
     <artifactId>${artifactId}</artifactId>
+    <packaging>pom</packaging>
     <description>适配层</description>
     <dependencies>
         <dependency>
