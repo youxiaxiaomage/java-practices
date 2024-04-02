@@ -167,4 +167,12 @@
             </fileSets>
         </module>
     </modules>
+    <fileSets>
+        <fileSet encoding="UTF-8" filtered="true">
+            <directory/>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
 </archetype-descriptor>

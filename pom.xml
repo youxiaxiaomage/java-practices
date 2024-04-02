@@ -19,7 +19,7 @@
         <module>yxxmg-magic-api-sample</module>
         <module>yxxmg-gof-sample</module>
         <module>yxxmg-mybatis-spring-sample</module>
-        <module>yxxmg-nlp-sample</module>
+<!--        <module>yxxmg-nlp-sample</module>-->
         <module>yxxmg-javers-sample</module>
         <module>yxxmg-event-sample</module>
         <module>yxxmg-sa-token-sample</module>
@@ -29,7 +29,7 @@
         <module>yxxmg-okhttp-sample</module>
         <module>yxxmg-plugin-sample</module>
         <module>yxxmg-mybatis-flex-sample</module>
-        <module>yxxmg-nlp2cron</module>
+<!--        <module>yxxmg-nlp2cron</module>-->
         <module>yxxmg-redis-sample</module>
         <module>yxxmg-spring-brick-sample</module>
         <module>yxxmg-distribute-zookeeper-lock-sample</module>
@@ -294,6 +294,17 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-archetype-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
         </plugins>
