@@ -114,7 +114,8 @@
         <module id="${rootArtifactId}-infrastructure" name="${rootArtifactId}-infrastructure"
                 dir="__rootArtifactId__-infrastructure">
             <modules>
-                <module id="${rootArtifactId}-mybatis" name="${rootArtifactId}-mybatis" dir = "__rootArtifactId__-mybatis">
+                <module id="${rootArtifactId}-mybatis" name="${rootArtifactId}-mybatis"
+                        dir="__rootArtifactId__-mybatis">
                     <fileSets>
                         <fileSet filtered="true" encoding="UTF-8" packaged="true">
                             <directory>src/main/java</directory>
@@ -128,7 +129,7 @@
                                 <include>**/*.*</include>
                             </includes>
                         </fileSet>
-                        <fileSet encoding="UTF-8">
+                        <fileSet filtered="true" encoding="UTF-8">
                             <directory>src/main/resources</directory>
                             <includes>
                                 <include>**/*.*</include>
@@ -143,7 +144,6 @@
                     </fileSets>
                 </module>
             </modules>
-
         </module>
         <module id="${rootArtifactId}-domain" name="${rootArtifactId}-domain" dir="__rootArtifactId__-domain">
             <fileSets>
