@@ -113,37 +113,32 @@
         </module>
         <module id="${rootArtifactId}-infrastructure" name="${rootArtifactId}-infrastructure"
                 dir="__rootArtifactId__-infrastructure">
-            <modules>
-                <module id="${rootArtifactId}-mybatis" name="${rootArtifactId}-mybatis"
-                        dir="__rootArtifactId__-mybatis">
-                    <fileSets>
-                        <fileSet filtered="true" encoding="UTF-8" packaged="true">
-                            <directory>src/main/java</directory>
-                            <includes>
-                                <include>**/*.*</include>
-                            </includes>
-                        </fileSet>
-                        <fileSet filtered="true" encoding="UTF-8" packaged="true">
-                            <directory>src/test/java</directory>
-                            <includes>
-                                <include>**/*.*</include>
-                            </includes>
-                        </fileSet>
-                        <fileSet filtered="true" encoding="UTF-8">
-                            <directory>src/main/resources</directory>
-                            <includes>
-                                <include>**/*.*</include>
-                            </includes>
-                        </fileSet>
-                        <fileSet encoding="UTF-8">
-                            <directory>src/test/resources</directory>
-                            <includes>
-                                <include>**/*.*</include>
-                            </includes>
-                        </fileSet>
-                    </fileSets>
-                </module>
-            </modules>
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8" packaged="true">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.*</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8" packaged="true">
+                    <directory>src/test/java</directory>
+                    <includes>
+                        <include>**/*.*</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>**/*.*</include>
+                    </includes>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <includes>
+                        <include>**/*.*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
         </module>
         <module id="${rootArtifactId}-domain" name="${rootArtifactId}-domain" dir="__rootArtifactId__-domain">
             <fileSets>

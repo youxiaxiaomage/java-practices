@@ -1,4 +1,4 @@
-package com.yxxmg.domain;
+package ${package}.doamin;
 
 public enum BaseEnum {
     ENABLE, DISABLE;
