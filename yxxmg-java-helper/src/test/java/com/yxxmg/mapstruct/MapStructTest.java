@@ -92,4 +92,14 @@ public class MapStructTest extends TestCase {
                 .getStatus());
     }
 
+    public void test9() {
+        // MapStruct也可以根据多个参数进行映射
+        Person person = new Person().setDescribe("描述");
+        Address address = new Address().setHouseNo("门牌号");
+        DeliveryAddressDto deliveryAddressDto =
+            AddressMapper.MAPPER.personAndAddressToDeliveryAddressDto(person, address);
+        Assert.assertEquals("描述", deliveryAddressDto.getDescription());
+        Assert.assertEquals("门牌号", deliveryAddressDto.getHouseNumber());
+    }
+
 }

@@ -28,12 +28,16 @@ public class UserDTO implements Serializable {
         return UserDTOMapper.MAPPER.convert(userList);
     }
 
+    /**
+     * 这边也可以使用抽象类 不一定使用接口
+     */
     @Mapper
     interface UserDTOMapper {
         UserDTOMapper MAPPER = Mappers.getMapper(UserDTOMapper.class);
 
         List<UserDTO> convert(List<User> userList);
 
+        // 映射器中自定义方法
         default String convertEnum2Desc(BaseEnum baseEnum) {
             if (Objects.isNull(baseEnum)) {
                 return StringUtils.EMPTY;
