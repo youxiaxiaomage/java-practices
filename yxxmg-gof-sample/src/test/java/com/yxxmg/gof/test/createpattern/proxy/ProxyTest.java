@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.springframework.cglib.proxy.Enhancer;
 
-import com.yxxmg.gof.create.proxy.BaseService;
-import com.yxxmg.gof.create.proxy.UserMethodInterceptor;
-import com.yxxmg.gof.create.proxy.UserServiceInvocationHandler;
+import com.yxxmg.gof.structure.proxy.BaseService;
+import com.yxxmg.gof.structure.proxy.UserMethodInterceptor;
+import com.yxxmg.gof.structure.proxy.UserServiceInvocationHandler;
 
 /**
  * @author : yxxmg

@@ -1,11 +1,12 @@
 package com.yxxmg.gof.test.relation.chainReponsiblity;
 
-import com.yxxmg.gof.relation.chainresponsibility.FirstHandler;
-import com.yxxmg.gof.relation.chainresponsibility.SecondHandler;
-import com.yxxmg.gof.relation.chainresponsibility.ThirdHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.yxxmg.gof.behavior.chain.FirstHandler;
+import com.yxxmg.gof.behavior.chain.SecondHandler;
+import com.yxxmg.gof.behavior.chain.ThirdHandler;
 
 /**
  * @author : yxxmg
