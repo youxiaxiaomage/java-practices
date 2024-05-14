@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 
 import junit.framework.TestCase;
@@ -69,7 +71,25 @@ public class MapStructTest extends TestCase {
         List<MenuDTO> menuDTOList = Arrays.asList(menuDTO1, menuDTO2);
         List<Menu> menuList = MenuDTO.convert(parentId, menuDTOList);
         Assert.assertEquals(parentId, menuList.get(0).getParentId());
+    }
 
+    public void test8() {
+        // 默认的隐式转换 如实体类中都是基于接口BaseEnum的枚举类 转给前端是字符串类型
+        // 主要是针对统一类型数据的转换
+        User user1 = new User().setUserId("1").setUserName("张三").setGender(Gender.MALE).setStatus(Status.ENABLE);
+        User user2 = new User().setUserId("2").setUserName("李四").setGender(Gender.MALE).setStatus(Status.DISABLE);
+        User user3 = new User().setUserId("3").setUserName("韩梅梅").setGender(Gender.FEMALE).setStatus(Status.ENABLE);
+
+        List<User> userList = Arrays.asList(user1, user2, user3);
+        List<UserDTO> userDTOList = UserDTO.convert(userList);
+        System.out.println(userDTOList);
+        // [UserDTO(userId=1, userName=张三, gender=男, status=启用),
+        // UserDTO(userId=2, userName=李四, gender=男, status=停用),
+        // UserDTO(userId=3, userName=韩梅梅, gender=女, status=启用)]
+        Assert.assertEquals("启用",
+            Objects.requireNonNull(userDTOList.stream()
+                .filter(userDTO -> StringUtils.equals(userDTO.getUserName(), "张三")).findFirst().orElse(null))
+                .getStatus());
     }
 
 }
