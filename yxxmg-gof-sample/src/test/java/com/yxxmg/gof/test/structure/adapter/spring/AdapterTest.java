@@ -1,8 +1,10 @@
-package com.yxxmg.gof.structure.adapter.spring;
+package com.yxxmg.gof.test.structure.adapter.spring;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.yxxmg.gof.structure.adapter.spring.*;
 
 /**
  * @author : yxxmg

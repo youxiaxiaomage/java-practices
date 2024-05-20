@@ -1,4 +1,4 @@
-package com.yxxmg.gof.test.createpattern.singleton;
+package com.yxxmg.gof.test.create.singleton;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.yxxmg.gof.test.relation.chainReponsiblity;
+package com.yxxmg.gof.test.behavior.chainReponsiblity;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

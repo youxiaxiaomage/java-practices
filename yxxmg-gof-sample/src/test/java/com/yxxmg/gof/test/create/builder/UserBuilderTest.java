@@ -1,4 +1,4 @@
-package com.yxxmg.gof.create.builder;
+package com.yxxmg.gof.test.create.builder;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

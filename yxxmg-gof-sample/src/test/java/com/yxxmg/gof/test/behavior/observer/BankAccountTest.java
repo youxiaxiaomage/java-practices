@@ -1,4 +1,4 @@
-package com.yxxmg.gof.behavior;
+package com.yxxmg.gof.test.behavior.observer;
 
 import java.util.Observable;
 import java.util.Observer;

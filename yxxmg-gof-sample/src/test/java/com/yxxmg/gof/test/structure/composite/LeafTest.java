@@ -1,8 +1,12 @@
-package com.yxxmg.gof.structure.composite;
+package com.yxxmg.gof.test.structure.composite;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.yxxmg.gof.structure.composite.Component;
+import com.yxxmg.gof.structure.composite.Composite;
+import com.yxxmg.gof.structure.composite.Leaf;
 
 @RunWith(JUnit4.class)
 public class LeafTest {

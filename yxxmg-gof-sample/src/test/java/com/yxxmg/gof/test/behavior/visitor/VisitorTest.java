@@ -1,4 +1,4 @@
-package com.yxxmg.gof.behavior;
+package com.yxxmg.gof.test.behavior.visitor;
 
 import java.util.Random;
 

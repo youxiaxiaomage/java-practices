@@ -1,4 +1,4 @@
-package com.yxxmg.gof.test.createpattern.factory;
+package com.yxxmg.gof.test.create.factory;
 
 import org.junit.Assert;
 import org.junit.Test;

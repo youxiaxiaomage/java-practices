@@ -1,4 +1,4 @@
-package com.yxxmg.gof.test.createpattern.proxy;
+package com.yxxmg.gof.test.create.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;

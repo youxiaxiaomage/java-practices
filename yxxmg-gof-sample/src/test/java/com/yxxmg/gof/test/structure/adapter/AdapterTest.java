@@ -1,8 +1,12 @@
-package com.yxxmg.gof.structure.adapter;
+package com.yxxmg.gof.test.structure.adapter;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.yxxmg.gof.structure.adapter.Adapter;
+import com.yxxmg.gof.structure.adapter.ConcreteTarget;
+import com.yxxmg.gof.structure.adapter.Target;
 
 @RunWith(JUnit4.class)
 public class AdapterTest {

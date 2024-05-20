@@ -1,9 +1,10 @@
-package com.yxxmg.gof.test.relation.command;
+package com.yxxmg.gof.test.behavior.command;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import junit.framework.TestCase;
 
 /**
  * @author : yxxmg
