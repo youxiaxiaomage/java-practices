@@ -1,5 +1,8 @@
-package com.yxxmg.mapstruct;
+package com.yxxmg.mapstruct.convert;
 
+import com.yxxmg.mapstruct.Address;
+import com.yxxmg.mapstruct.DeliveryAddressDto;
+import com.yxxmg.mapstruct.Person;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

@@ -1,8 +1,6 @@
 package com.yxxmg.mapstruct;
 
 import lombok.Data;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 import java.io.Serializable;
 import java.util.List;
@@ -20,12 +18,5 @@ public class PlayerDTO implements Serializable {
     private String name;
     private List<GameDTO> games;
 
-    @Mapper
-    interface PlayerMapper {
-        PlayerMapper MAPPER = Mappers.getMapper(PlayerMapper.class);
 
-        PlayerDTO to(Player player);
-
-        // void to(Player player1, Player player2);
-    }
 }

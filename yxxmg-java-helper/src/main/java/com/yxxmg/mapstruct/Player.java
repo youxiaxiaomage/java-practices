@@ -19,5 +19,4 @@ public class Player implements Serializable {
     private Long id;
     private String name;
     private List<Game> games;
-
 }

@@ -1,7 +1,6 @@
 package com.yxxmg.mapstruct;
 
-import com.google.common.collect.Lists;
-import com.google.errorprone.annotations.Immutable;
+import com.yxxmg.mapstruct.convert.PlayerMapper;
 import junit.framework.TestCase;
 
 import java.util.Collections;
@@ -22,9 +21,9 @@ public class PlayerTest extends TestCase {
         Game game2 = new Game().setId("2").setName("DOTA").setOpenTime(new Date()).setDesc("dota");
         Player player1 = new Player().setId(1L).setName("Uzi").setGames(Collections.singletonList(game1));
         Player player2 =
-            new Player().setId(2L).setName("lige").setGames(Stream.of(game1, game2).collect(Collectors.toList()));
+                new Player().setId(2L).setName("lige").setGames(Stream.of(game1, game2).collect(Collectors.toList()));
 
-        PlayerDTO playerDTO = PlayerDTO.PlayerMapper.MAPPER.to(player1);
+        PlayerDTO playerDTO = PlayerMapper.MAPPER.to(player1);
         System.out.println(playerDTO);
     }
 }

@@ -1,15 +1,15 @@
 package com.yxxmg.mapstruct;
 
+import com.yxxmg.mapstruct.convert.AddressMapper;
+import junit.framework.TestCase;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.Assert;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import org.apache.commons.lang3.StringUtils;
-import org.junit.Assert;
-
-import junit.framework.TestCase;
 
 /**
  * @author : yxxmg
@@ -21,42 +21,42 @@ public class MapStructTest extends TestCase {
 
     public void test1() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
-            .setDescribe("描述信息").setSource(BigDecimal.valueOf(999.999)).setAge(14);
+                .setDescribe("描述信息").setSource(BigDecimal.valueOf(999.999)).setAge(14);
         PersonDTO personDTO = PersonDTO.convert(person);
         assertNull(personDTO.getId());
     }
 
     public void test2() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
-            .setSource(BigDecimal.valueOf(999.999)).setAge(14);
+                .setSource(BigDecimal.valueOf(999.999)).setAge(14);
         PersonDTO personDTO = PersonDTO.convert2(person);
         assertEquals("默认值", personDTO.getDescribe());
     }
 
     public void test3() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
-            .setSource(BigDecimal.valueOf(999.999)).setAge(14);
+                .setSource(BigDecimal.valueOf(999.999)).setAge(14);
         PersonDTO personDTO = PersonDTO.convert2(person);
         System.out.println(personDTO);
     }
 
     public void test4() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
-            .setSource(BigDecimal.valueOf(999.999)).setAge(14);
+                .setSource(BigDecimal.valueOf(999.999)).setAge(14);
         PersonDTO personDTO = PersonDTO.convert2(person);
         System.out.println(personDTO);
     }
 
     public void test5() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
-            .setSource(BigDecimal.valueOf(999.999)).setAge(14);
+                .setSource(BigDecimal.valueOf(999.999)).setAge(14);
         PersonDTO personDTO = PersonDTO.convert2(person);
         System.out.println(personDTO);
     }
 
     public void test6() {
         Person person = new Person().setId("1").setName("张三").setCreateTime(new Date()).setHeight(10.11)
-            .setSource(BigDecimal.valueOf(999.999)).setAge(14);
+                .setSource(BigDecimal.valueOf(999.999)).setAge(14);
         PersonDTO personDTO = PersonDTO.convert2(person);
         System.out.println(personDTO);
     }
@@ -87,9 +87,9 @@ public class MapStructTest extends TestCase {
         // UserDTO(userId=2, userName=李四, gender=男, status=停用),
         // UserDTO(userId=3, userName=韩梅梅, gender=女, status=启用)]
         Assert.assertEquals("启用",
-            Objects.requireNonNull(userDTOList.stream()
-                .filter(userDTO -> StringUtils.equals(userDTO.getUserName(), "张三")).findFirst().orElse(null))
-                .getStatus());
+                Objects.requireNonNull(userDTOList.stream()
+                                .filter(userDTO -> StringUtils.equals(userDTO.getUserName(), "张三")).findFirst().orElse(null))
+                        .getStatus());
     }
 
     public void test9() {
@@ -97,7 +97,7 @@ public class MapStructTest extends TestCase {
         Person person = new Person().setDescribe("描述");
         Address address = new Address().setHouseNo("门牌号");
         DeliveryAddressDto deliveryAddressDto =
-            AddressMapper.MAPPER.personAndAddressToDeliveryAddressDto(person, address);
+                AddressMapper.MAPPER.personAndAddressToDeliveryAddressDto(person, address);
         Assert.assertEquals("描述", deliveryAddressDto.getDescription());
         Assert.assertEquals("门牌号", deliveryAddressDto.getHouseNumber());
     }
