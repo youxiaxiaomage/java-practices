@@ -11,7 +11,7 @@ import com.yxxmg.mapstruct.MenuDTO;
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description : T
+ * @description :
  * @since : 2024/5/28
  */
 @Mapper
