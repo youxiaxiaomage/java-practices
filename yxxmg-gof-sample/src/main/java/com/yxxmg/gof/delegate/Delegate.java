@@ -1,4 +1,4 @@
-package com.yxxmg.gof.behavior.delegate;
+package com.yxxmg.gof.delegate;
 
 /**
  * @author : yxxmg
