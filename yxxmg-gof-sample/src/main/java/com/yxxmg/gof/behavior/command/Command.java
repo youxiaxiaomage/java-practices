@@ -3,15 +3,9 @@ package com.yxxmg.gof.behavior.command;
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description :
- * @since : 2023/5/10
+ * @description : 命令接口
+ * @since : 2024/6/5
  */
-public interface Command<T> {
-    /**
-     * 执行
-     * 
-     * @param commandContext 上线文
-     * @return T
-     */
-    T execute(CommandContext commandContext);
+public interface Command {
+    void execute();
 }

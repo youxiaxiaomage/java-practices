@@ -1,8 +1,8 @@
 package com.yxxmg.gof.test.behavior.command;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+
+import com.yxxmg.gof.behavior.command.*;
 
 import junit.framework.TestCase;
 
@@ -12,11 +12,27 @@ import junit.framework.TestCase;
  * @description : 命令模式测试用例
  * @since : 2023/5/10
  */
-@RunWith(JUnit4.class)
 public class CommandTest extends TestCase {
     @Test
     public void test() {
-        // SpringProcessEngineConfiguration springProcessEngineConfiguration = new SpringProcessEngineConfiguration();
-        // springProcessEngineConfiguration.init();
+        // 创建电灯对象
+        Light light = new Light();
+
+        // 创建命令对象
+        Command lightOn = new LightOnCommand(light);
+        Command lightOff = new LightOffCommand(light);
+
+        // 创建遥控器对象
+        RemoteControl remoteControl = new RemoteControl();
+
+        // 设置命令
+        remoteControl.setCommand(lightOn);
+        // 按下按钮，执行命令
+        remoteControl.pressButton();// 输出: Light is on
+
+        // 更换命令
+        remoteControl.setCommand(lightOff);
+        // 再次按下按钮，执行新的命令
+        remoteControl.pressButton(); // 输出: Light is off
     }
 }
