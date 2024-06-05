@@ -24,5 +24,6 @@ public class Originator {
 
     public void getStateFromMemento(Memento memento) {
         state = memento.getState();
+        System.out.println("恢复状态：" + state);
     }
 }
