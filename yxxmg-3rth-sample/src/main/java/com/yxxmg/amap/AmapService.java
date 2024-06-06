@@ -23,7 +23,7 @@ import okhttp3.Response;
 public class AmapService {
     public static String weatherInfo() throws IOException {
         Map<String, String> paramMap = Maps.newHashMap();
-        paramMap.put("key", "afbfbc221f8b22a555296074b228914a");
+        paramMap.put("key", "xxx");
         // all base
         paramMap.put("extensions", "all");
         // JSON XML
