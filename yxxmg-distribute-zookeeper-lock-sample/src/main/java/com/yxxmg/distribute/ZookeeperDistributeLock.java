@@ -36,9 +36,8 @@ public class ZookeeperDistributeLock implements AutoCloseable {
 
     public static void init() {
         if (!initFlag) {
+
             System.out.println("Client未初始化");
-            String s = null;
-            // try {
             client = CuratorFrameworkFactory.builder().connectString("127.0.0.1:2181").sessionTimeoutMs(SESSION_TIMEOUT)
                 .connectionTimeoutMs(CONNECTION_TIMEOUT).retryPolicy(new RetryNTimes(3, 5000)).build();
             client.start();
@@ -49,6 +48,12 @@ public class ZookeeperDistributeLock implements AutoCloseable {
     }
 
     public boolean tryLock() throws Exception {
+        System.out.println("lock [" + lockPath + "]");
+        return interProcessMutex.acquire(0, TimeUnit.MILLISECONDS);
+    }
+
+    public boolean tryLock(long lockTime) throws Exception {
+        System.out.println("lock [" + lockPath + "]");
         return interProcessMutex.acquire(lockTime, TimeUnit.MILLISECONDS);
     }
 

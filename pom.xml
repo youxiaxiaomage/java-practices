@@ -50,6 +50,7 @@
         <module>yxxmg-archetype-sample</module>
         <module>yxxmg-jetcache-sample</module>
         <module>yxxmg-redis-expire-sample</module>
+        <module>yxxmg-spider-sample</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
