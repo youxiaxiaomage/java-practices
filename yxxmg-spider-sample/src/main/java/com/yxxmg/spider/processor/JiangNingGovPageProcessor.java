@@ -1,10 +1,16 @@
-package com.yxxmg.spider.test;
+package com.yxxmg.spider.processor;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringEscapeUtils;
+import javax.annotation.PostConstruct;
+
 import org.apache.commons.lang3.StringUtils;
+import org.jsoup.Jsoup;
+import org.springframework.stereotype.Component;
+
+import com.yxxmg.spider.pipeline.DatabasePipeline;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
@@ -13,12 +19,14 @@ import us.codecraft.webmagic.pipeline.FilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Html;
 
-/**
+/***
+ * 
  * @author : yxxmg
  * @version : 1.0
  * @description :
  * @since : 2024/6/10
  */
+@Component
 public class JiangNingGovPageProcessor implements PageProcessor {
     private static final String GOV_URL = "http://www.jiangning.gov.cn/hdjl/zjdc/myzj";
     private final Site site =
@@ -31,8 +39,9 @@ public class JiangNingGovPageProcessor implements PageProcessor {
     public void process(Page page) {
         Html html = page.getHtml();
         List<String> relativeUrl = html.xpath("/html/body/div[2]/div[2]/ul/li/a/@href").all();
-        List<String> relateiveUrlList =
-            relativeUrl.stream().map(s -> StringUtils.replaceFirst(s, ".", GOV_URL)).collect(Collectors.toList());
+        // 替换+去重
+        List<String> relateiveUrlList = relativeUrl.stream().map(s -> StringUtils.replaceFirst(s, ".", GOV_URL))
+            .distinct().collect(Collectors.toList());
         page.addTargetRequests(relateiveUrlList);
         String title = page.getHtml().xpath("/html/body/div[2]/div[1]/div/div[1]/text()").get();
         page.putField("title", title);
@@ -40,15 +49,24 @@ public class JiangNingGovPageProcessor implements PageProcessor {
             .replace(page.getHtml().xpath("/html/body/div[2]/div[1]/div/div[2]/span[1]/text()").get(), "发布时间：", "");
         page.putField("releaseTime", releaseTime);
         String content = page.getHtml().xpath("/html/body/div[2]/div[1]/div/div[3]/div[1]/div").get();
-        page.putField("content", StringEscapeUtils.escapeHtml4(content));
+        if (StringUtils.isNotBlank(content)) {
+            String text = Jsoup.parse(content).text();
+            page.putField("content", text);
+        }
+        if (StringUtils.isBlank(title)) {
+            page.setSkip(true);
+        }
+
     }
 
-    public static void main(String[] args) {
+    @PostConstruct
+    public void init() {
         Spider.create(new JiangNingGovPageProcessor())
+            .setPipelines(Arrays.asList(new DatabasePipeline(), new FilePipeline("D:\\webmagic\\")))
             .addUrl(GOV_URL + "/index.html", GOV_URL + "/index_1.html", GOV_URL + "/index_2.html",
                 GOV_URL + "/index_3.html", GOV_URL + "/index_4.html", GOV_URL + "/index_5.html",
                 GOV_URL + "/index_6.html", GOV_URL + "/index_7.html", GOV_URL + "/index_8.html")
-            .addPipeline(new FilePipeline("D:\\webmagic\\")).thread(10).run();
+            .thread(10).run();
     }
 
     @Override
