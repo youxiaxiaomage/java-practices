@@ -19,7 +19,7 @@
         <module>yxxmg-magic-api-sample</module>
         <module>yxxmg-gof-sample</module>
         <module>yxxmg-mybatis-spring-sample</module>
-<!--        <module>yxxmg-nlp-sample</module>-->
+        <!--        <module>yxxmg-nlp-sample</module>-->
         <module>yxxmg-javers-sample</module>
         <module>yxxmg-event-sample</module>
         <module>yxxmg-sa-token-sample</module>
@@ -29,7 +29,7 @@
         <module>yxxmg-okhttp-sample</module>
         <module>yxxmg-plugin-sample</module>
         <module>yxxmg-mybatis-flex-sample</module>
-<!--        <module>yxxmg-nlp2cron</module>-->
+        <!--        <module>yxxmg-nlp2cron</module>-->
         <module>yxxmg-redis-sample</module>
         <module>yxxmg-spring-brick-sample</module>
         <module>yxxmg-distribute-zookeeper-lock-sample</module>
@@ -89,7 +89,7 @@
         <commons-chain.version>1.2</commons-chain.version>
         <commons-math3.version>3.6.1</commons-math3.version>
         <tlog.version>1.4.3</tlog.version>
-        <flowable.version>6.7.2</flowable.version>
+        <flowable.version>6.8.0</flowable.version>
         <h2.version>2.1.214</h2.version>
         <drools.version>7.3.0.Final</drools.version>
         <elasticjob.version>3.0.0</elasticjob.version>

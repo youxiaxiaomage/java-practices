@@ -1,4 +1,4 @@
-package com.yxxmg;
+package com.flowable;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,6 +20,7 @@ import org.junit.Test;
 public class FlowableRuleTest {
     @Rule
     public FlowableRule flowableRule = new FlowableRule();
+
     @Ignore("xxx")
     @Test
     @Deployment

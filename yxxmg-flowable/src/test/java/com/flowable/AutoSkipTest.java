@@ -1,18 +1,12 @@
-package com.yxxmg;
+package com.flowable;
 
-import com.google.common.collect.Maps;
-import org.flowable.engine.*;
-import org.flowable.engine.repository.Deployment;
-import org.flowable.engine.repository.ProcessDefinition;
-import org.flowable.engine.runtime.ProcessInstance;
-import org.flowable.task.api.Task;
+import org.flowable.engine.ProcessEngine;
+import org.flowable.engine.ProcessEngines;
+import org.flowable.engine.TaskService;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author : yxxmg

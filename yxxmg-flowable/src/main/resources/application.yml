@@ -2,30 +2,29 @@ server:
   port: 8001
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:~/test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/flowable?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
 flowable:
   # 是否需要自动部署流程定义
-  check-process-definitions: true
+  check-process-definitions: false
     # 需要添加至引擎的自定义Mybatis映射的FQN
-    #  custom-mybatis-mappers:
-    # 需要添加至引擎的自定义Mybatis XML映射的路径
-    #  custom-mybatis-x-m-l-mappers:
-    #    -
-    # 数据库schema更新策略
-    #  database-schema-update: true
-    #  db-history-used: true
-    #  history-level:
+  #  custom-mybatis-mappers:
+  # 需要添加至引擎的自定义Mybatis XML映射的路径
+  #  custom-mybatis-x-m-l-mappers:
+  #    -
+  # 数据库schema更新策略
+  database-schema-update: true
+  #  db-history-used: true
+  #  history-level:
   # 自动部署时查找流程的目录
-  process-definition-location-prefix: classpath*:/process/
+  #  process-definition-location-prefix: classpath*:/process/
   # 'processDefinitionLocationPrefix'路径下需要部署的文件的后缀（扩展名）
   #  process-definition-location-suffixes:
   #    - '**.bpmn20.xml'
   #    - '**.bpmn.xml'
-  rest-api-enabled: true
+logging:
+  level:
+    org.flowable: debug
+#  rest-api-enabled: true

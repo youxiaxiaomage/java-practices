@@ -1,9 +1,11 @@
 package com.yxxmg.flowable.config;
 
-import org.flowable.common.engine.impl.util.DefaultClockImpl;
 import org.flowable.spring.SpringProcessEngineConfiguration;
 import org.flowable.spring.boot.EngineConfigurationConfigurer;
 import org.springframework.context.annotation.Configuration;
+
+import com.yxxmg.flowable.generator.YxxmgIdGenerator;
+import com.yxxmg.flowable.interceptor.YxxmgCreateUserTaskInterceptor;
 
 /**
  * @author : yxxmg
@@ -19,5 +21,7 @@ public class FlowableConfig implements EngineConfigurationConfigurer<SpringProce
         springProcessEngineConfiguration.setActivityFontName("宋体");
         springProcessEngineConfiguration.setLabelFontName("宋体");
         springProcessEngineConfiguration.setAnnotationFontName("宋体");
+        springProcessEngineConfiguration.setIdGenerator(new YxxmgIdGenerator());
+        springProcessEngineConfiguration.setCreateUserTaskInterceptor(new YxxmgCreateUserTaskInterceptor());
     }
 }

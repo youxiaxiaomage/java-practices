@@ -1,6 +1,5 @@
-package com.yxxmg;
+package com.flowable;
 
-import com.yxxmg.flowable.command.DynamicJumpService;
 import org.flowable.engine.*;
 import org.flowable.engine.repository.Deployment;
 import org.flowable.engine.repository.ProcessDefinition;
@@ -10,6 +9,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.yxxmg.flowable.command.DynamicJumpService;
 
 /**
  * @author : yxxmg
