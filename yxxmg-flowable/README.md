@@ -1,35 +1,87 @@
-# flowable
+# flowable6.8.0
 
-### 事件监听器
+[toc]
 
-### 任务监听器
+## 自定义Id生成器
 
-### 执行监听器
+```java
+public class YxxmgIdGenerator implements IdGenerator {
+    @Override
+    public String getNextId() {
+        return new Snowflake().nextIdStr();
+    }
+}
+```
 
-### 用户任务拦截器
+```java
+@Configuration
+public class FlowableConfig implements EngineConfigurationConfigurer<SpringProcessEngineConfiguration> {
 
-### 模型校验器
+    @Override
+    public void configure(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
+        springProcessEngineConfiguration.setIdGenerator(new YxxmgIdGenerator());  
+    }
+}
+```
 
-### 开始节点
+## 自定义创建用户任务拦截器
 
-### 结束节点
+```java
+@Slf4j
+public class YxxmgCreateUserTaskInterceptor implements CreateUserTaskInterceptor {
+    @Override
+    public void beforeCreateUserTask(CreateUserTaskBeforeContext context) {
+        log.info("beforeCreateUserTask do something");
+    }
 
-### 用户任务
+    @Override
+    public void afterCreateUserTask(CreateUserTaskAfterContext context) {
+        log.info("afterCreateUserTask do something");
+    }
+}
+```
 
-### 服务任务
+```java
+@Configuration
+public class FlowableConfig implements EngineConfigurationConfigurer<SpringProcessEngineConfiguration> {
 
-### 脚本任务
+    @Override
+    public void configure(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
+        springProcessEngineConfiguration.setCreateUserTaskInterceptor(new YxxmgCreateUserTaskInterceptor());
+    }
+}
+```
 
-### 手动任务
+## 自定义任务监听器
 
-### 接收任务
+1. 监听任务创建、完成事件推送其他系统待办已办
 
-### 网关
+   `org.flowable.common.engine.api.delegate.event.FlowableEngineEventType`参考这个里面的事件做监听
 
-#### 排他网关
+   ```java
+   @Component
+   @Slf4j
+   public class GlobalEventListener extends AbstractFlowableEventListener {
+       @Override
+       public void onEvent(FlowableEvent event) {
+           if (event.getType().equals(FlowableEngineEventType.TASK_CREATED)) {
+               //
+               log.info("任务创建待办任务");
+           }
+           if (event.getType().equals(FlowableEngineEventType.TASK_COMPLETED)) {
+               log.info("任务创建已办任务");
+           }
+           if (event.getType().equals(FlowableEngineEventType.PROCESS_COMPLETED)) {
+               log.info("流程已完结");
+           }
+       }
+   
+       @Override
+       public boolean isFailOnException() {
+           return true;
+       }
+   
+   }
+   ```
 
-#### 并行网关
-
-#### 包容网关
-
-#### 事件网关
+   

@@ -9,7 +9,7 @@ spring:
 flowable:
   # 是否需要自动部署流程定义
   check-process-definitions: false
-    # 需要添加至引擎的自定义Mybatis映射的FQN
+  # 需要添加至引擎的自定义Mybatis映射的FQN
   #  custom-mybatis-mappers:
   # 需要添加至引擎的自定义Mybatis XML映射的路径
   #  custom-mybatis-x-m-l-mappers:
@@ -26,5 +26,7 @@ flowable:
   #    - '**.bpmn.xml'
 logging:
   level:
-    org.flowable: debug
+    org.flowable: info
+    com.yxxmg: info
+    org.springframework: info
 #  rest-api-enabled: true

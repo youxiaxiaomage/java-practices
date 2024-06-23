@@ -1,4 +1,4 @@
-package com.yxmmg.dynamic.feign;
+package com.yxxmg.dynamic.feign;
 /**
  * 该方法基于服务注册如nacos等 需要serviceId
  */

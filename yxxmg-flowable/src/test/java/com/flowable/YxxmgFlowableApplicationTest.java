@@ -56,8 +56,9 @@ public class YxxmgFlowableApplicationTest {
         // AND RES.ID_ = '1804728201868591104'
         // AND RES.PROC_INST_ID_ = '1804728201868591104'
         // ORDER BY RES.ID_ ASC
-        ProcessInstance processInstance =
-            this.runtimeService.createProcessInstanceQuery().processInstanceId("1804728201868591104").singleResult();
-        System.out.println("processInstance.getId() = " + processInstance.getId());
+        // ProcessInstance processInstance =
+        // this.runtimeService.createProcessInstanceQuery().processInstanceId("1804728201868591104").singleResult();
+        // System.out.println("processInstance.getId() = " + processInstance.getId());
+        this.taskService.complete("1804757046176858112");
     }
 }

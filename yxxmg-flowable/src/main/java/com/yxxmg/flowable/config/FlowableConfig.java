@@ -22,6 +22,7 @@ public class FlowableConfig implements EngineConfigurationConfigurer<SpringProce
         springProcessEngineConfiguration.setLabelFontName("宋体");
         springProcessEngineConfiguration.setAnnotationFontName("宋体");
         springProcessEngineConfiguration.setIdGenerator(new YxxmgIdGenerator());
+        // springProcessEngineConfiguration.getEventDispatcher().addEventListener(new GlobalEventListener());
         springProcessEngineConfiguration.setCreateUserTaskInterceptor(new YxxmgCreateUserTaskInterceptor());
     }
 }

@@ -1,4 +1,4 @@
-package com.yxmmg.dynamic.feign.url;
+package com.yxxmg.dynamic.feign.url;
 
 import java.net.URI;
 

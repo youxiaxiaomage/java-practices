@@ -1,4 +1,4 @@
-package com.yxmmg.dynamic.feign;
+package com.yxxmg.dynamic.feign;
 
 import org.springframework.cloud.openfeign.FeignClientBuilder;
 import org.springframework.context.ApplicationContext;

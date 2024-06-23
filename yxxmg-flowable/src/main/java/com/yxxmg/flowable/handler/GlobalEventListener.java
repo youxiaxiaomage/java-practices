@@ -1,8 +1,10 @@
 package com.yxxmg.flowable.handler;
 
+import org.flowable.common.engine.api.delegate.event.AbstractFlowableEventListener;
+import org.flowable.common.engine.api.delegate.event.FlowableEngineEventType;
 import org.flowable.common.engine.api.delegate.event.FlowableEvent;
-import org.flowable.common.engine.api.delegate.event.FlowableEventListener;
-import org.springframework.stereotype.Component;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author : yxxmg
@@ -10,25 +12,25 @@ import org.springframework.stereotype.Component;
  * @description : 全局事件监听器
  * @since : 2023/7/14
  */
-@Component
-public class GlobalEventListener implements FlowableEventListener {
+@Slf4j
+public class GlobalEventListener extends AbstractFlowableEventListener {
     @Override
     public void onEvent(FlowableEvent event) {
-        // TODO 具体的监听事件 比如任务创建 可以发送短信提醒 任务完成推送日志等
+        if (event.getType().equals(FlowableEngineEventType.TASK_CREATED)) {
+            //
+            log.info("任务创建待办任务");
+        }
+        if (event.getType().equals(FlowableEngineEventType.TASK_COMPLETED)) {
+            log.info("任务创建已办任务");
+        }
+        if (event.getType().equals(FlowableEngineEventType.PROCESS_COMPLETED)) {
+            log.info("流程已完结");
+        }
     }
 
     @Override
     public boolean isFailOnException() {
-        return false;
+        return true;
     }
 
-    @Override
-    public boolean isFireOnTransactionLifecycleEvent() {
-        return false;
-    }
-
-    @Override
-    public String getOnTransaction() {
-        return null;
-    }
 }
