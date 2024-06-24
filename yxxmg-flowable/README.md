@@ -110,4 +110,55 @@ public class FlowableConfig implements EngineConfigurationConfigurer<SpringProce
    2024-06-24 09:38:14.493  INFO 3940 --- [           main] c.y.f.handler.GlobalEventListener        : 任务创建待办任务
    ```
    
-   
+## 自定义模型校验器
+
+自定义校验器
+
+```java
+public class CustomBpmnValidator extends ValidatorImpl {
+    @Override
+    public void validate(BpmnModel bpmnModel, List<ValidationError> errorList) {
+        Process mainProcess = bpmnModel.getMainProcess();
+        List<UserTask> userTasks = mainProcess.findFlowElementsOfType(UserTask.class);
+        List<ServiceTask> serviceTasks = mainProcess.findFlowElementsOfType(ServiceTask.class);
+        List<StartEvent> startEvents = mainProcess.findFlowElementsOfType(StartEvent.class);
+        List<EndEvent> endEvents = mainProcess.findFlowElementsOfType(EndEvent.class);
+        // 只检查是否存在开始节点和节数节点
+        if (CollectionUtils.isEmpty(startEvents) || CollectionUtils.isEmpty(endEvents)) {
+            addError(errorList, "流程必须存在开始或结束节点", mainProcess, "流程必须存在开始或结束节点");
+        }
+
+    }
+}
+```
+
+加入到`flowable`配置中
+
+```java
+@Configuration
+public class CustomFlowableConfig implements EngineConfigurationConfigurer<SpringProcessEngineConfiguration> {
+
+    @Override
+    public void configure(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
+        springProcessEngineConfiguration.setActivityFontName("宋体");
+        springProcessEngineConfiguration.setLabelFontName("宋体");
+        springProcessEngineConfiguration.setAnnotationFontName("宋体");
+        // 自定义BPMN模型校验器（deploy才会生效）
+        springProcessEngineConfiguration.setProcessValidator(processValidator());
+        // 自定义id生成器
+        springProcessEngineConfiguration.setIdGenerator(new YxxmgIdGenerator());
+        // 自定义事件监听器
+        springProcessEngineConfiguration.setEventListeners(Collections.singletonList(new GlobalEventListener()));
+        // 自定义创建用户任务拦截器
+        springProcessEngineConfiguration.setCreateUserTaskInterceptor(new YxxmgCreateUserTaskInterceptor());
+    }
+
+    private ProcessValidator processValidator() {
+        ProcessValidatorImpl processValidator = new ProcessValidatorImpl();
+        ValidatorSet processValidatorSet = new ValidatorSetFactory().createFlowableExecutableProcessValidatorSet();
+        processValidator.addValidatorSet(processValidatorSet);
+        return processValidator;
+    }
+}
+```
+
