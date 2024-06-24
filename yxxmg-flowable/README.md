@@ -84,4 +84,13 @@ public class FlowableConfig implements EngineConfigurationConfigurer<SpringProce
    }
    ```
 
+   程序运行结果
+   
+   ```
+   2024-06-24 09:38:11.871  INFO 3940 --- [           main] c.y.f.handler.GlobalEventListener        : 任务创建已办任务
+   2024-06-24 09:38:12.985  INFO 3940 --- [           main] c.y.f.i.YxxmgCreateUserTaskInterceptor   : beforeCreateUserTask do something
+   2024-06-24 09:38:14.493  INFO 3940 --- [           main] c.y.f.i.YxxmgCreateUserTaskInterceptor   : afterCreateUserTask do something
+   2024-06-24 09:38:14.493  INFO 3940 --- [           main] c.y.f.handler.GlobalEventListener        : 任务创建待办任务
+   ```
+   
    
