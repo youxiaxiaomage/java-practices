@@ -24,6 +24,8 @@ flowable:
   #  process-definition-location-suffixes:
   #    - '**.bpmn20.xml'
   #    - '**.bpmn.xml'
+  async-executor-activate: false
+  async-history-executor-activate: false
 logging:
   level:
     org.flowable: info

@@ -162,3 +162,54 @@ public class CustomFlowableConfig implements EngineConfigurationConfigurer<Sprin
 }
 ```
 
+## 魔改flowable异步任务
+
+1. 首先关闭异步任务
+
+   ```yaml
+   flowable:
+     async-executor-activate: false
+     async-history-executor-activate: false
+   ```
+
+2. 自定义异步任务处理
+
+   a. 处理逻辑
+
+   ```java
+   @Service
+   public class AsyncTaskJobImpl implements AsyncTaskJob {
+       @Resource
+       private ManagementService managementService;
+   
+       @Override
+       public void execute() {
+           // TODO 分布式锁
+           List<Job> jobList = managementService.createJobQuery().list();
+           if (CollectionUtils.isNotEmpty(jobList)) {
+               for (Job job : jobList) {
+                   managementService.executeJob(job.getId());
+               }
+           }
+       }
+   }
+   
+   ```
+
+   b. 定义接口
+
+   ```java
+   @RestController("/job")
+   @RequiredArgsConstructor
+   public class AsyncTaskJobController {
+       private final AsyncTaskJob asyncTaskJob;
+   
+       @GetMapping("/executeJobs")
+       public void executeJobs() {
+           this.asyncTaskJob.execute();
+       }
+   
+   }
+   ```
+
+3. 配置xxl-job调度任务
