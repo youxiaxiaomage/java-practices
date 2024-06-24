@@ -59,7 +59,6 @@ public class FlowableConfig implements EngineConfigurationConfigurer<SpringProce
    `org.flowable.common.engine.api.delegate.event.FlowableEngineEventType`参考这个里面的事件做监听
 
    ```java
-   @Component
    @Slf4j
    public class GlobalEventListener extends AbstractFlowableEventListener {
        @Override
@@ -83,7 +82,27 @@ public class FlowableConfig implements EngineConfigurationConfigurer<SpringProce
    
    }
    ```
-
+   
+   添加`flowable`配置文件中
+   
+   ```java
+   @Configuration
+   public class FlowableConfig implements EngineConfigurationConfigurer<SpringProcessEngineConfiguration> {
+   
+       @Override
+       public void configure(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
+           springProcessEngineConfiguration.setActivityFontName("宋体");
+           springProcessEngineConfiguration.setLabelFontName("宋体");
+           springProcessEngineConfiguration.setAnnotationFontName("宋体");
+           springProcessEngineConfiguration.setIdGenerator(new YxxmgIdGenerator());
+           springProcessEngineConfiguration.setEventListeners(Collections.singletonList(new GlobalEventListener()));
+           springProcessEngineConfiguration.setCreateUserTaskInterceptor(new YxxmgCreateUserTaskInterceptor());
+       }
+   }
+   ```
+   
+   
+   
    程序运行结果
    
    ```
