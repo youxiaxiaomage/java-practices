@@ -2,6 +2,7 @@ package com.flowable;
 
 import javax.annotation.Resource;
 
+import org.flowable.engine.IdentityService;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.RuntimeService;
 import org.flowable.engine.TaskService;
@@ -25,12 +26,14 @@ public class YxxmgFlowableApplicationTest {
     private RuntimeService runtimeService;
     @Resource
     private TaskService taskService;
+    @Resource
+    private IdentityService identityService;
 
     @Test
     public void test() {
-
         // 部署流程
-        this.repositoryService.createDeployment().addClasspathResource("MyHolidayUI.bpmn20.xml").deploy();
+        // this.repositoryService.createDeployment().addClasspathResource("MyHolidayUI.bpmn20.xml").deploy();
+        this.identityService.setAuthenticatedUserId("test001");
         // 启动流程
         ProcessInstance holidayProcess = this.runtimeService.startProcessInstanceByKey("holidayProcess");
         System.out.println("holidayProcess.getId() = " + holidayProcess.getId());
