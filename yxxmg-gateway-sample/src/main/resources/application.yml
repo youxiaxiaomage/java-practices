@@ -11,3 +11,7 @@ spring:
               args:
                 name: mycookie
                 regexp: mycookievalue
+        - id: user_api_route
+          uri: http://127.0.0.1:28089
+          predicates:
+            - Path=/user/getUserInfo
