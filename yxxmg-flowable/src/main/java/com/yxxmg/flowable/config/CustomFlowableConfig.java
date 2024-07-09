@@ -1,7 +1,10 @@
 package com.yxxmg.flowable.config;
 
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
+import org.flowable.common.engine.impl.callback.RuntimeInstanceStateChangeCallback;
 import org.flowable.spring.SpringProcessEngineConfiguration;
 import org.flowable.spring.boot.EngineConfigurationConfigurer;
 import org.flowable.validation.ProcessValidator;
@@ -11,11 +14,15 @@ import org.flowable.validation.validator.ValidatorSetFactory;
 import org.flowable.validation.validator.impl.ServiceTaskValidator;
 import org.springframework.context.annotation.Configuration;
 
+import com.google.common.collect.Maps;
 import com.yxxmg.flowable.behavior.CustomActivityBehaviorFactory;
+import com.yxxmg.flowable.callback.YxxmgRuntimeInstanceStateChangeCallback;
 import com.yxxmg.flowable.generator.YxxmgIdGenerator;
 import com.yxxmg.flowable.handler.CustomServiceTaskParseHandler;
 import com.yxxmg.flowable.handler.GlobalEventListener;
 import com.yxxmg.flowable.interceptor.YxxmgCreateUserTaskInterceptor;
+import com.yxxmg.flowable.interceptor.YxxmgIdentityLinkInterceptor;
+import com.yxxmg.flowable.interceptor.YxxmgStartProcessInstanceInterceptor;
 import com.yxxmg.flowable.validator.CustomServiceTaskValidator;
 
 /**
@@ -44,6 +51,19 @@ public class CustomFlowableConfig implements EngineConfigurationConfigurer<Sprin
             .setCustomDefaultBpmnParseHandlers(Collections.singletonList(new CustomServiceTaskParseHandler()));
         // 设置自定义活动行为工厂 重写服务任务ServiceTask
         springProcessEngineConfiguration.setActivityBehaviorFactory(new CustomActivityBehaviorFactory());
+        // 设置流程实例启动拦截器
+        springProcessEngineConfiguration.setStartProcessInstanceInterceptor(new YxxmgStartProcessInstanceInterceptor());
+        // 身份信息拦截器
+        springProcessEngineConfiguration.setIdentityLinkInterceptor(new YxxmgIdentityLinkInterceptor());
+        // 流程实例状态回调
+        springProcessEngineConfiguration
+            .setProcessInstanceStateChangedCallbacks(createProcessInstanceStateChangedCallbacks());
+    }
+
+    private Map<String, List<RuntimeInstanceStateChangeCallback>> createProcessInstanceStateChangedCallbacks() {
+        Map<String, List<RuntimeInstanceStateChangeCallback>> callbackMap = Maps.newHashMap();
+        callbackMap.put("customCallBack", Collections.singletonList(new YxxmgRuntimeInstanceStateChangeCallback()));
+        return callbackMap;
     }
 
     private ProcessValidator processValidator() {

@@ -50,6 +50,120 @@ public class FlowableConfig implements EngineConfigurationConfigurer<SpringProce
 }
 ```
 
+## 自定义流程实例启动拦截器
+
+```java
+@Slf4j
+public class YxxmgStartProcessInstanceInterceptor implements StartProcessInstanceInterceptor {
+    @Override
+    public void beforeStartProcessInstance(StartProcessInstanceBeforeContext instanceContext) {
+        log.info("before start process instance pre operation");
+    }
+
+    @Override
+    public void afterStartProcessInstance(StartProcessInstanceAfterContext instanceContext) {
+        log.info("after start process instance after operation");
+    }
+
+    @Override
+    public void beforeStartSubProcessInstance(StartSubProcessInstanceBeforeContext instanceContext) {
+        log.info("before start sub process instance pre operation");
+    }
+
+    @Override
+    public void afterStartSubProcessInstance(StartSubProcessInstanceAfterContext instanceContext) {
+        log.info("after start sub process instance after operation");
+    }
+}
+```
+
+```java
+@Override
+public void configure(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
+    // 身份信息拦截器
+    springProcessEngineConfiguration.setStartProcessInstanceInterceptor(new YxxmgStartProcessInstanceInterceptor());
+
+}
+```
+
+## 自定义身份信息拦截器
+
+```java
+public class YxxmgIdentityLinkInterceptor implements IdentityLinkInterceptor {
+    @Override
+    public void handleCompleteTask(TaskEntity task) {
+        // complete
+
+    }
+
+    @Override
+    public void handleAddIdentityLinkToTask(TaskEntity taskEntity, IdentityLinkEntity identityLinkEntity) {
+        // add
+    }
+
+    @Override
+    public void handleAddAssigneeIdentityLinkToTask(TaskEntity taskEntity, String assignee) {
+        // assignee
+    }
+
+    @Override
+    public void handleAddOwnerIdentityLinkToTask(TaskEntity taskEntity, String owner) {
+        // owner
+    }
+
+    @Override
+    public void handleCreateProcessInstance(ExecutionEntity processInstanceExecution) {
+        // create
+    }
+
+    @Override
+    public void handleCreateSubProcessInstance(ExecutionEntity subProcessInstanceExecution,
+        ExecutionEntity superExecution) {
+        // create sub process
+    }
+}
+```
+
+```java
+    @Override
+    public void configure(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
+        // 身份信息拦截器
+        springProcessEngineConfiguration.setIdentityLinkInterceptor(new YxxmgIdentityLinkInterceptor());
+    }
+```
+
+## 自定义流程实例状态回调
+
+```java
+@Slf4j
+public class YxxmgRuntimeInstanceStateChangeCallback implements RuntimeInstanceStateChangeCallback {
+    @Override
+    public void stateChanged(CallbackData callbackData) {
+        log.info("stateChanged old state {}, new state {}", callbackData.getOldState(), callbackData.getNewState());
+    }
+}
+```
+
+```java
+@Configuration
+public class CustomFlowableConfig implements EngineConfigurationConfigurer<SpringProcessEngineConfiguration> {
+
+    @Override
+    public void configure(SpringProcessEngineConfiguration springProcessEngineConfiguration) {
+        springProcessEngineConfiguration
+            .setProcessInstanceStateChangedCallbacks(createProcessInstanceStateChangedCallbacks());
+    }
+
+    private Map<String, List<RuntimeInstanceStateChangeCallback>> createProcessInstanceStateChangedCallbacks() {
+        Map<String, List<RuntimeInstanceStateChangeCallback>> callbackMap = Maps.newHashMap();
+        callbackMap.put("customCallBack", Collections.singletonList(new YxxmgRuntimeInstanceStateChangeCallback()));
+        return callbackMap;
+    }
+}
+```
+
+
+
 ## 自定义任务监听器
 
 1. 监听任务创建、完成事件推送其他系统待办已办
