@@ -8,11 +8,15 @@ import org.flowable.validation.ProcessValidator;
 import org.flowable.validation.ProcessValidatorImpl;
 import org.flowable.validation.validator.ValidatorSet;
 import org.flowable.validation.validator.ValidatorSetFactory;
+import org.flowable.validation.validator.impl.ServiceTaskValidator;
 import org.springframework.context.annotation.Configuration;
 
+import com.yxxmg.flowable.behavior.CustomActivityBehaviorFactory;
 import com.yxxmg.flowable.generator.YxxmgIdGenerator;
+import com.yxxmg.flowable.handler.CustomServiceTaskParseHandler;
 import com.yxxmg.flowable.handler.GlobalEventListener;
 import com.yxxmg.flowable.interceptor.YxxmgCreateUserTaskInterceptor;
+import com.yxxmg.flowable.validator.CustomServiceTaskValidator;
 
 /**
  * @author : yxxmg
@@ -36,11 +40,19 @@ public class CustomFlowableConfig implements EngineConfigurationConfigurer<Sprin
         springProcessEngineConfiguration.setEventListeners(Collections.singletonList(new GlobalEventListener()));
         // 自定义创建用户任务拦截器
         springProcessEngineConfiguration.setCreateUserTaskInterceptor(new YxxmgCreateUserTaskInterceptor());
+        springProcessEngineConfiguration
+            .setCustomDefaultBpmnParseHandlers(Collections.singletonList(new CustomServiceTaskParseHandler()));
+        // 设置自定义活动行为工厂 重写服务任务ServiceTask
+        springProcessEngineConfiguration.setActivityBehaviorFactory(new CustomActivityBehaviorFactory());
     }
 
     private ProcessValidator processValidator() {
         ProcessValidatorImpl processValidator = new ProcessValidatorImpl();
         ValidatorSet processValidatorSet = new ValidatorSetFactory().createFlowableExecutableProcessValidatorSet();
+        // 移除原有的ServiceTaskValidator
+        processValidatorSet.removeValidator(ServiceTaskValidator.class);
+        // 添加自定义CustomServiceTaskValidator
+        processValidatorSet.addValidator(new CustomServiceTaskValidator());
         processValidator.addValidatorSet(processValidatorSet);
         return processValidator;
     }
