@@ -21,6 +21,7 @@ import com.yxxmg.flowable.generator.YxxmgIdGenerator;
 import com.yxxmg.flowable.handler.CustomServiceTaskParseHandler;
 import com.yxxmg.flowable.handler.GlobalEventListener;
 import com.yxxmg.flowable.interceptor.YxxmgCreateUserTaskInterceptor;
+import com.yxxmg.flowable.interceptor.YxxmgDefaultDelegateInterceptor;
 import com.yxxmg.flowable.interceptor.YxxmgIdentityLinkInterceptor;
 import com.yxxmg.flowable.interceptor.YxxmgStartProcessInstanceInterceptor;
 import com.yxxmg.flowable.validator.CustomServiceTaskValidator;
@@ -58,6 +59,8 @@ public class CustomFlowableConfig implements EngineConfigurationConfigurer<Sprin
         // 流程实例状态回调
         springProcessEngineConfiguration
             .setProcessInstanceStateChangedCallbacks(createProcessInstanceStateChangedCallbacks());
+        // 设置委派拦截器
+        springProcessEngineConfiguration.setDelegateInterceptor(new YxxmgDefaultDelegateInterceptor());
     }
 
     private Map<String, List<RuntimeInstanceStateChangeCallback>> createProcessInstanceStateChangedCallbacks() {
