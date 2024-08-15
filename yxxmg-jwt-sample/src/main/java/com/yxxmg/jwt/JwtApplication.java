@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description :
+ * @description :启动类
  * @since : 2023/10/16
  */
 @EnableConfigurationProperties(JwtConfig.class)
