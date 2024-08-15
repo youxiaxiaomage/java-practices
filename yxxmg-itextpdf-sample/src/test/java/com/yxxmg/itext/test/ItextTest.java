@@ -19,15 +19,15 @@ import com.yxxmg.itext.ItextPdfUtil;
 public class ItextTest {
     @Test
     public void test() throws Exception {
-        String source = "D:/itextpdf/source/mapstruct-reference-guide.pdf";
-        String target = "D:/itextpdf/target/mapstruct-reference-guide.pdf";
+        String source = "C:/Users/youxi/Desktop/赵炎_体检报告.pdf";
+        String target = "C:/Users/youxi/Desktop/赵炎_体检报告_1.pdf";
 
         ItextPdfUtil.addWaterMark(source, target, "yxxmg");
     }
 
     @Test
     public void test1() throws IOException {
-        String target = "D:/itextpdf/target/mapstruct-reference-guide.pdf";
+        String target = "C:/Users/youxi/Desktop/赵炎_体检报告_1.pdf";
         boolean b = ItextPdfUtil.hasWaterMark(target);
         Assert.assertFalse(b);
     }
