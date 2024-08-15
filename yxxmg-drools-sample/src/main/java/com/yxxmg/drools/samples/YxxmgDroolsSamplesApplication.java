@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description : 规则引擎
+ * @description : 规则引擎启动类
  * @since : 2022/12/5
  */
 @SpringBootApplication
