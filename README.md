@@ -81,6 +81,7 @@
 19. Comate，通义灵码，CodeGeeX，Copilot
 20. DataX
 21. Jpom
+22. Jmeter
 
 ##### 使用的中间件
 
@@ -90,7 +91,7 @@
 4. elasticsearch
 5. hbase
 6. redis数据缓存以及基于Redisson实现的分布式锁
-7. 
+7. mongodb
 
 ##### 多环境打包
 
