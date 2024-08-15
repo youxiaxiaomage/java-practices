@@ -17,7 +17,7 @@ import okhttp3.Response;
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description :
+ * @description : 高德地图天气查询接口
  * @since : 2023/11/23
  */
 public class AmapService {
