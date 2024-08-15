@@ -80,6 +80,7 @@
 18. Confluence 文档管理 内部文档的传递
 19. Comate，通义灵码，CodeGeeX，Copilot
 20. DataX
+21. Jpom
 
 ##### 使用的中间件
 
