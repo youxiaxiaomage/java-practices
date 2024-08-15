@@ -23,7 +23,7 @@
 | `yxxmg-drools-sample`                                        | 规则引擎                                                     |
 | `yxxmg-java-helper`                                          | `java`语法糖                                                 |
 | `yxxmg-spring-boot-sample`                                   | `springboot`相关内容                                         |
-| [`(有链接)yxxmg-flowable`](./yxxmg-flowable/README.md)       | `flowable`工作流引擎                                         |
+| [`(有链接)yxxmg-flowable`](./yxxmg-flowable/README.md)       | `flowable`工作流引擎,很多自定义功能设计                      |
 | `yxxmg-elasticjob`                                           | `elasticjob`任务调度                                         |
 | `yxxmg-smart-doc`                                            | `smart-doc`                                                  |
 | `yxxmg-exception-sample`                                     | 自定义异常或国际化                                           |
@@ -35,7 +35,7 @@
 | `yxxmg-oos-sample`                                           | 阿里云`oos`                                                  |
 | [`(有链接)yxxmg-nlp-sample`](./yxxmg-nlp-sample/README.md)   | `Stanford nlp`                                               |
 | `yxxmg-magic-api-sample`                                     | `magic-api`                                                  |
-| [`(有链接)yxxmg-gof-sample`](./yxxmg-gof-sample/README.md)   | `Gof`设计模式                                                |
+| [`(有链接)yxxmg-gof-sample`](./yxxmg-gof-sample/README.md)   | `Gof`23种设计模式，代码示例                                  |
 | [`(有链接)yxxmg-distribute-redis-lock-sample`](./yxxmg-distribute-redis-lock-sample/readme.md) | `redis`实现分布式锁                                          |
 | `yxxmg-sa-token-sample`                                      | `sa-token`功能                                               |
 | [`(有链接)yxxmg-dynamic-feign-sample`](./yxxmg-dynamic-feign-sample/readme.md) | 动态`feign`                                                  |
@@ -52,6 +52,8 @@
 | `yxxmg-lock4j-sample`                                        | `mp`团队分布式锁组件                                         |
 | `yxxmg-archetype-sample`                                     | `DDD`模板骨架                                                |
 | `yxxmg-gateway-sample`                                       | `SpringCloud Gateway`                                        |
+| [`yxxmg-flink-cdc-sample`](./yxxmg-flink-cdc-sample/README.md) | `flink cdc mysql binlog`                                     |
+| yxxmg-itextpdf-sample                                        | itextpdf相关操作                                             |
 
 
 #### 开发工具Idea
@@ -76,6 +78,8 @@
 16. xxl-job 分布式任务调度(light-task-scheduler)
 17. Sonar Lint 代码漏洞
 18. Confluence 文档管理 内部文档的传递
+19. Comate，通义灵码，CodeGeeX，Copilot
+20. DataX
 
 ##### 使用的中间件
 
@@ -85,6 +89,7 @@
 4. elasticsearch
 5. hbase
 6. redis数据缓存以及基于Redisson实现的分布式锁
+7. 
 
 ##### 多环境打包
 
