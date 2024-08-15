@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Async;
 /**
  * @author : yxxmg
  * @version : 1.0
- * @description :
+ * @description : 启动类
  * @since : 2023/6/6
  */
 @Async
