@@ -1,4 +1,4 @@
-package com.yxxmg.flink.cdc.listener;
+package com.yxxmg.flink.cdc.sink.mysql;
 
 import java.util.Objects;
 
@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Component
 @Slf4j
-public class CustomSink extends RichSinkFunction<String> {
+public class CustomMysqlSink extends RichSinkFunction<String> {
     private static final long serialVersionUID = -6690947037392472301L;
 
     @Override
