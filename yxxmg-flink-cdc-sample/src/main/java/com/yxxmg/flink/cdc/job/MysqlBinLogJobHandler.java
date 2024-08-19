@@ -1,4 +1,4 @@
-package com.yxxmg.flink.cdc.listener;
+package com.yxxmg.flink.cdc.job;
 
 import java.util.Properties;
 
@@ -15,7 +15,7 @@ import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import com.ververica.cdc.debezium.JsonDebeziumDeserializationSchema;
 import com.yxxmg.flink.cdc.config.MysqlConfiguration;
-import com.yxxmg.flink.cdc.sink.mysql.CustomMysqlSink;
+import com.yxxmg.flink.cdc.sink.CustomMysqlSink;
 
 /**
  * @author : yxxmg
@@ -23,8 +23,8 @@ import com.yxxmg.flink.cdc.sink.mysql.CustomMysqlSink;
  * @description :
  * @since : 2024/8/14
  */
-@Component
-public class MysqlBinLogListener implements CommandLineRunner {
+//@Component
+public class MysqlBinLogJobHandler implements CommandLineRunner {
     @Resource
     private CustomMysqlSink customSink;
     @Resource
@@ -47,7 +47,7 @@ public class MysqlBinLogListener implements CommandLineRunner {
         environment.enableCheckpointing(3000L);
         environment.setRuntimeMode(RuntimeExecutionMode.AUTOMATIC);
         DataStreamSource<String> dataStreamSource =
-            environment.fromSource(mySqlSource, WatermarkStrategy.noWatermarks(), "mysql").setParallelism(1);
+            environment.fromSource(mySqlSource, WatermarkStrategy.noWatermarks(), "mysqlBinlog").setParallelism(1);
         dataStreamSource.addSink(customSink).setParallelism(1);
         environment.execute("Print Mysql Binlog");
     }

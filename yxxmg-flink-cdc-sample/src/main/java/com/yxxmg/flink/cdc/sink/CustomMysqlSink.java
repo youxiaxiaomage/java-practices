@@ -1,4 +1,4 @@
-package com.yxxmg.flink.cdc.sink.mysql;
+package com.yxxmg.flink.cdc.sink;
 
 import java.util.Objects;
 

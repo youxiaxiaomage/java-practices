@@ -1,4 +1,4 @@
-package com.yxxmg.flink.cdc.sink.kafka;
+package com.yxxmg.flink.cdc.sink;
 
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 
