@@ -11,6 +11,7 @@
 
     <artifactId>yxxmg-archetype-sample</artifactId>
     <packaging>jar</packaging>
+    <description>脚手架</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
