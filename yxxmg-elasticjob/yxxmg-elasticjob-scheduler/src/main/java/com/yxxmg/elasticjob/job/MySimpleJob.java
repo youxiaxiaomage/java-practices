@@ -1,4 +1,4 @@
-package cn.jsleasing.elasticjob.job;
+package com.yxxmg.elasticjob.job;
 
 import org.apache.shardingsphere.elasticjob.api.ShardingContext;
 import org.apache.shardingsphere.elasticjob.simple.job.SimpleJob;

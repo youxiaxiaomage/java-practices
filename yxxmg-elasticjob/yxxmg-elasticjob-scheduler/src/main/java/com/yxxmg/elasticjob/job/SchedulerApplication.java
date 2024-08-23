@@ -1,4 +1,4 @@
-package cn.jsleasing.elasticjob;
+package com.yxxmg.elasticjob.job;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
